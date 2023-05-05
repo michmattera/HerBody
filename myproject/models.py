@@ -1,7 +1,6 @@
 from django.db import models
 from datetime import datetime, date
 from django.contrib.auth.models import User
-#from cloudinary.models import CloudinaryField
 
 
 class Booking(models.Model):
@@ -21,3 +20,11 @@ class Booking(models.Model):
 
     def __str__(self):
         return f"Private session for {self.user} on {self.date} at {self.time}"
+
+
+# class Signup(models.Model):
+#     """
+#     Creating model to be able to sign up
+#     saving in database username, password, and email
+#     """
+

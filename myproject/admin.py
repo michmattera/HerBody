@@ -5,3 +5,4 @@ from .models import Booking
 
 
 admin.site.register(Booking)
+#@admin.register(Booking)
