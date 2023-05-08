@@ -1,12 +1,13 @@
 from . import views
 from django.urls import path
-from .views import register
+from . import forms
+from .forms import register
+from .forms import login
 
 
 urlpatterns = [
     path('', views.BookingListView.as_view(), name='booking'),
-    path('register/', views.register, name="register"),
-    # path("signup/", SignUpView.as_view(), name="signup"),
-    # path("login/", LoginView.as_view(), name="login"),
+    path('register/', forms.register, name="register"),
+    path("login/", forms.login, name="login"),
     
 ]
