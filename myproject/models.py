@@ -22,9 +22,15 @@ class Booking(models.Model):
         return f"Private session for {self.user} on {self.date} at {self.time}"
 
 
-# class Signup(models.Model):
+# class register(models.Model):
 #     """
-#     Creating model to be able to sign up
-#     saving in database username, password, and email
+#     create model for register user
+#     Model will save User, password and email
 #     """
+#     username = models.ForeignKey(User, on_delete=models.CASCADE)
+#     email = models.EmailField()
+#     password1 = models.CharField(max_length=15)
+#     password2 = models.CharField(max_length=15)
+
+
 
