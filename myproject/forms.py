@@ -3,7 +3,6 @@ from django.contrib.auth import forms
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User, auth
 from django.urls import reverse_lazy
-
 from django.contrib import messages
 from django.contrib.auth import login, authenticate
 
@@ -37,7 +36,7 @@ def register(request):
             return redirect(register)
             
     else:
-        return render(request, 'register.html')
+        return render(request, 'account/register.html')
 
 
 # function to login the user
@@ -58,4 +57,4 @@ def login(request):
 
     else:
         # here you should select the page that you want to redirect the user
-        return render(request, 'login.html')
+        return render(request, 'account/login.html')

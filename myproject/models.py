@@ -22,25 +22,6 @@ class Booking(models.Model):
         return f"Private session for {self.user} on {self.date} at {self.time}"
 
 
-# class client(models.Model):
-#     """
-#     model to save user after sign up
-#     saving username, password and email
-#     """
-#     user = models.ForeignKey(User, on_delete=models.CASCADE)
-#     username = models.CharField(max_length=50, help_text="username")
-#     email = models.EmailField(
-#         max_length=50, blank=True, unique=True, help_text="Enter email"
-#     )
-#     password = models.CharField(max_length=50)
-
-#     class Meta:
-#         """
-#         Controls default ordering of records when querying the Model type.
-#         """
-
-#         ordering = ["username"]
-
 
 
 
