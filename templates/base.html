@@ -19,6 +19,8 @@
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     <!--CSS-->
     <!-- <link rel="stylesheet" href="{% static 'static/bootstrap/css/style.css' %}"> -->
+    <link rel="stylesheet" href="../static/css/style.css">
+
     <link rel="stylesheet" href="../static/bootstrap/css/styles.css">
     <title>{% block title %}HerBody{% endblock %}</title>
 
@@ -43,15 +45,18 @@
                     <!-- <li class="nav-item"><a class="nav-link" href="my_profile">My profile</a></li> -->
 
                     <div class="dropdown">
+                        {% if user.is_authenticated %}
                         <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            My profile
+                            {{user.username}}
                         </a>
-                        {% if user.is_authenticated %}
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             <a class="dropdown-item" href="#">My account</a>
                             <a class="dropdown-item" href="#">Logout</a>
                             {% else %}
+                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            My account
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                 <a class="dropdown-item" href="{% url 'login' %}">Login</a>
                                 <a class="dropdown-item" href="{% url 'register' %}">Register</a>
@@ -82,8 +87,8 @@
                             class="fab fa-linkedin-in"></i></a>
                 </div>
                 <div class="col-lg-4 text-lg-end">
-                    <a class="link-dark text-decoration-none me-3" href="#!">Privacy Policy</a>
-                    <a class="link-dark text-decoration-none" href="#!">Terms of Use</a>
+                    <a class="link-dark text-decoration-none me-3" href="#!">Contact Us</a>
+                    <a class="link-dark text-decoration-none" href="#!">Telephone</a>
                 </div>
             </div>
         </div>
@@ -97,8 +102,6 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.6/dist/umd/popper.min.js"
         integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous">
-    </script>
-    </script>
     </script>
     <!-- Core theme JS-->
     <script src="../static/bootstrap/js/scripts.js"></script>

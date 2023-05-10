@@ -3,7 +3,7 @@
 {% block title %}Login{% endblock %}
 
 {% block content %}
-  <form action="" method="POST" class="form-horizontal">
+  <form action="{% url 'login' %}" method="POST" class="form-horizontal">
 		{% csrf_token%}
 		<div class="mx-auto" style="width: 400px;">
 
@@ -22,7 +22,7 @@
 					Required>
 			</div>
 			<button type="submit" class="btn btn-primary">LOGIN</button>
-			<a class="btn btn-dark" href="register.html" role="button">SIGN UP</a>
+			<a class="btn btn-dark" href="{% url 'register' %}" role="button">SIGN UP</a>
 		</div>
 	</form>
 	<div class="form-group">
