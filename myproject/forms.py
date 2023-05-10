@@ -5,6 +5,9 @@ from django.contrib.auth.models import User, auth
 from django.urls import reverse_lazy
 from django.contrib import messages
 from django.contrib.auth import login, authenticate
+from django.contrib.auth import logout
+from django.contrib.auth.decorators import login_required
+
 
 # https://www.javatpoint.com/django-usercreationform
 # https://www.pythontutorial.net/django-tutorial/django-login/
@@ -58,3 +61,11 @@ def login(request):
     else:
         # here you should select the page that you want to redirect the user
         return render(request, 'account/login.html')
+
+
+@login_required
+def custom_logout(request):
+    logout(request)
+    messages.info(request, "Logged out successfully!")
+    return redirect("home")
+
