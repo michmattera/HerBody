@@ -5,6 +5,6 @@ from django.views.generic.base import TemplateView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('myproject.urls'), name='myproject_urls'),
-    # path("accounts/", include("django.contrib.auth.urls")),
     path('', TemplateView.as_view(template_name="index.html"), name="home"),
+    path('', include('booking.urls'), name='booking_urls'),
 ]

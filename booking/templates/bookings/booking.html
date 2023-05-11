@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<header class="masthead">
+    <div class="container">
+        <div class="masthead-subheading">Bookings</div>
+        <div class="masthead-heading text-uppercase">It's Nice To Meet You</div>
+        <a class="btn btn-primary btn-xl text-uppercase" href="{% url 'register' %}">Sign Up</a>
+    </div>
+</header>
+{% if user.is_authenticated %}
+Hi {{ user.username }}!
+{% else %}
+<p>You are not logged in</p>
+<a href="{% url 'login' %}">Log In</a>
+{% endif %}
+
+{% if redirect_field_value %}
+<input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+{% endif %}
+
+{% endblock %}
