@@ -1,10 +1,12 @@
 from . import views
-from django.urls import path
+from django.urls import path, include
 from . import forms
-from .forms import BookingForm
+# from .forms import BookingForm
 
 
 urlpatterns = [
     # url for bookings
-    path('booking/', forms.BookingForm, name='booking')
+    path('form/', views.booking_form, name='booking_form'),
+    path('list/', views.booking_list, name='booking_list')
+
 ]

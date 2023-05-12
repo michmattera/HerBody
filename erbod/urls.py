@@ -6,5 +6,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('myproject.urls'), name='myproject_urls'),
     path('', TemplateView.as_view(template_name="index.html"), name="home"),
-    path('', include('booking.urls'), name='booking_urls'),
+    path('booking/', include('booking.urls'), name='booking_urls'),
 ]
