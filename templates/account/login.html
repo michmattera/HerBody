@@ -3,35 +3,40 @@
 {% block title %}Login{% endblock %}
 
 {% block content %}
-  <form action="{% url 'login' %}" method="POST" class="form-horizontal">
-		{% csrf_token%}
-		<div class="mx-auto" style="width: 400px;">
+<form action="{% url 'login' %}" method="POST" class="form-horizontal">
+	{% csrf_token%}
+	<div class="mx-auto" style="width: 400px;">
 
-			<div class="col-xs-8 col-xs-offset-4">
-				<h2 style="text-align:center;">LOGIN</h2>
-			</div>
-			<hr />
-			<div class="form-group">
-				<label for="username">Username</label>
-				<input type="text" class="form-control" name="username" id="username" placeholder="Enter Username"
-					Required>
-			</div>
-			<div class="form-group">
-				<label for="password">Password</label>
-				<input type="password" class="form-control" name="password" id="password" placeholder="Enter Password"
-					Required>
-			</div>
-			<button type="submit" class="btn btn-primary btn-block">LOGIN</button>
-			<p>You don't have an account? Then please <a href="{% url 'register' %}">Register
+		<div class="col-xs-8 col-xs-offset-4">
+			<h2 style="text-align:center;">LOGIN</h2>
+		</div>
+		<hr />
+		<div class="form-group">
+			<label for="username">Username</label>
+			<input type="text" class="form-control" name="username" id="username" placeholder="Enter Username" Required>
+		</div>
+		<div class="form-group">
+			<label for="password">Password</label>
+			<input type="password" class="form-control" name="password" id="password" placeholder="Enter Password"
+				Required>
+		</div>
+		<button type="submit" class="btn btn-primary btn-block">LOGIN</button>
+		<p>You don't have an account? Then please <a href="{% url 'register' %}">Register
 				&raquo;</a></p>
+		<div class="checkbox">
+			<label for="checkbox">
+				<input type="checkbox" name="remember_me" value="remember_me" /> remember
+				me
+			</label>
 		</div>
-
-	</form>
-	<div class="form-group">
-		{% for message in messages %}
-		<div class="alert alert-danger" role="alert">
-			{{message}}
-		</div>
-		{% endfor %}
 	</div>
+
+</form>
+<div class="form-group">
+	{% for message in messages %}
+	<div class="alert alert-danger" role="alert">
+		{{message}}
+	</div>
+	{% endfor %}
+</div>
 {% endblock %}

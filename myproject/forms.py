@@ -47,12 +47,13 @@ def login(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
-
         user = auth.authenticate(username=username, password=password)
-
+        if not request.POST.get('remember_me', None):
+            request.session.set_expiry(0)
         if user is not None:
             auth.login(request, user)
             messages.info(request, 'You have logged in correctly')
+
             return redirect('home')
         else:
             messages.info(request, 'Invalid Username or Password')
