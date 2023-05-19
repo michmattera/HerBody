@@ -3,5 +3,19 @@
 {% block content %}
 
 <p>List for booking page</p>
+<ul>
+    <!-- Iterate over booking list -->
+    {% for data in booking_list %}
+    <!-- Display Objects -->
+    <li>{{ data.user }}</li>
+    <li>{{ data.date }}</li>
+    <li>{{ data.time }}</li>
+
+    <hr/>
+    <!-- If object_list is empty  -->
+    {% empty %}
+    <li>No Bookings have been made</li>
+    {% endfor %}
+</ul>
 
 {% endblock %}

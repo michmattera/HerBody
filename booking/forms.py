@@ -1,6 +1,7 @@
 from datetime import datetime
 from django import forms
 from .models import Booking
+# from datetimewidget.widgets import DateTimeWidget
 # from .models import AvailableHour
 # from .models import WeekDay
 
@@ -15,6 +16,9 @@ class BookingForm(forms.ModelForm):
         fields = [
             'user', 'date', 'time'
             ]
+        # widgets = {
+        #     'date': DatePickerInput(format='%d-%m-%Y'),
+        # }
         # date = forms.DateField(help_text="Date must be a future date")
         # labels = {
         #     'date': 'Date',

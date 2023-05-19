@@ -8,9 +8,12 @@ import datetime
 from django.contrib.auth.decorators import login_required
 
 
-
-def booking_list(request):
-    return render(request, "booking/booking_list.html")
+class booking_list(ListView):
+    model = Booking
+    # context = {}
+    # context["dataset"] = Booking.objects.all()
+    # return render(request, "booking_list.html", context)
+    
 
 
 # trying to create for loop for 6 days of the week
