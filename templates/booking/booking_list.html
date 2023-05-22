@@ -5,11 +5,11 @@
 <p>List for booking page</p>
 <ul>
     <!-- Iterate over booking list -->
-    {% for data in booking_list %}
+    {% for booking in booking_list %}
     <!-- Display Objects -->
-    <li>{{ data.user }}</li>
-    <li>{{ data.date }}</li>
-    <li>{{ data.time }}</li>
+    <li>{{ booking.user }}</li>
+    <li>{{ booking.date }}</li>
+    <li>{{ booking.time }}</li>
 
     <hr/>
     <!-- If object_list is empty  -->

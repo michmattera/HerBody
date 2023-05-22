@@ -47,7 +47,7 @@ class Booking(models.Model):
     """
 
     user = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="booking_name")
+        User, on_delete=models.CASCADE, related_name="hiuser")
     date = models.DateField(default=datetime.now)
     # days_of_week = models.IntegerField(choices=DAYS_OF_WEEK, default=0)
     time = models.IntegerField(choices=TIME_CHOISES, blank=False, default=9)

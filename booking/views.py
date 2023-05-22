@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views import generic
 from . import views
 from . import models
 from .models import Booking
@@ -7,31 +8,16 @@ from django.views.generic import DeleteView, CreateView, UpdateView, ListView
 import datetime
 from django.contrib.auth.decorators import login_required
 
+#https://stackoverflow.com/questions/24725617/how-to-make-generic-listview-only-show-users-listing
 
-class booking_list(ListView):
+
+class booking_list(generic.ListView):
+
     model = Booking
-    # context = {}
-    # context["dataset"] = Booking.objects.all()
-    # return render(request, "booking_list.html", context)
-    
 
+    def get_queryset(self):
+        return self.model.objects.filter(user=self.request.user)
 
-# trying to create for loop for 6 days of the week
-# https://pynative.com/python-create-list-of-dates-within-range/
-# def days_per_week():
-#     num_of_dates = 6
-#     start = datetime.datetime.today()
-#     date_list = [start.date() + datetime.timedelta(days=x) for x in range(num_of_dates)]
-#     print('Next 6 days starting from today')
-#     print(date_list)
-
-
-# def booking_form(request):
-#     form = BookingForm()
-#     event = Booking.objects.create(
-#     )
-#     event.save()
-#     return render(request, "booking/booking_form.html", {'form': form})
 
 @login_required
 def booking_form(request):
@@ -45,7 +31,6 @@ def booking_form(request):
         return render(request, "booking/booking_form.html", {'form': form})
     return render(request, "booking/booking_list.html")
     
-
 
 def booking_delete(request):
     return
