@@ -24,6 +24,7 @@ def booking_form(request):
     if request.POST:
         form = BookingForm(request.POST)
         if form.is_valid():
+            form.instance.user = request.user
             form.save()
             return render(request, "booking/booking_list.html")
     else:

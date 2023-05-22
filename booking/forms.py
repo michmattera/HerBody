@@ -1,11 +1,8 @@
 from datetime import datetime
 from django import forms
 from .models import Booking
-# from datetimewidget.widgets import DateTimeWidget
-# from .models import AvailableHour
-# from .models import WeekDay
 
-
+#https://stackoverflow.com/questions/73436899/initialize-django-modelform-user-field-with-current-logged-user
 class BookingForm(forms.ModelForm):
     """
     Form to create booking
@@ -14,26 +11,8 @@ class BookingForm(forms.ModelForm):
         """ Set fields and labels """
         model = Booking
         fields = [
-            'user', 'date', 'time'
+            'date', 'time'
             ]
-        # widgets = {
-        #     'date': DatePickerInput(format='%d-%m-%Y'),
-        # }
-        # date = forms.DateField(help_text="Date must be a future date")
-        # labels = {
-        #     'date': 'Date',
-        #     'time': 'Time'
-        # }
-
-# class TicketCreate(CreateView):
-#     model = Ticket
-#     template_name = "tickets/ticket_form.html"
-#     fields = ['title', 'description']
-
-#     def form_valid(self, form):
-#         form.instance.created_by = self.request.user
-#         form.instance.user = Profile.objects.get(user=self.request.user)
-#         return super(TicketCreate, self).form_valid(form)
 
         
 class DateInput(forms.DateInput):
