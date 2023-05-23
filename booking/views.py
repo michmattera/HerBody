@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import generic
+# from django.http import HttpResponse, HttpResponseRedirect
 from . import views
 from . import models
 from .models import Booking
@@ -26,7 +27,8 @@ def booking_form(request):
         if form.is_valid():
             form.instance.user = request.user
             form.save()
-            return render(request, "booking/booking_list.html")
+            # return render(request, "booking/booking_list.html")
+            return redirect('list')
     else:
         form = BookingForm()
         return render(request, "booking/booking_form.html", {'form': form})

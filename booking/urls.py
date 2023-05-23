@@ -9,6 +9,6 @@ urlpatterns = [
     # url for bookings
     path('form/', views.booking_form, name='booking_form'),
     # path('list/', views.booking_list, name='booking_list')
-    path('list/', booking_list.as_view()),
+    path('list/', booking_list.as_view(), name='list'),
 
 ]
