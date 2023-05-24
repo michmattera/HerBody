@@ -55,6 +55,7 @@ class Booking(models.Model):
 
     class Meta:
         ordering = ['date', 'time']
+        unique_together = ("date", "time")
 
     def __str__(self):
         return f"Private session for {self.user} on {self.date} at {self.time}"
