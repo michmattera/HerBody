@@ -1,7 +1,7 @@
 from django.shortcuts import redirect, render
 from django.views import generic
 from django.contrib import messages
-from django.views.generic import ListView, FormView
+from django.views.generic import ListView, FormView, TemplateView
 
 
 class Home(generic.TemplateView):
@@ -17,6 +17,12 @@ class About(generic.TemplateView):
     """
     template_name = "about.html"
 
+
+class Profile(generic.TemplateView):
+    """
+    Opens Profile page
+    """
+    template_name = "account/profile.html"
 
 
 

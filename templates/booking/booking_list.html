@@ -6,16 +6,22 @@
 <ul>
     <!-- Iterate over booking list -->
     {% for booking in booking_list %}
-    <!-- Display Objects -->
-    <li>{{ booking.user }}</li>
-    <li>{{ booking.date }}</li>
-    <li>{{ booking.time }}</li>
+        <!-- Display Objects -->
+        <li>{{ booking.user }}</li>
+        <li>{{ booking.date }}</li>
+        <li>{{ booking.time }}</li>
 
-    <hr/>
-    <!-- If object_list is empty  -->
-    {% empty %}
-    <li>No Bookings have been made</li>
+        <td>
+            <a href="{% url 'edit_booking' booking.id %}">
+                <button>Edit booking</button>
+            </a>
+        </td>
+        <hr/>
+        <!-- If object_list is empty  -->
+        {% empty %}
+        <li>No Bookings have been made</li>
     {% endfor %}
 </ul>
+<button type="button" class="btn btn-secondary">Delete</button>
 
 {% endblock %}

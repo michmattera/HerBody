@@ -60,7 +60,6 @@ def login(request):
             return redirect('login')
 
     else:
-        # here you should select the page that you want to redirect the user
         return render(request, 'account/login.html')
 
 

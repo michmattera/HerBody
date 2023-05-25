@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="container">
+    <div class="col-md-10 offset-md-1 mt-5">
+        <form method="post" autocomplete="off">
+            {%csrf_token%}
+            {{form|crispy}}
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Update</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}
