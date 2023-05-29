@@ -1,6 +1,8 @@
 from django.db import models
 from datetime import datetime, date
+import datetime
 from django.contrib.auth.models import User
+from django.core.exceptions import ValidationError
 
 STATUS = ((0, "Available"), (1, "Unavailable"))
 
@@ -45,10 +47,12 @@ class Booking(models.Model):
     Model for booking private lesson
     Model will save User, date, time of the lesson chosen
     """
-
+    def Date_validation(value):
+        if value < datetime.date.today():
+            raise ValidationError("The date cannot be in the past")
+    date = models.DateField(default=datetime.date.today, validators=[Date_validation])
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="hiuser", default=User)
-    date = models.DateField(default=datetime.now)
     # days_of_week = models.IntegerField(choices=DAYS_OF_WEEK, default=0)
     time = models.IntegerField(choices=TIME_CHOISES, blank=False, default=9)
     # status = models.IntegerField(choices=STATUS, default=0)

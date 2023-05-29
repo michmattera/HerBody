@@ -51,7 +51,8 @@
                             {{user.username}}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <a class="dropdown-item" href="{% url 'profile' %}">My account</a>
+                            <a class="dropdown-item" href="{% url 'booking_form' %}">Book a session</a>
+                            <a class="dropdown-item" href="{% url 'my_bookings' %}">My bookings</a>
                             <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
                         </div>
                         {% else %}
@@ -69,6 +70,21 @@
             </div>
         </div>
     </nav>
+
+    <!-- looping through messages  -->
+    <div class="container ">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                {% for message in messages %}
+                <div class="alert {{message.tags}} alert-dismissable fade show" id="msg" role="alert">
+                    {{ message | safe }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 
     <main>
         {% block content %}

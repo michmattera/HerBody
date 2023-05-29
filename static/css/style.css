@@ -1,11 +1,1 @@
 /* personalize style */
-.navbar-nav .nav-item .nav-link {
-    color: black;
-}
-
-/* #mainNav .navbar-nav .nav-item .nav-link :hover {
-    color: pink;
-} */
-#mainNav .navbar-nav .nav-item .nav-link.active, #mainNav .navbar-nav .nav-item .nav-link:hover {
-    color: pink;
-  }
