@@ -93,3 +93,10 @@ def delete_booking(request, booking_id):
         booking.delete()
         messages.success(request, "Your booking has been deleted successfully")
         return redirect("my_bookings")
+        
+    else:
+        error_message = "An error occurred please try again"
+    return render(request, 'booking/delete_booking.html')
+    
+        
+    
