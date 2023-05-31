@@ -84,62 +84,24 @@ def booking_confirmation(request, slot):
     return render(request, 'booking/booking_confirmation.html', context)
 
 
-# @login_required
-# def booking_confirmation(request, date_time):
-#     date_time_obj = datetime.strptime(date_time, '%Y-%m-%d %H:%M:%S')
-#     time = date_time_obj.time().hour
-
-#     try:
-#         booking = Booking.objects.get(date=date_time_obj.date(), time=time)
-#     except Booking.DoesNotExist:
-#         # Handle the case where the booking doesn't exist
-#         return HttpResponse('Booking not found.')
-
-#     if request.method == 'POST':
-#         # Process the booking confirmation or cancellation
-#         if 'cancel' in request.POST:
-#             # Delete the booking
-#             booking.delete()
-#             return redirect('booking_cancelled')
-#         elif 'confirm' in request.POST:
-#             # Perform any necessary actions for the confirmed booking
-#             return redirect('booking_success')
-
-#     return render(request, 'booking/booking_confirmation.html', {'booking': booking})
-
-# @login_required
-# def booking_form(request):
-#     if request.POST:
-#         form = BookingForm(request.POST)
-#         if form.is_valid():
-#             user = request.user
-#             date = form.cleaned_data['date']
-            
-#             # Check if any user has already booked on the selected date
-#             if Booking.objects.filter(date=date).exists():
-#                 error_message = "This date is already booked. Please choose another date."
-#                 return render(request, "booking/booking_form.html", {'form': form, 'error_message': error_message})
-            
-#             # Check if the current user has already booked on the selected date
-#             if Booking.objects.filter(user=user, date=date).exists():
-#                 error_message = "You have already booked an appointment for this date."
-#                 return render(request, "booking/booking_form.html", {'form': form, 'error_message': error_message})
-            
-#             form.instance.user = user
-#             form.save()
-#             return redirect('my_bookings')
-#     else:
-#         form = BookingForm()
-#         available_slots = get_available_slots()
-    
-#     return render(request, "booking/booking_form.html", {'form': form, 'available_slots': available_slots})
-
 @login_required
 def booking_form(request):
+    # trying to check if already user has 2 session in week, should not be possible to book
+
+    user = request.user
+    today = datetime.today().date()
+    start_of_week = today - timedelta(days=today.weekday())
+    end_of_week = start_of_week + timedelta(days=6)
+
+    user_booking_count = Booking.objects.filter(user=user, date__range=[start_of_week, end_of_week]).count()
+
+    if user_booking_count >= 2:
+        error_message = "You have already booked two sessions this week. You cannot book another session."
+        return render(request, "booking/booking_form.html", {'error_message': error_message})
+    
     if request.method == 'POST':
         form = BookingForm(request.POST)
         if form.is_valid():
-            user = request.user
             slot = form.cleaned_data['slot']
             date = slot.date()
             time = slot.time()

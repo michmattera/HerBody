@@ -4,6 +4,9 @@
 {% block content %}
 
 <h2>Available Slots</h2>
+{% if error_message %}
+<p>{{ error_message }}</p>
+{% endif %}
 <table>
     <thead>
         <tr>
