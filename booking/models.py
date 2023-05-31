@@ -63,3 +63,4 @@ class Booking(models.Model):
 
     def __str__(self):
         return f"Private session for {self.user} on {self.date} at {self.time}"
+

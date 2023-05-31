@@ -29,7 +29,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['her-body.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['her-body.herokuapp.com', 'localhost', '8000-michmattera-herbody-82ork2cfghz.ws-us98.gitpod.io']
 
 
 # Application definition
@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'crispy_bootstrap5',
+    # 'bootstrap_datepicker_plus',
     'cloudinary',
     'myproject',
     'booking',

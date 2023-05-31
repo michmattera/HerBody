@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <h1>Booking Confirmation</h1>
+
+    {% if is_available %}
+        <p>Slot is available for booking. Do you want to confirm the booking?</p>
+        <ul>
+            <li>Booking name: {{ booking.user }}</li>
+            <li>Date: {{ booking.date }}</li>
+            <li>Time: {{ booking.time }}</li>
+        </ul>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" name="confirm">Confirm Booking</button>
+        </form>
+    {% else %}
+        <p>This slot is already booked.</p>
+        <p>Do you want to cancel the booking?</p>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" name="cancel">Cancel Booking</button>
+        </form>
+    {% endif %}
+{% endblock content %}
+

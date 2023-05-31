@@ -13,7 +13,9 @@ class BookingForm(forms.ModelForm):
         self.fields['date'].widget = forms.widgets.DateInput(
             attrs={
                 'type': 'date',
-                'class': 'form-control'
+                'class': 'form-control',
+                'min': 'datetime.date.today',
+                'max': 'datetime.datetime.today() + datetime.timedelta(days=6)'
                 }
             )
 
@@ -25,13 +27,5 @@ class BookingForm(forms.ModelForm):
             ]
 
 
-        
-class DateInput(forms.DateInput):
-    input_type = 'date'
 
 
-class LastActiveForm(forms.Form):
-    """
-    Last Active Date Form
-    """
-    last_active = forms.DateField(widget=DateInput)
