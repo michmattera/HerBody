@@ -1,8 +1,8 @@
 from . import views
-from .views import About, Profile
+from .views import About, Profile, contact
 from django.urls import path
 from . import forms
-from .forms import register, login, custom_logout
+from .forms import register, login, custom_logout, ContactForm
 
 
 urlpatterns = [
@@ -15,4 +15,8 @@ urlpatterns = [
     path("login/", forms.login, name="login"),
     path("logout/", forms.custom_logout, name="logout"),
     path("profile/", views.Profile.as_view(), name="profile"),
+
+    # for contact links
+    path("contact/", views.contact, name="contact"),
+    
 ]

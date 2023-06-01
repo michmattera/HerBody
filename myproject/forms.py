@@ -7,7 +7,7 @@ from django.contrib import messages
 from django.contrib.auth import login, authenticate
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
-
+from django import forms
 
 # https://www.javatpoint.com/django-usercreationform
 # https://www.pythontutorial.net/django-tutorial/django-login/
@@ -68,4 +68,10 @@ def custom_logout(request):
     logout(request)
     messages.info(request, "Logged out successfully!")
     return redirect("home")
+
+
+class ContactForm(forms.Form):
+    name = forms.CharField(required=True)
+    email = forms.EmailField(required=True)
+    message = forms.CharField(widget=forms.Textarea)
 
