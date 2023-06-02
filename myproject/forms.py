@@ -1,5 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import forms
+# from django.contrib.auth import forms
+from django import forms
+
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User, auth
 from django.urls import reverse_lazy
@@ -7,7 +9,7 @@ from django.contrib import messages
 from django.contrib.auth import login, authenticate
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
-from django import forms
+from .models import Contact
 
 # https://www.javatpoint.com/django-usercreationform
 # https://www.pythontutorial.net/django-tutorial/django-login/
@@ -70,8 +72,8 @@ def custom_logout(request):
     return redirect("home")
 
 
-class ContactForm(forms.Form):
-    name = forms.CharField(required=True)
-    email = forms.EmailField(required=True)
-    message = forms.CharField(widget=forms.Textarea)
+class ContactForm(forms.ModelForm):
+    class Meta:
+        model = Contact
+        fields = '__all__'
 
