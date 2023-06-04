@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.views.generic import ListView, FormView, TemplateView
 from .forms import ContactForm
 from django import forms
+# from django.core.mail import send_email
 
 
 class Home(generic.TemplateView):
@@ -48,6 +49,7 @@ def contact_view(request):
     if request.method == "POST":
         form = ContactForm(request.POST)
         if form.is_valid():
+            # send_email('The contact form subject', 'This is the message')
             form.save()
             return redirect('/')
         else:
@@ -55,8 +57,11 @@ def contact_view(request):
                 request,
                 "Failed to send message. Please try again. All fields are required.",
             )
+    if request.user.is_authenticated:
+        form = ContactForm(initial={'email': request.user.email, 'name' : request.user.username})
+    else:
+        form = ContactForm()
 
-    form = ContactForm()
     context = {"form": form}
     return render(request, "contact/contact.html", context)
 
