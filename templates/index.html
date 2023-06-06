@@ -4,20 +4,75 @@
 
 <header class="masthead">
     <div class="container">
-        <div class="masthead-subheading">Welcome To Our Studio!</div>
-        <div class="masthead-heading text-uppercase">It's Nice To Meet You</div>
+        <div class="masthead-subheading">Strong women lift each other up</div>
+        {% if user.is_authenticated %}
+        <div class="masthead-heading text-uppercase">Hi {{ user.username }}!</div>
+        {% else %}
+        <div class="masthead-heading text-uppercase">Let's be strong!</div>
         <a class="btn btn-primary btn-xl text-uppercase" href="{% url 'register' %}">Sign Up</a>
+
+        {% endif %}
     </div>
 </header>
-{% if user.is_authenticated %}
-Hi {{ user.username }}!
-{% else %}
-<p>You are not logged in</p>
-<a href="{% url 'login' %}">Log In</a>
-{% endif %}
 
 {% if redirect_field_value %}
 <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
 {% endif %}
+
+<!-- Services-->
+<section class="page-section" id="services">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">At your Service</h2>
+            <hr>
+        </div>
+        <div class="row text-center">
+            <div class="col-md-4">
+                <span class="fa-stack fa-4x">
+                    <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                    <i class="fa-solid fa-dumbbell fa-stack-1x fa-inverse"></i>
+                </span>
+                <h4 class="my-3">New gym equipment</h4>
+                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam
+                    architecto quo inventore harum ex magni, dicta impedit.</p>
+            </div>
+            <div class="col-md-4">
+                <span class="fa-stack fa-4x">
+                    <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                    <i class="fa-solid fa-venus fa-stack-1x fa-inverse"></i>
+                </span>
+                <h4 class="my-3">Only girls gym</h4>
+                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam
+                    architecto quo inventore harum ex magni, dicta impedit.</p>
+            </div>
+            <div class="col-md-4">
+                <span class="fa-stack fa-4x">
+                    <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                    <i class="fa-solid fa-shield fa-stack-1x fa-inverse"></i>
+                </span>
+                <h4 class="my-3">Self-defence courses</h4>
+                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam
+                    architecto quo inventore harum ex magni, dicta impedit.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr>
+
+<!-- short description -->
+<section class="page-section">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Why choose us!</h2>
+            <h3 class="section-subheading text-muted">We are a gym committed to the health care , safety and physical
+                strengthening of our clients, we offer just the best quality
+                equipment and facilities, with a FREE self defense course for our registered clients.</h3>
+        </div>
+
+
+    </div>
+
+</section>
 
 {% endblock %}

@@ -5,7 +5,8 @@ from django.contrib import messages
 from django.views.generic import ListView, FormView, TemplateView
 from .forms import ContactForm
 from django import forms
-# from django.core.mail import send_email
+from django.core.mail import send_mail, BadHeaderError
+from django.http import HttpResponse
 
 
 class Home(generic.TemplateView):
@@ -48,8 +49,20 @@ def contact_view(request):
     """
     if request.method == "POST":
         form = ContactForm(request.POST)
+
         if form.is_valid():
-            # send_email('The contact form subject', 'This is the message')
+            subject = "Website Inquiry"
+
+            body = {
+			'name': form.cleaned_data['name'], 
+			'subject': form.cleaned_data['subject'], 
+			'email': form.cleaned_data['email'], 
+			'message':form.cleaned_data['message'], 
+			}
+
+            message = "\n".join(body.values())
+
+            messages.success(request, 'You have submitted the form correctly!')
             form.save()
             return redirect('/')
         else:
@@ -57,6 +70,12 @@ def contact_view(request):
                 request,
                 "Failed to send message. Please try again. All fields are required.",
             )
+            try:
+                send_mail(subject, message, 'admin@example.com', ['admin@example.com']) 
+            except BadHeaderError:
+                return HttpResponse('Invalid header found.')
+            return redirect("/")
+
     if request.user.is_authenticated:
         form = ContactForm(initial={'email': request.user.email, 'name' : request.user.username})
     else:
