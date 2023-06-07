@@ -3,7 +3,7 @@
 {% block content %}
 
 <header class="masthead">
-    <div class="container">
+    <div class="container overlay">
         <div class="masthead-subheading">Strong women lift each other up</div>
         {% if user.is_authenticated %}
         <div class="masthead-heading text-uppercase">Hi {{ user.username }}!</div>
@@ -14,6 +14,8 @@
         {% endif %}
     </div>
 </header>
+
+
 
 {% if redirect_field_value %}
 <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
@@ -33,8 +35,8 @@
                     <i class="fa-solid fa-dumbbell fa-stack-1x fa-inverse"></i>
                 </span>
                 <h4 class="my-3">New gym equipment</h4>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam
-                    architecto quo inventore harum ex magni, dicta impedit.</p>
+                <p class="text-muted">Our gym is equipped with the latest state-of-the-art equipment, ensuring that you
+                    have access to the <strong>best tools</strong> to achieve your fitness goals.</p>
             </div>
             <div class="col-md-4">
                 <span class="fa-stack fa-4x">
@@ -42,8 +44,8 @@
                     <i class="fa-solid fa-venus fa-stack-1x fa-inverse"></i>
                 </span>
                 <h4 class="my-3">Only girls gym</h4>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam
-                    architecto quo inventore harum ex magni, dicta impedit.</p>
+                <p class="text-muted">Choosing an only girls gym creates a supportive and inclusive environment where
+                    women can <strong>feel comfortable and empowered</strong> in their fitness journey. </p>
             </div>
             <div class="col-md-4">
                 <span class="fa-stack fa-4x">
@@ -51,8 +53,10 @@
                     <i class="fa-solid fa-shield fa-stack-1x fa-inverse"></i>
                 </span>
                 <h4 class="my-3">Self-defence courses</h4>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam
-                    architecto quo inventore harum ex magni, dicta impedit.</p>
+                <p class="text-muted">Just for our subscribed client, we offer <strong>free self-defense</strong> courses taught by
+                    experienced instructors,
+                    providing you with the necessary skills and confidence to navigate the world with a sense of
+                    security.</p>
             </div>
         </div>
     </div>
@@ -63,16 +67,36 @@
 <!-- short description -->
 <section class="page-section">
     <div class="container">
-        <div class="text-center">
+        <div class="text-center paragraph">
             <h2 class="section-heading text-uppercase">Why choose us!</h2>
             <h3 class="section-subheading text-muted">We are a gym committed to the health care , safety and physical
                 strengthening of our clients, we offer just the best quality
                 equipment and facilities, with a FREE self defense course for our registered clients.</h3>
         </div>
-
-
     </div>
-
 </section>
+
+<hr>
+
+        <!-- Clients-->
+        <div class="py-5">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-3 col-sm-6 my-3">
+                        <a href="#!"><img class="img-fluid img-brand d-block mx-auto" src="assets/img/logos/microsoft.svg" alt="..." aria-label="Microsoft Logo" /></a>
+                    </div>
+                    <div class="col-md-3 col-sm-6 my-3">
+                        <a href="#!"><img class="img-fluid img-brand d-block mx-auto" src="assets/img/logos/google.svg" alt="..." aria-label="Google Logo" /></a>
+                    </div>
+                    <div class="col-md-3 col-sm-6 my-3">
+                        <a href="#!"><img class="img-fluid img-brand d-block mx-auto" src="assets/img/logos/facebook.svg" alt="..." aria-label="Facebook Logo" /></a>
+                    </div>
+                    <div class="col-md-3 col-sm-6 my-3">
+                        <a href="#!"><img class="img-fluid img-brand d-block mx-auto" src="assets/img/logos/ibm.svg" alt="..." aria-label="IBM Logo" /></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
 {% endblock %}
