@@ -29,7 +29,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['her-body.herokuapp.com', 'localhost', '8000-michmattera-herbody-82ork2cfghz.ws-us98.gitpod.io']
+ALLOWED_HOSTS = ['her-body.herokuapp.com', 'localhost', '8000-michmattera-herbody-82ork2cfghz.ws-us99.gitpod.io']
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 

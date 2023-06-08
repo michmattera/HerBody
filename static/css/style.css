@@ -13,12 +13,25 @@ darker grey
 #7F7D8C
 purple text color or inverted background
 #241E30 */
+
+/* .reviews{
+  padding: 5%;
+} */
+.active {
+  border: 3px solid #241E30;
+}
 .paragraph{
     background-color: #241E30;
     color: #F3EFEE;
-    border-radius: 25%;
     padding: 2rem;
-    border: 5px solid #d63384;
+    border-top: 5px solid #d63384;
+    border-bottom: 5px solid #d63384;
+}
+
+.container-fluid {
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .overlay {
@@ -45,20 +58,36 @@ hr {
     letter-spacing: 0.0625em;
 }
 
+.white{
+  color: #F3EFEE;
+}
 /* buttons */
 .btn-primary {
     --bs-btn-color: #F3EFEE;
     --bs-btn-bg: #d63384;
-    --bs-btn-hover-border-color: rgba(255,255,255,0);
+    --bs-btn-hover-color: #d63384;
+    --bs-btn-hover-bg: #F3EFEE;
+
+
+
+    /* --bs-btn-hover-border-color: rgba(255,255,255,0); */
 
   }
   
   .btn-secondary {
     --bs-btn-color: #F3EFEE;
-    --bs-btn-bg: #A196A8;
-    --bs-btn-hover-border-color: rgba(255,255,255,0);
-  }
+    --bs-btn-bg: #241E30;
+    --bs-btn-hover-border-color: #322d3b;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #312a3f;
+
   
+  }
+  .btn-secondary:hover {
+    color: #fff;
+    background-color: #312a3f;
+    border-color: #312a3f;
+}
   .btn-success {
 
   }
