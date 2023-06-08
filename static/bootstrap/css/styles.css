@@ -12623,7 +12623,7 @@ header.masthead .masthead-heading {
   width: 2px;
   margin-left: -1.5px;
   content: "";
-  background-color: #e9ecef;
+  background-color: #241E30;
 }
 
 .timeline>li {
@@ -12673,7 +12673,7 @@ header.masthead .masthead-heading {
   margin-left: 0;
   text-align: center;
   color: white;
-  border: 7px solid #e9ecef;
+  border: 2px solid #241E30;
   border-radius: 100%;
   background-color: #d63384;
 }
@@ -12733,6 +12733,7 @@ header.masthead .masthead-heading {
   .timeline>li {
     min-height: 100px;
     margin-bottom: 100px;
+    margin-top: 3rem;
   }
 
   .timeline>li .timeline-panel {
