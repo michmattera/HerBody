@@ -641,7 +641,8 @@ progress {
 
 .img-fluid {
   max-width: 100%;
-  height: auto;
+  height: 100%;
+  /* object-fit: contain; */
 }
 
 .img-thumbnail {
@@ -12674,7 +12675,7 @@ header.masthead .masthead-heading {
   color: white;
   border: 7px solid #e9ecef;
   border-radius: 100%;
-  background-color: #ffc800;
+  background-color: #d63384;
 }
 
 .timeline>li .timeline-image h4,
