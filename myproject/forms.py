@@ -81,10 +81,11 @@ class ContactForm(forms.ModelForm):
     """
     Contact Form
     """
-
-    name = forms.CharField()
-    message = forms.CharField(widget=forms.Textarea(
-        attrs={"rows": 5, "cols": 20}))
+# name = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Name', 'style': 'width: 300px;', 'class': 'form-control'}))
+    name = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Name', 'style': 'width: 500px;', 'class': 'contact-field form-control'}))
+    email = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Email', 'style': 'width: 500px;', 'class': 'contact-field form-control'}))
+    subject = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Subject', 'style': 'width: 500px;', 'class': 'contact-field form-control'}))
+    message = forms.EmailField(widget=forms.EmailInput(attrs={'placeholder': 'Write your message here!', 'class': 'message-field form-control'}))
 
     class Meta:
         model = Contact

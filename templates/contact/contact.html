@@ -2,14 +2,57 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-    <form action="/contact/" method="post">
-        {% csrf_token %}
-        {% for field in form %}
+
+<header class="masthead">
+    <div class="container">
+
+    </div>
+</header>
+
+
+<!-- <form action="/contact/" method="post" id="contactForm">
+
+    {% csrf_token %}
+    {% for field in form %}
+    <div class="fieldWrapper">
+        {{ field.errors }}
+        {{ field.label_tag }} {{ field }}
+    </div>
+    {% endfor %}
+    <input type="submit" value="Submit">
+</form> -->
+<h1 class="text-center">Contact us!</h1>
+<div class="contact-div">
+    <div class="contact-side">
+        <form action="/contact/" method="post" id="contactForm">
+            {% csrf_token %}
             <div class="fieldWrapper">
                 {{ field.errors }}
                 {{ field.label_tag }} {{ field }}
             </div>
-        {% endfor %}
-        <input type="submit" value="Submit">
+            <div class="form-group">
+                <h5>Name</h5>
+                {{ form.name }}
+            </div>
+            <div class="form-group">
+                <h5>Email</h5>
+                {{ form.email }}
+            </div>
+            <div class="form-group">
+                <h5>Subject</h5>
+                {{ form.subject }}
+            </div>
+    </div>
+    <div class="contact-side">
+        <div class="form-group">
+            <h5>Message</h5>
+            {{ form.message }}
+        </div>
+        <div class="form-group">
+            <input class="btn btn-primary" type="submit" value="Submit">
+        </div>
+    </div>
     </form>
- {% endblock content %}
+</div>
+
+{% endblock content %}
