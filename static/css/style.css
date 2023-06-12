@@ -284,6 +284,17 @@ h4 {
   text-decoration: underline;
 }
 
+.small-paragraph {
+  font-size: 1.5rem;
+  font-weight: 400;
+  font-style: italic;
+  font-family: "Roboto Slab", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  margin-top: 4rem;
+  margin-left: 5rem;
+  margin-right: 5rem;
+  margin-bottom: 1.5rem;
+}
+
 /* review section */
 .review-section {
   display: flex;
@@ -437,6 +448,13 @@ h4 {
     margin: 13px;
     margin-bottom: 20px;
     padding: 0;
+}
+.small-title{
+  font-size: 1.5rem;
+}
+.small-paragraph {
+  font-size: 1.3rem;
+  margin: 3rem 2rem;
 }
 
 }
