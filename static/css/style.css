@@ -438,4 +438,26 @@ h4 {
     margin-bottom: 20px;
     padding: 0;
 }
+
+}
+
+/* style the login and register page */
+
+.account-form{
+  border: 5px solid #d63384;
+  padding: 1rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin: 5%;
+  width: 500px;
+}
+.link{
+  text-decoration: underline #d63384;
+  color: #d63384;
+}
+@media (max-width: 550px){
+  .account-form{
+    margin-bottom: 15%;
+    border: none;
+    width: 300px;
+  }
 }

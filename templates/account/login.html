@@ -5,8 +5,7 @@
 {% block content %}
 <form action="{% url 'login' %}" method="POST" class="form-horizontal">
 	{% csrf_token%}
-	<div class="mx-auto" style="width: 400px;">
-
+	<div class="mx-auto account-form">
 		<div class="col-xs-8 col-xs-offset-4">
 			<h2 style="text-align:center;">LOGIN</h2>
 		</div>
@@ -21,12 +20,12 @@
 				Required>
 		</div>
 		<button type="submit" class="btn btn-primary btn-block">LOGIN</button>
-		<p>You don't have an account? Then please <a href="{% url 'register' %}">Register
+		<p>You don't have an account? Then please <a href="{% url 'register' %}" class="link">Register
 				&raquo;</a></p>
 		<div class="checkbox">
 			<label for="checkbox">
-				<input type="checkbox" name="remember_me" value="remember_me" /> remember
-				me
+				<input type="checkbox" name="remember_me" value="remember_me" /> Remember
+				Me
 			</label>
 		</div>
 	</div>

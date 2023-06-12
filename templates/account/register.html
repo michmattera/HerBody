@@ -10,7 +10,7 @@
   </form> -->
   <form action="{% url 'register' %}" method="POST" class="form-horizontal">
 		{% csrf_token%}
-		<div class="mx-auto" style="width: 400px;">
+		<div class="mx-auto account-form">
 
 			<div class="col-xs-8 col-xs-offset-4">
 				<h2 style="text-align:center;">SIGN UP</h2>
@@ -36,7 +36,7 @@
 					placeholder="Confirm Your Password" Required>
 			</div>
 			<button type="submit" class="btn btn-primary btn-block">SIGNUP</button>
-			<p>Already have an account? Then please <a href="{% url 'login' %}">Sign In
+			<p>Already have an account? Then please <a href="{% url 'login' %}" class="link">Sign In
 				&raquo;</a></p>
 		</div>
 	</form>
