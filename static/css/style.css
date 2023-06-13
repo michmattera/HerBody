@@ -502,18 +502,32 @@ h4 {
   width: 100%;
   margin: 2% 0;
   margin-top: 100px;
-  height: 350px;
+  height: 550px;
   background-image: url(../assets/images/contact.jpg);
   background-repeat: no-repeat;
   background-attachment: scroll;
-  background-position: top;
+  background-position: center;
   background-size: cover;
-  /* font-size: 1.7rem;
-  text-align: center; */
+
 }
 .test{
   font-size: 4rem;
   text-align: center;
   vertical-align: middle;
+  color: #d63384;
+  padding-top: 2rem;
+  /* background-color: #241E30; */
+  /* background-color: #F3EFEE; */
+
+}
+.sm-contact-col{
+  width: 30%;
+  height: 550px;
+  /* background-color: #F3EFEE; */
+  background-color: #241E30;
+  color: #F3EFEE;
+}
+.sm-contact-col > h5{
+  padding: 3rem;
 }
 
