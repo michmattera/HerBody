@@ -497,3 +497,23 @@ h4 {
   width: 90%;
   margin: 2.5%;
 }
+/* contact us page */
+.title-container{
+  width: 100%;
+  margin: 2% 0;
+  margin-top: 100px;
+  height: 350px;
+  background-image: url(../assets/images/contact.jpg);
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: top;
+  background-size: cover;
+  /* font-size: 1.7rem;
+  text-align: center; */
+}
+.test{
+  font-size: 4rem;
+  text-align: center;
+  vertical-align: middle;
+}
+

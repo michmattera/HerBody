@@ -12465,11 +12465,21 @@ header.masthead {
   padding-bottom: 6rem;
   text-align: center;
   color: #fff;
-  background-image: url(../../assets/images/woman_with_weights.JPG);
   background-repeat: no-repeat;
   background-attachment: scroll;
-  background-position: center center;
   background-size: cover;
+}
+.home-pic{
+  background-image: url(../../assets/images/woman_with_weights.JPG);
+  background-position: center center;
+
+}
+.contact-pic{
+  margin-top: 80px;
+  background-image: url(../../assets/images/contact.jpg);
+  height: 100px;
+  background-position: top;
+  padding-bottom: 0;
 }
 
 header.masthead .masthead-subheading {
