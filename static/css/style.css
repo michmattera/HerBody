@@ -530,4 +530,11 @@ h4 {
 .sm-contact-col > h5{
   padding: 3rem;
 }
+/* style for booking pages */
+.time{
+  color: red;
+}
+.available{
+  color: #d63384;
+}
 

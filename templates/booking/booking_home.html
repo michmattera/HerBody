@@ -2,12 +2,13 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
+
 {% if available_slots %}
 <ul>
   {% for slot in available_slots %}
-    <li>
-      <a href="{% url 'booking_form' slot.0 slot.1 %}">{{ slot.0 }} - {{ slot.1 }}</a>
-    </li>
+  <li>
+    <a href="{% url 'booking_form' slot.0 slot.1 %}">{{ slot.0 }} - {{ slot.1 }}</a>
+  </li>
   {% endfor %}
 </ul>
 {% else %}
@@ -16,3 +17,5 @@
 
 
 {% endblock content %}
+
+

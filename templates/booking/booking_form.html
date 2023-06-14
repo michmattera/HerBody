@@ -7,27 +7,31 @@
 {% if error_message %}
 <p>{{ error_message }}</p>
 {% endif %}
-<table>
+<table class="slots-table">
     <thead>
         <tr>
-            <th>Date and Time</th>
-            <th>Status</th>
-            <th>Actions</th>
+            <th>Date</th>
+            <th>Early Morning lesson</th>
+            <th>Late morning lesson</th>
+            <th>Afternoon lesson</th>
         </tr>
     </thead>
     <tbody>
         {% for slot, status in available_slots %}
+            {% for slot.time in slot.date %}
             <tr>
-                <td>{{ slot }}</td>
-                <td>{{ status }}</td>
+                <td class="date">{{ slot.date }}</td>
+                <td class="time">{{ slot.time }}</td>
+                <td class="status">{{ status }}</td>
                 <td>
                     {% if status == 'Available' %}
-                        <a href="{% url 'booking_confirmation' slot %}">Book</a>
+                    <a href="{% url 'booking_confirmation' slot %}" class="available">Book</a>
                     {% else %}
-                        <span>Not Available</span>
+                    <span>Not Available</span>
                     {% endif %}
                 </td>
             </tr>
+            {% endfor %}
         {% endfor %}
     </tbody>
 </table>

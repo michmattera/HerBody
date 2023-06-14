@@ -19,9 +19,12 @@
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     <!--CSS-->
     <!-- <link rel="stylesheet" href="{% static 'static/bootstrap/css/style.css' %}"> -->
-    <link rel="stylesheet" href="../static/css/style.css">
+    <!-- <link rel="stylesheet" href="../static/css/style.css"> -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/style.css' %}"/>
 
-    <link rel="stylesheet" href="../static/bootstrap/css/styles.css">
+    
+    <!-- <link rel="stylesheet" href="../static/bootstrap/css/styles.css"> -->
     <title>{% block title %}HerBody{% endblock %}</title>
 
 </head>
@@ -51,7 +54,6 @@
                             {{user.username}}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <a class="dropdown-item" href="{%url 'home' %}">Home</a>
                             <a class="dropdown-item" href="{% url 'booking_form' %}">Book a session</a>
                             <a class="dropdown-item" href="{% url 'my_bookings' %}">My bookings</a>
                             <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
