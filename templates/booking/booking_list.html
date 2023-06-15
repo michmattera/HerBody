@@ -1,34 +1,35 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container-md">
-    <p>List for booking page</p>
-    <ul>
+<div class="container">
+    <div class="booking-confirmation text-center">
+        <h1 class="text-uppercase text-center booking-title">List of your bookings</h1>
         <!-- Iterate over booking list -->
         {% for booking in booking_list %}
         <!-- Display Objects -->
-        <div class="row">
-            <div class="col">
-                <li>Booking name : {{ booking.user }}</li>
-                <li>Date: {{ booking.date }}</li>
-                <li>Time : {{ booking.time }}</li>
-                <td>
-                    <a href="{% url 'edit_booking' booking.id %}">
-                        <button>Edit booking</button>
-                    </a>
-                </td>
-                <td>
-                    <a href="{% url 'delete_booking' booking.id %}">
-                        <button>Delete</button>
-                    </a>
-                </td>
-            </div>
+        <div class="container-booking-card">
+            <ul>
 
-            <hr />
-            <!-- If object_list is empty  -->
-            {% empty %}
-            <li>No Bookings have been made</li>
-            {% endfor %}
-    </ul>
+                <li class="booking-li">Booking name : {{ booking.user }}</li>
+                <li class="booking-li">Date: {{ booking.date }}</li>
+                <li class="booking-li">Time : {{ booking.time }}</li>
+            </ul>
+            <td>
+                <a href="{% url 'edit_booking' booking.id %}">
+                    <button class="btn btn-primary text-center">Edit booking</button>
+                </a>
+            </td>
+            <td>
+                <a href="{% url 'delete_booking' booking.id %}">
+                    <button class="btn btn-secondary text-center">Delete</button>
+                </a>
+            </td>
+        </div>
+        <!-- If object_list is empty  -->
+        {% empty %}
+        <li>No Bookings have been made</li>
+        {% endfor %}
+
+    </div>
 </div>
 {% endblock %}

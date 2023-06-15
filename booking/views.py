@@ -69,7 +69,7 @@ def booking_confirmation(request, slot):
         if 'cancel' in request.POST:
             # Cancel the booking
             booking.delete()
-            return redirect('booking_cancelled')
+            return redirect('booking_form')
         elif 'confirm' in request.POST:
             # Update booking status
             booking.is_confirmed = True

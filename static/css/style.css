@@ -538,4 +538,32 @@ h4 {
 .available{
   color: #d63384;
 }
+.booking-title{
+  margin: 1% 5%;
+  color: #F3EFEE;
+}
+.booking-confirmation{
+  width: 70%;
+  height: auto;
+  margin: 8% 15%;
+  background-color: #241E30 ;
+  border: 5px solid #d63384;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 1.5rem;
+}
+.booking-confirmation > *{
+  /* color: #F3EFEE; */
+}
+.booking-li{
+  list-style: none;
+  text-align: center;
+  /* color: #F3EFEE; */
+  font-size: 1.5rem;
+}
+.container-booking-card{
+  background-color: #F3EFEE;
+  color: #241E30;
+  text-align: center;
+  margin: 5%;
+}
 
