@@ -18,7 +18,6 @@
     </thead>
     <tbody>
         {% for slot, status in available_slots %}
-            {% for slot.time in slot.date %}
             <tr>
                 <td class="date">{{ slot.date }}</td>
                 <td class="time">{{ slot.time }}</td>
@@ -31,7 +30,6 @@
                     {% endif %}
                 </td>
             </tr>
-            {% endfor %}
         {% endfor %}
     </tbody>
 </table>

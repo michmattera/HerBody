@@ -58,3 +58,10 @@ window.addEventListener('DOMContentLoaded', event => {
 $(document).ready(function () {
     $('.dropdown-toggle').dropdown()
 });
+
+// function to set a timeout for messages
+setTimeout(function () {
+    let messages = document.getElementById('msg');
+    let alert = new bootstrap.Alert(messages);
+    alert.close();
+}, 2500);
