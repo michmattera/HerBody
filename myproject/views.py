@@ -95,3 +95,9 @@ def contact_view(request):
 #       form = MyForm()
 #   return render(request, 'cv-form.html', {'form': form})
 
+def map(request):
+    key = settings.GOOGLE_MAP_API_KEY
+    context = {
+        'key': key,
+    }
+    return render(request, 'google/map.html',context)

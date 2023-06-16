@@ -65,3 +65,19 @@ setTimeout(function () {
     let alert = new bootstrap.Alert(messages);
     alert.close();
 }, 2500);
+
+
+let map;
+function initMap(data) {
+    const map = new google.maps.Map(document.getElementById('map'), {
+       zoom: 4,
+       center: {lat: 51.5944418, lng: 4.7492914}
+    });
+    const markers = data?.map((i) => {
+         const marker = new google.maps.Marker({
+             position: { lat: parseFloat(i.latitude), lng: parseFloat(i.longitude)},
+             map: map,
+         })
+     });
+
+  }
