@@ -68,16 +68,33 @@ setTimeout(function () {
 
 
 let map;
-function initMap(data) {
-    const map = new google.maps.Map(document.getElementById('map'), {
-       zoom: 4,
-       center: {lat: 51.5944418, lng: 4.7492914}
-    });
-    const markers = data?.map((i) => {
-         const marker = new google.maps.Marker({
-             position: { lat: parseFloat(i.latitude), lng: parseFloat(i.longitude)},
-             map: map,
-         })
-     });
 
-  }
+function initMap(data) {
+        const gym = {
+        lat: 20.659698,
+        lng: -103.349609
+    };
+    const map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 4,
+        center: gym,
+    });
+    const marker = new google.maps.Marker({
+        position: gym,
+        map: map,
+    });
+
+}
+//   function initMap() {
+//     const gym = {
+//         lat: -25.344,
+//         lng: 131.031
+//     };
+//     const map = new google.maps.Map(document.getElementById("map"), {
+//         zoom: 4,
+//         center: gym,
+//     });
+//     const marker = new google.maps.Marker({
+//         position: gym,
+//         map: map,
+//     });
+// }

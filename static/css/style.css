@@ -529,7 +529,7 @@ h4 {
   color: #F3EFEE;
 }
 .sm-contact-col > h5{
-  padding: 3rem;
+  padding: 4rem;
 }
 /* style for booking pages */
 .time{
@@ -565,5 +565,14 @@ h4 {
   color: #241E30;
   text-align: center;
   margin: 5%;
+}
+#map {
+  height: 400px;
+  width: 100%;
+}
+.contact-title{
+  text-align: center;
+  font-size: large;
+
 }
 
