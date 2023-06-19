@@ -14,20 +14,41 @@
                 <li class="booking-li">Date: {{ booking.date }}</li>
                 <li class="booking-li">Time : {{ booking.time }}</li>
             </ul>
-            <td>
-                <a href="{% url 'edit_booking' booking.id %}">
+            <div class="row">
+                <div class="col booking-li right">
+                    <a href="{% url 'edit_booking' booking.id %}">
+                        <button class="btn btn-primary text-center">Edit</button>
+                    </a>
+                </div>
+                <div class="col booking-li left">
+                    <a href="{% url 'delete_booking' booking.id %}">
+                        <button class="btn btn-secondary text-center">Delete</button>
+                    </a>
+                </div>
+            </div>
+            <!-- <td> -->
+                <!-- <a href="{% url 'edit_booking' booking.id %}">
                     <button class="btn btn-primary text-center">Edit booking</button>
-                </a>
-            </td>
+                </a> -->
+            <!-- </td>
             <td>
                 <a href="{% url 'delete_booking' booking.id %}">
                     <button class="btn btn-secondary text-center">Delete</button>
                 </a>
-            </td>
+            </td> -->
         </div>
         <!-- If object_list is empty  -->
         {% empty %}
-        <li>No Bookings have been made</li>
+        <div class="container-booking-card">
+            <ul>
+                <li class="booking-li">No Bookings have been made</li>
+            </ul>
+            <td>
+                <a href="{% url 'booking_form'%}">
+                    <button class="btn btn-primary text-center">Book here a session</button>
+                </a>
+            </td>
+        </div>
         {% endfor %}
 
     </div>
