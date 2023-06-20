@@ -37,7 +37,8 @@
         </div>
         <form method=" post">
             {% csrf_token %}
-            <button class="btn btn-primary" type="submit" name="confirm">Confirm Booking</button>
+            <a href="{% url 'my_bookings'%}">Confirm Booking</a>
+
         </form>
     </div>
     {% else %}
@@ -49,6 +50,7 @@
             <form method="post">
                 {% csrf_token %}
                 <button class="btn btn-primary text-center" type="submit" name="cancel">Cancel Booking</button>
+                
             </form>
         </div>
     </div>
