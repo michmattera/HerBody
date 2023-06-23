@@ -143,3 +143,49 @@ Below are shown all links to the iteration , to the main board user and a small 
 1. [Iteration 7]()
 2. Starting to create core functionality ,superuser and administrator tasks .
 3. [Board 7](https://github.com/users/michmattera/projects/9)
+
+
+
+### Site User Goal
+
+Site user has different goals:
+
+- Being able to login
+- Being able to logout
+- Being able to register
+- Being able to contact the company for any information or issues
+- Being able to book a private session
+- Being able to see available and unavailable sessions
+- Being able to see what feature the company offer
+- Being able to delete or edit the session
+
+### Site Owner Goal
+
+The site owner has being given a superuser , which have different features that a normal user.
+Site owner has different goals:
+
+- Being able to see all sessions booked
+- Being able to see all contacts form submitted
+- Being able to see all contacts information for the user
+- Being able to see available and unavailable sessions
+- Being able to attract as many new users as possible
+- Being able to delete all sessions
+- Being able to give as much information on the company to give trasparency
+- Being able to authenticate users with password to give extra security to the account created
+- Being able to accept free sessions just for logged in users, so that they have to create an account to be able to book it
+
+
+### User stories
+
+User stories were divided for Iteration ( Epic ), they were than divided in :
+
+- Must-Have
+- Should-Have
+- Could-Have
+- Won't-Have
+
+_____________________________________________________________________________
+## Wireframes and templates.  
+
+### Lucid Charts
+
