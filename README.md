@@ -1,108 +1,145 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# HerBody
 
-Welcome michmattera,
+### An only girls gym where you can book your free private sessions.
+### Create an appointment and, view, edit and delete your session.
+      
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+### Link to the finished site: [LINK](https://show-your-keyboard.herokuapp.com)
+_____________________________________________________________________________
+## Am I responsive image 
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+![Screenshot](./static/images/)
 
-## Gitpod Reminders
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+_____________________________________________________________________________
+## Content:
+- ### Project Goals and target audience
+    - [Achieved](#achieved)
+    - [Future implements](#future-projects)
+    - [Audience](#audience)
+- ### Project management
+    - [Project boards](#github-project-board-user-stories-issues)
+    - [Site user goal](#site-user-goal)
+    - [Site owner goal](#site-owner-goal)
+    - [User Stories](#user-stories)
+- ### Wireframes and templates
+    - [Lucid Chart](#lucid-chart)
+    - [DrawSql Chart](#drawsql-chart)
+    - [Database Structure](#database-and-structure)
+    - [Uizard Template](#uizard-templates)
+- ### Design and Features
+    - [Design and Features](#design-and-features-1)
+        - [Navbar](#navbar)
+        - [Register](#register)
+        - [Login](#login)
+        - [Home page](#home-page)
+        - [Create a session](#create-a-post)
+        - [Sessions - view all your sessions](#sessions-view-all-sessions)
+        - [Update your profile image](#update-your-profile-image)
+        - [Footer](#footer)
+        - [Login and logout message](#login-and-logout-message-displaying-on-indexhtml)
+        - [404 and 403](#404-and-403-error-messages-are-shown-on-the-website)
+    - [Colour Scheme](#colour-scheme)
+    - [Typography](#typography)
+    - [Imagery](#imagery)
+- ### Technologies Used
+    - [Languages used](#languages)
+    - [Frameworks, Packages & Programs Used](#frameworks-packages--programs-used)
+- ### Testing
+    - [TESTING.md](#testingmd)
+- ### Development and Deployment
+    - [Development](#development)
+    - [Deploy to Heroku](#deployment)
+- ### Credits
+    - [Code](#code)
+    - [Youtube tutorials](#youtube-tutorials-i-have-watched)
+    - [Acknowledgements](#acknowledgements)
 
-`python3 -m http.server`
 
-A blue button should appear to click: _Make Public_,
 
-Another blue button should appear to click: _Open Browser_.
+_____________________________________________________________________________
+## Project goals and target audience.  
+### Achieved:
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+-   Creating a website where user can register, login and logout.
+-   Creating a website for a company where you can book your private sessions, see unavailable ones and edit or delete them.
+-   Creating a website where the use can contact the company , and receive a confirmation email.
 
-A blue button should appear to click: _Make Public_,
+### Future projects: 
 
-Another blue button should appear to click: _Open Browser_.
+-   Creating a website where user could choose between 3 differents trainers.
+-   Creating a webste where user could reset the password and email, and create his profile with more information.
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+### Audience:
 
-To log into the Heroku toolbelt CLI:
+- The target audience for the website are only girls.
+- Medium age between 15 / 60 years old.
+- Girls interested in getting in good shape and in getting private one on one self-defense lessons that the company offers.
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+#### Current Users:
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+- Current users have different ways to contact the company, such as phone number , email and a direct contact form in the website .
+- Current users are able to login, and book and menage their sessions directly from the website.
+- Current users can at any time delete their profile.
 
-------
+#### New users:
 
-## Release History
+- New users are able to see what the company offers in the website.
+- New users are tempt to register and login thanks to an only-login user feature that offer them 2 free sessions per week to book directly from the website.
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+[Back to top](#herBody)
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+_____________________________________________________________________________ 
+## Project management
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+### Agile method.
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+- HerBody was developed using an agile method. That includes using GitHub issues, user stories and kanban boards.
+- That gave me an overview of tasks structured in a to-do, in-progress and done way.
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+The project was divided in different iterations to divide the issues and the user stories in main Epic .
+Inside each Iteration ( Epic ) developer created different issues , user stories, task and bugs , and differentiate the Iteration in diferent Boards.
+Below are shown all links to the iteration , to the main board user and a small description for the Iteartion .
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+#### Iteration 1:
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+1. [Iteration 1](https://github.com/michmattera/HerBody/milestone/2?closed=1)
+2. Starting to create core functionality ,superuser and administrator tasks .
+3. [Board 1](https://github.com/users/michmattera/projects/3)
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+#### Iteration 2:
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+1. [Iteration 2](https://github.com/michmattera/HerBody/milestone/3?closed=1)
+2. Starting to create core functionality ,superuser and administrator tasks .
+3. [Board 2](https://github.com/users/michmattera/projects/4)
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+#### Iteration 3:
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+1. [Iteration 3](https://github.com/michmattera/HerBody/milestone/4?closed=1)
+2. Starting to create core functionality ,superuser and administrator tasks .
+3. [Board 3](https://github.com/users/michmattera/projects/5)
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+#### Iteration 4:
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+1. [Iteration 4](https://github.com/michmattera/HerBody/milestone/5?closed=1)
+2. Starting to create core functionality ,superuser and administrator tasks .
+3. [Board 4](https://github.com/users/michmattera/projects/6)
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+#### Iteration 5:
 
-------
+1. [Iteration 5](https://github.com/michmattera/HerBody/milestone/6?closed=1)
+2. Starting to create core functionality ,superuser and administrator tasks .
+3. [Board 5](https://github.com/users/michmattera/projects/7)
 
-## FAQ about the uptime script
+#### Iteration 6:
 
-**Why have you added this script?**
+1. [Iteration 6](https://github.com/michmattera/HerBody/milestone/7)
+2. Starting to create core functionality ,superuser and administrator tasks .
+3. [Board 6](https://github.com/users/michmattera/projects/8)
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+#### Iteration 7:
 
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
----
-
-Happy coding!
+1. [Iteration 7]()
+2. Starting to create core functionality ,superuser and administrator tasks .
+3. [Board 7](https://github.com/users/michmattera/projects/9)
