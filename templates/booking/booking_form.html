@@ -17,18 +17,20 @@
         </tr>
     </thead>
     <tbody>
-        {% for slot, status in available_slots %}
+        {% for slot in available_slots %}
             <tr>
                 <td class="date">{{ slot.date }}</td>
-                <td class="time">{{ slot.time }}</td>
-                <td class="status">{{ status }}</td>
-                <td>
-                    {% if status == 'Available' %}
-                    <a href="{% url 'booking_confirmation' slot %}" class="available">Book</a>
-                    {% else %}
-                    <span>Not Available</span>
-                    {% endif %}
-                </td>
+                {% for time_slot in slot.time_slots %}
+                    <td class="time">{{ time_slot }}</td>
+                    <td>
+                        {% if time_slot.status == 'Available' %}
+                        <!-- <a href="{% url 'booking_confirmation' slot %}" class="available">Book</a> -->
+                        <a href="{% url 'booking_confirmation'}">Book</a>
+                        {% else %}
+                        <span>Not Available</span>
+                        {% endif %}
+                    </td>
+                {% endfor %}
             </tr>
         {% endfor %}
     </tbody>

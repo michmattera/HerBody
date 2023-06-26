@@ -1,23 +1,11 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic
 from django.http import HttpResponse
-from . import views
-from . import models
 from .models import Booking
 from .forms import BookingForm
-from django.views.generic import DeleteView, CreateView, UpdateView, ListView
-import datetime
-from datetime import datetime, date, timedelta, time
-
 from django.contrib.auth.decorators import login_required
-from django.core.exceptions import NON_FIELD_ERRORS
-from django.shortcuts import get_object_or_404
 from django.contrib import messages
-
-#https://stackoverflow.com/questions/24725617/how-to-make-generic-listview-only-show-users-listing
-
-# leave = Event.objects.filter(start_date__date=today)
-# today = date.today()
+from datetime import datetime, date, timedelta, time
 from django.utils import timezone
 
 def get_available_slots():
@@ -27,21 +15,25 @@ def get_available_slots():
     available_slots = []
 
     time_choices = Booking._meta.get_field('time').choices
-    for hour, label in time_choices:
-        for day in range(7):
-            current_date = today_date + timedelta(days=day)
-            current_slot = datetime.combine(current_date, time(hour))
+    for day in range(1, 7):
+        current_date = today_date + timedelta(days=day)
+        time_slots = []
+
+        for hour, label in time_choices:
+            current_time = time(hour)
+            current_slot = datetime.combine(current_date, current_time)
             if (current_date, hour) in booked_slots:
                 slot_status = 'Booked'
             else:
                 slot_status = 'Available'
-            available_slots.append((current_slot, slot_status))
+            time_slots.append({'time': current_slot, 'status': slot_status})
+
+        available_slots.append({'date': current_date, 'time_slots': time_slots})
 
     return available_slots
 
 
-
-class booking_list(generic.ListView):
+class BookingList(generic.ListView):
     model = Booking
 
     def get_queryset(self):
@@ -50,14 +42,15 @@ class booking_list(generic.ListView):
         return self.model.objects.filter(user=self.request.user, date__range=[today, end_of_week])
 
 
-
 @login_required
-def booking_confirmation(request, slot):
-    date_time_obj = datetime.strptime(slot, '%Y-%m-%d %H:%M:%S')
-    date = date_time_obj.date()
-    time = date_time_obj.time().hour  # Get only the hour component of the time
+def booking_confirmation(request):
+    date = request.session.get('date')
+    time_slot = request.POST.get('time_slot')  # Update this with the actual name of the time slot field in your form
 
-    booking, created = Booking.objects.get_or_create(date=date, time=time, user=request.user)
+    date_obj = datetime.strptime(date, '%Y-%m-%d').date()
+    time_obj = datetime.strptime(time_slot, '%H:%M').time()
+
+    booking, created = Booking.objects.get_or_create(date=date_obj, time=time_obj, user=request.user)
 
     if not created:
         is_available = False
@@ -85,8 +78,6 @@ def booking_confirmation(request, slot):
 
 @login_required
 def booking_form(request):
-    # trying to check if already user has 2 session in week, should not be possible to book
-
     user = request.user
     today = datetime.today().date()
     start_of_week = today - timedelta(days=today.weekday())
@@ -97,7 +88,7 @@ def booking_form(request):
     if user_booking_count >= 2:
         error_message = "You have already booked two sessions this week. You cannot book another session."
         return render(request, "booking/booking_form.html", {'error_message': error_message})
-    
+
     if request.method == 'POST':
         form = BookingForm(request.POST)
         if form.is_valid():
@@ -105,54 +96,48 @@ def booking_form(request):
             date = slot.date()
             time = slot.time()
 
-            # Check if any user has already booked on the selected date and time
             if Booking.objects.filter(date=date, time=time).exists():
                 error_message = "This slot is already booked. Please choose another slot."
-                return render(request, "booking/booking_form.html", {'form': form, 'error_message': error_message})
+                return redirect('booking_confirmation')
 
             form.instance.user = user
             form.save()
-            return redirect('booking_success')
+            return redirect('booking_confirmation')
     else:
         form = BookingForm()
-        available_slots = get_available_slots()  # Call the function to get available slots
+
+    available_slots = get_available_slots()
 
     return render(request, "booking/booking_form.html", {'form': form, 'available_slots': available_slots})
 
 
-
-
 @login_required
 def edit_booking(request, booking_id):
-    # model = booking
     booking = get_object_or_404(Booking, id=booking_id)
     form = BookingForm(instance=booking)
-    if booking.user == request.user:
-        if request.method == 'POST':
-            form = BookingForm(data=request.POST, instance=booking)
+
+    if booking.user == request.user and request.method == 'POST':
+        form = BookingForm(data=request.POST, instance=booking)
         if form.is_valid():
             user = request.user
             date = form.cleaned_data['date']
-                
-            # Check if any user has already booked on the selected date
+
             if Booking.objects.filter(date=date).exists():
                 error_message = "This date is already booked. Please choose another date."
                 return render(request, "booking/booking_form.html", {'form': form, 'error_message': error_message})
-                
-            # Check if the current user has already booked on the selected date
+
             if Booking.objects.filter(user=user, date=date).exists():
                 error_message = "You have already booked an appointment for this date."
                 return render(request, "booking/booking_form.html", {'form': form, 'error_message': error_message})
-                
+
             form.instance.user = user
             form.save()
-            # messages.info(request, 'Your booking has been changed successfully!')
             messages.success(request, 'Your booking has been changed successfully!')
             return redirect("my_bookings")
         else:
-            error_message = "An error occurred please try again"
-        
-        return render(request, "booking/edit_booking.html", {'form': form})
+            error_message = "An error occurred. Please try again."
+
+    return render(request, "booking/edit_booking.html", {'form': form})
 
 
 @login_required
@@ -161,12 +146,7 @@ def delete_booking(request, booking_id):
 
     if request.method == "POST":
         booking.delete()
-        messages.success(request, "Your booking has been deleted successfully")
+        messages.success(request, "Your booking has been deleted successfully.")
         return redirect("my_bookings")
-        
-    else:
-        error_message = "An error occurred please try again"
+
     return render(request, 'booking/delete_booking.html')
-    
-        
-    
