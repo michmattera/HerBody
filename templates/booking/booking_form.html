@@ -24,8 +24,10 @@
                     <td class="time">{{ time_slot }}</td>
                     <td>
                         {% if time_slot.status == 'Available' %}
-                        <!-- <a href="{% url 'booking_confirmation' slot %}" class="available">Book</a> -->
-                        <a href="{% url 'booking_confirmation'}">Book</a>
+                        <a href="{% url 'booking_confirmation' %}?date={{ slot.date }}&time={{ time_slot.time }}" class="available">Book</a>
+
+
+
                         {% else %}
                         <span>Not Available</span>
                         {% endif %}

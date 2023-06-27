@@ -7,6 +7,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from datetime import datetime, date, timedelta, time
 from django.utils import timezone
+from dateutil.parser import parse
+from dateutil import parser
 
 def get_available_slots():
     today_date = timezone.localdate()
@@ -33,7 +35,7 @@ def get_available_slots():
     return available_slots
 
 
-class BookingList(generic.ListView):
+class booking_list(generic.ListView):
     model = Booking
 
     def get_queryset(self):
@@ -44,13 +46,20 @@ class BookingList(generic.ListView):
 
 @login_required
 def booking_confirmation(request):
-    date = request.session.get('date')
-    time_slot = request.POST.get('time_slot')  # Update this with the actual name of the time slot field in your form
+    date = request.GET.get('date')
+    time_slot = request.GET.get('time')
 
-    date_obj = datetime.strptime(date, '%Y-%m-%d').date()
-    time_obj = datetime.strptime(time_slot, '%H:%M').time()
+    if not date or not time_slot:
+        # Handle the case where date or time_slot is not available
+        # Redirect or display an error message
+        error_message = "No date or time slot"
+        return render(request, "booking/booking_form.html", {'error_message': error_message})
 
-    booking, created = Booking.objects.get_or_create(date=date_obj, time=time_obj, user=request.user)
+    date_obj = parse(date).date()
+    time_obj = parse(time_slot).time()
+    time_int = int(time_obj.strftime('%I'))
+
+    booking, created = Booking.objects.get_or_create(date=date_obj, time=time_int, user=request.user)
 
     if not created:
         is_available = False
@@ -76,6 +85,7 @@ def booking_confirmation(request):
     return render(request, 'booking/booking_confirmation.html', context)
 
 
+
 @login_required
 def booking_form(request):
     user = request.user
@@ -98,17 +108,26 @@ def booking_form(request):
 
             if Booking.objects.filter(date=date, time=time).exists():
                 error_message = "This slot is already booked. Please choose another slot."
-                return redirect('booking_confirmation')
+                return render(request, "booking/booking_form.html", {'error_message': error_message})
 
-            form.instance.user = user
-            form.save()
-            return redirect('booking_confirmation')
+            # Set session variables
+            request.session['booking_date'] = str(date)
+            request.session['booking_time'] = str(time)
+
+            # Redirect to booking_confirmation view with query parameters
+            return redirect('booking_confirmation?date={}&time={}'.format(str(date), str(time)))
+
+
     else:
         form = BookingForm()
 
     available_slots = get_available_slots()
 
     return render(request, "booking/booking_form.html", {'form': form, 'available_slots': available_slots})
+
+
+
+
 
 
 @login_required

@@ -29,7 +29,7 @@ GOOGLE_MAPS_API_KEY = os.environ.get('GOOGLE_MAPS_API_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['her-body.herokuapp.com', 'localhost', '8000-michmattera-herbody-gbxqj18gckg.ws-us100.gitpod.io']
+ALLOWED_HOSTS = ['her-body.herokuapp.com', 'localhost', '8000-michmattera-herbody-gbxqj18gckg.ws-us101.gitpod.io']
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 

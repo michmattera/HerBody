@@ -1,13 +1,21 @@
-from django.urls import path
 from . import views
-from .views import BookingList, edit_booking, delete_booking, booking_form, booking_confirmation
+from django.urls import path, include
+from . import forms
+from .views import booking_list, edit_booking, delete_booking, booking_confirmation, booking_form
 
-app_name = 'booking'
+# from .forms import BookingForm
+
+# app_name = 'booking'
 
 urlpatterns = [
-    path('my_bookings/', BookingList.as_view(), name='my_bookings'),
-    path('edit_booking/<int:booking_id>/', edit_booking, name='edit_booking'),
-    path('delete_booking/<int:booking_id>/', delete_booking, name='delete_booking'),
+    # url for bookings
+    path('my_bookings/', booking_list.as_view(), name='my_bookings'),
+    path('edit_booking/<booking_id>/', edit_booking, name='edit_booking'),
+    path('delete_booking/<booking_id>/', delete_booking, name='delete_booking'),
     path('booking/book_a_session/', views.booking_form, name='booking_form'),
-    path('booking/booking_confirmation/', booking_confirmation, name='booking_confirmation'),
+    # path('booking/booking_confirmation/', views.booking_confirmation, name='booking_confirmation'),
+    # path('booking/booking_confirmation/<date>/', views.booking_confirmation, name='booking_confirmation'),
+    path('booking/booking_confirmation/', views.booking_confirmation, name='booking_confirmation'),
+
+
 ]
