@@ -117,17 +117,12 @@ def booking_form(request):
             # Redirect to booking_confirmation view with query parameters
             return redirect('booking_confirmation?date={}&time={}'.format(str(date), str(time)))
 
-
     else:
         form = BookingForm()
 
     available_slots = get_available_slots()
 
     return render(request, "booking/booking_form.html", {'form': form, 'available_slots': available_slots})
-
-
-
-
 
 
 @login_required

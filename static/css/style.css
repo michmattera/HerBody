@@ -573,4 +573,21 @@ h4 {
   background-color: #F3EFEE;
   padding: 0.2rem;
 }
-
+/* styling the booking form page */
+.time, .date {
+  color: #241E30;
+}
+.slots-table{
+  width: 90%;
+  margin: 5%;
+}
+.container-slots{
+  background-color: #F3EFEE;
+  line-height: 50px;
+  width: 100%;
+}
+.booking-subtitle{
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  
+}
