@@ -3,6 +3,18 @@
 
 {% block content %}
 
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <img class="half" src="../../static/assets/images/woman_running.JPG" alt="">
+        </div>
+        <div class="col">
+            2 of 2
+        </div>
+    </div>
+</div>
+
+
 <h2>Available Slots</h2>
 {% if error_message %}
 <p>{{ error_message }}</p>
@@ -18,21 +30,21 @@
     </thead>
     <tbody>
         {% for slot in available_slots %}
-            <tr class="container-slots">
-                <td class="date">{{ slot.date }}</td>
-                {% for time_slot in slot.time_slots %}
-                    <!-- <td class="time">{{ time_slot.time|time:"h:i A" }}<a href="{% url 'booking_confirmation' %}?date={{ slot.date }}&time={{ time_slot.time }}" class="available">Book</a></td> -->
-                    <td>
-                        {% if time_slot.status == 'Available' %}
-                        <!-- <a href="{% url 'booking_confirmation' %}?date={{ slot.date }}&time={{ time_slot.time }}" class="available">Book</a> -->
-                    <td class="available"><a href="{% url 'booking_confirmation' %}?date={{ slot.date }}&time={{ time_slot.time }}">{{ time_slot.time|time:"h:i A" }}</a></td>
+        <tr class="container-slots">
+            <td class="date">{{ slot.date }}</td>
+            {% for time_slot in slot.time_slots %}
+            <!-- <td class="time">{{ time_slot.time|time:"h:i A" }}<a href="{% url 'booking_confirmation' %}?date={{ slot.date }}&time={{ time_slot.time }}" class="available">Book</a></td> -->
+            {% if time_slot.status == 'Available' %}
+            <!-- <a href="{% url 'booking_confirmation' %}?date={{ slot.date }}&time={{ time_slot.time }}" class="available">Book</a> -->
+            <td class="available"><a
+                    href="{% url 'booking_confirmation' %}?date={{ slot.date }}&time={{ time_slot.time }}">{{ time_slot.time|time:"h:i A" }}</a>
+            </td>
 
-                        {% else %}
-                        <span>Not Available</span>
-                        {% endif %}
-                    </td>
-                {% endfor %}
-            </tr>
+            {% else %}
+            <td class="not-available"><span>Not Available</span></td>
+            {% endif %}
+            {% endfor %}
+        </tr>
         {% endfor %}
     </tbody>
 </table>

@@ -512,12 +512,6 @@ h4 {
   padding: 4rem;
 }
 /* style for booking pages */
-.time{
-  color: red;
-}
-.available{
-  color: #d63384;
-}
 .booking-title{
   margin: 1% 5%;
   color: #F3EFEE;
@@ -576,18 +570,40 @@ h4 {
 /* styling the booking form page */
 .time, .date {
   color: #241E30;
+  background-color: #F3EFEE;
+}
+.half{
+  width: 100%;
+  height: 300px;
 }
 .slots-table{
   width: 90%;
   margin: 5%;
+  border: 5px solid #d63384;
 }
 .container-slots{
-  background-color: #F3EFEE;
   line-height: 50px;
   width: 100%;
+  text-align: center;
 }
 .booking-subtitle{
   font-size: 1.2rem;
   text-transform: uppercase;
-  
+  padding: 3% 0;
+  text-align: center;
+  background-color: #F3EFEE;
+
+}
+.available{
+  color: #d63384;
+  background-color: #241E30;
+  text-decoration: none;
+}
+.not-available{
+  color: #F3EFEE;
+  background-color: #d63384;
+}
+.available, .not-available, .booking-subtitle{
+  border: 3px solid #d63384;
+
 }
