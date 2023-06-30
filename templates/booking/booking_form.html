@@ -2,20 +2,48 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <img class="half" src="../../static/assets/images/woman_running.JPG" alt="">
+<div class="text-center">
+    <h2 class="session-title text-uppercase">Book your session!</h2>
+</div>
+<div class="rules-table">
+    <div class="row" id="no-padding">
+        <div class="col" id="no-padding">
+            <!-- <img class="half" src="../../static/assets/images/woman_listening_music.JPG" alt=""> -->
+            {% load static %}
+            <img class="half" src="{% static 'assets/images/woman_listening_music.JPG' %}" />
         </div>
-        <div class="col">
-            2 of 2
+        <div class="col" id="no-padding">
+            <div class="text-side">
+                <h4 class="booking-subtitle">
+                    What you should know about your free lessons!
+                </h4>
+                <ol class="rules">
+                    <li class="margin-top rules-list">
+                        You have 2 free lessons per week!
+                    </li>
+                    <li class="rules-list">
+                        You cannot book more than 2 lessons per week.
+                    </li>
+                    <li class="rules-list">
+                        You can choose between 3 different time-slot
+                    </li>
+                    <li class="rules-list">
+                        If you have to cancel for any reason do not worry, you can edit the time of your lesson or
+                        delete it, from your bookings.
+                    </li>
+                </ol>
+                <p class="text-uppercase">for any issues or problems please contact us</p>
+                <!-- <button class="btn btn-primary">Contact Us</button> -->
+                <a href="{% url 'contact'%}">
+                    <button class="btn btn-primary">Contact Us</button>
+                </a>
+            </div>
         </div>
     </div>
 </div>
 
 
-<h2>Available Slots</h2>
+<h2 class="text-center">Available Slots</h2>
 {% if error_message %}
 <p>{{ error_message }}</p>
 {% endif %}
@@ -36,7 +64,7 @@
             <!-- <td class="time">{{ time_slot.time|time:"h:i A" }}<a href="{% url 'booking_confirmation' %}?date={{ slot.date }}&time={{ time_slot.time }}" class="available">Book</a></td> -->
             {% if time_slot.status == 'Available' %}
             <!-- <a href="{% url 'booking_confirmation' %}?date={{ slot.date }}&time={{ time_slot.time }}" class="available">Book</a> -->
-            <td class="available"><a
+            <td class="available"><a class="slot"
                     href="{% url 'booking_confirmation' %}?date={{ slot.date }}&time={{ time_slot.time }}">{{ time_slot.time|time:"h:i A" }}</a>
             </td>
 
