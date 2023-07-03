@@ -84,16 +84,6 @@ def contact_view(request):
     context = {"form": form}
     return render(request, "contact/contact.html", context)
 
-# def success(request):
-#    return HttpResponse('Success!')
-# def my_form(request):
-#   if request.method == "POST":
-#     form = MyForm(request.POST)
-#     if form.is_valid():
-#       form.save()
-#   else:
-#       form = MyForm()
-#   return render(request, 'cv-form.html', {'form': form})
 
 def map(request):
     key = settings.GOOGLE_MAP_API_KEY

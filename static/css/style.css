@@ -664,7 +664,7 @@ h4 {
 
 .not-available {
   color: #F3EFEE;
-  background-color: #d63384;
+  background-color: #241e30e8;
 }
 
 .available,
@@ -712,7 +712,8 @@ h4 {
 /* media query for booking pages  */
 @media (max-width: 1000px) {
   .rules-table {
-    flex-direction: column;
+    display: flex;
+    height: auto;
   }
 
   .flex-column-rules {
@@ -723,7 +724,10 @@ h4 {
     margin: 0;
     width: 100%;
   }
-
+  .flex-column{
+    display: flex;
+    flex-direction: column;
+  }
   .rules>* {
     text-align: center;
     line-height: 35px;
@@ -737,14 +741,51 @@ h4 {
   .slots-table {
     width: 90%;
     margin: 5%;
+    flex-direction: column;
   }
-
+  .slots-body{
+    width: 100%;
+  }
   .session-title {
     margin-top: 10%;
   }
-
   .booking-subtitle {
     background-color: #fff;
     border: none;
   }
+  .container-slots{
+    width: 100%;
+  }
+}
+/* media query for booking pages  */
+@media (max-width: 600px) {
+  .slots-table {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
+.booking-subtitle{
+  font-size: 0.8rem;
+}
+.slot, .date, .time, .not-available{
+  font-size: 0.7rem;
+}
+.container-slots{
+  line-height: 38px;
+}
+.rules>* {
+  line-height: 30px;
+  font-size: 1rem;
+  margin: 0 5%;
+}
+/* for contact page s */
+.contact {
+  font-size: 1.7rem;
+}
+.sm-contact-col>h5{
+  font-size: 0.9rem;
+}
+.form-control{
+  width: 100%;
+}
 }

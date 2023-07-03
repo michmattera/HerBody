@@ -82,9 +82,9 @@ class ContactForm(forms.ModelForm):
     Contact Form
     """
 # name = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Name', 'style': 'width: 300px;', 'class': 'form-control'}))
-    name = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Name', 'style': 'width: 500px;', 'class': 'contact-field form-control'}))
-    email = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Email', 'style': 'width: 500px;', 'class': 'contact-field form-control'}))
-    subject = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Subject', 'style': 'width: 500px;', 'class': 'contact-field form-control'}))
+    name = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Name', 'class': 'contact-field form-control'}))
+    email = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Email', 'class': 'contact-field form-control'}))
+    subject = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Subject', 'class': 'contact-field form-control'}))
     message = forms.EmailField(widget=forms.EmailInput(attrs={'placeholder': 'Write your message here!', 'class': 'message-field form-control'}))
 
     class Meta:
