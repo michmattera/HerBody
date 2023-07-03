@@ -60,9 +60,7 @@
         <tr class="container-slots">
             <td class="date">{{ slot.date }}</td>
             {% for time_slot in slot.time_slots %}
-            <!-- <td class="time">{{ time_slot.time|time:"h:i A" }}<a href="{% url 'booking_confirmation' %}?date={{ slot.date }}&time={{ time_slot.time }}" class="available">Book</a></td> -->
             {% if time_slot.status == 'Available' %}
-            <!-- <a href="{% url 'booking_confirmation' %}?date={{ slot.date }}&time={{ time_slot.time }}" class="available">Book</a> -->
             <td class="available"><a class="slot"
                     href="{% url 'booking_confirmation' %}?date={{ slot.date }}&time={{ time_slot.time }}">{{ time_slot.time|time:"h:i A" }}</a>
             </td>

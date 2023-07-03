@@ -96,8 +96,9 @@ def booking_form(request):
     user_booking_count = Booking.objects.filter(user=user, date__range=[start_of_week, end_of_week]).count()
 
     if user_booking_count >= 2:
-        error_message = "You have already booked two sessions this week. You cannot book another session."
-        return render(request, "booking/booking_form.html", {'error_message': error_message})
+        messages.warning(request, 'You have already booked two sessions this week. You cannot book another session.')
+        return redirect("my_bookings")
+
 
     if request.method == 'POST':
         form = BookingForm(request.POST)
