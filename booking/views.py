@@ -10,6 +10,7 @@ from django.utils import timezone
 from dateutil.parser import parse
 from dateutil import parser
 
+
 def get_available_slots():
     today_date = timezone.localdate()
     end_of_week = today_date + timedelta(days=7)
