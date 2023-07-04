@@ -1,7 +1,5 @@
 from django.contrib.auth.forms import UserCreationForm
-# from django.contrib.auth import forms
 from django import forms
-
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User, auth
 from django.urls import reverse_lazy
@@ -72,20 +70,14 @@ def custom_logout(request):
     return redirect("home")
 
 
-# class ContactForm(forms.ModelForm):
-#     class Meta:
-#         model = Contact
-#         fields = '__all__'
-
 class ContactForm(forms.ModelForm):
     """
     Contact Form
     """
-# name = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Name', 'style': 'width: 300px;', 'class': 'form-control'}))
     name = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Name', 'class': 'contact-field form-control'}))
-    email = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Email', 'class': 'contact-field form-control'}))
+    email = forms.EmailField(widget=forms.EmailInput(attrs={'placeholder': 'Email', 'class': 'contact-field form-control'}))
     subject = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Subject', 'class': 'contact-field form-control'}))
-    message = forms.EmailField(widget=forms.EmailInput(attrs={'placeholder': 'Write your message here!', 'class': 'message-field form-control'}))
+    message = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Write your message here!', 'class': 'message-field form-control'}))
 
     class Meta:
         model = Contact

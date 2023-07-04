@@ -18,13 +18,9 @@
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     <!--CSS-->
-    <!-- <link rel="stylesheet" href="{% static 'static/bootstrap/css/style.css' %}"> -->
-    <!-- <link rel="stylesheet" href="../static/css/style.css"> -->
     <link rel="stylesheet" type="text/css" href="{% static '/css/style.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static '/bootstrap/css/style.css' %}" />
 
-
-    <!-- <link rel="stylesheet" href="../static/bootstrap/css/styles.css"> -->
     <title>{% block title %}HerBody{% endblock %}</title>
 
 </head>
@@ -184,7 +180,7 @@
         integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous">
     </script>
     <!-- Core theme JS-->
-    <script src="../static/bootstrap/js/scripts.js"></script>
+    <script src="{% static 'bootstrap/js/scripts.js' %}"></script> 
 </body>
 
 </html>
