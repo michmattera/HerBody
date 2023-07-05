@@ -16,9 +16,9 @@
             </ul>
             <div class="row">
                 <div class="col booking-li right">
-                    <a href="{% url 'edit_booking' booking.id %}">
+                    <a href="{% url 'edit_booking' booking_id=booking.id %}">
                         <button class="btn btn-primary text-center">Edit</button>
-                    </a>
+                    </a>                    
                 </div>
                 <div class="col booking-li left">
                     <a href="{% url 'delete_booking' booking.id %}">
@@ -26,16 +26,6 @@
                     </a>
                 </div>
             </div>
-            <!-- <td> -->
-                <!-- <a href="{% url 'edit_booking' booking.id %}">
-                    <button class="btn btn-primary text-center">Edit booking</button>
-                </a> -->
-            <!-- </td>
-            <td>
-                <a href="{% url 'delete_booking' booking.id %}">
-                    <button class="btn btn-secondary text-center">Delete</button>
-                </a>
-            </td> -->
         </div>
         <!-- If object_list is empty  -->
         {% empty %}

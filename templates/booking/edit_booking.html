@@ -1,22 +1,54 @@
 {% extends "base.html" %}
-{% load crispy_forms_tags %}
+
 {% block content %}
+<div class="container">
+    <div class="booking-confirmation text-center">
+        <h1 class="text-uppercase text-center booking-title">Edit Booking</h1>
 
-<div class="booking-confirmation">
-    <h1 class="text-uppercase text-center booking-title">Update booking</h1>
+        <div class="container-booking-card">
+            <ul>
+                <li class="booking-li">Booking name: {{ booking.user }}</li>
+            </ul>
+        </div>
 
-    <div class="col-md-10 offset-md-1 mt-5">
-        <form method="post" autocomplete="off">
-            {%csrf_token%}
-            {{form|crispy}}
-            <div class="form-group text-center mt-3">
-                <button type="submit" class="btn btn-primary">Update</button>
-                <a href="{% url 'my_bookings' %}" class="btn-dark btn">Cancel</a>
+        <h2 class="text-center">Available Slots</h2>
+        <table class="slots-table">
+            <thead>
+                <tr>
+                    <th class="booking-subtitle">Date</th>
+                    <th class="booking-subtitle">1st lesson</th>
+                    <th class="booking-subtitle">2nd lesson</th>
+                    <th class="booking-subtitle">3rd lesson</th>
+                </tr>
+            </thead>
+            <tbody class="slots-body">
+                {% for slot in available_slots %}
+                <tr class="container-slots">
+                    <td class="date">{{ slot.date|date:"D d" }}</td>
+                    {% for time_slot in slot.time_slots %}
+                    {% if time_slot.status == 'Available' %}
+                    <td class="available">
+                        <a class="slot"
+                            href="{% url 'edit_booking_confirm' booking.id %}?date={{ slot.date }}&time={{ time_slot.time }}">{{ time_slot.time|time:"h:i A" }}</a>
+                    </td>
+                    {% else %}
+                    <td class="not-available"><span>Not Available</span></td>
+                    {% endif %}
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
 
+        <div class="row">
+            <div class="col booking-li right">
             </div>
-        </form>
+            <div class="col booking-li left">
+                <a href="{% url 'booking_form' %}">
+                    <button class="btn btn-secondary text-center">Cancel</button>
+                </a>
+            </div>
+        </div>
     </div>
 </div>
-
-
 {% endblock %}

@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="booking-confirmation">
+        <h1 class="text-uppercase text-center booking-title">Edit Booking Confirmation</h1>
+
+        <div class="container-booking-card">
+            <div class="row">
+                <div class="col booking-li left">
+                    Booking name:
+                </div>
+                <div class="col booking-li right">
+                    {{ booking.user }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col booking-li left">
+                    Old Date:
+                </div>
+                <div class="col booking-li right">
+                    {{ booking.date }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col booking-li left">
+                    Old Time:
+                </div>
+                <div class="col booking-li right">
+                    {{ booking.time }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col booking-li left">
+                    New Date:
+                </div>
+                <div class="col booking-li right">
+                    {{ new_date }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col booking-li left">
+                    New Time:
+                </div>
+                <div class="col booking-li right">
+                    {{ new_time }}
+                </div>
+            </div>
+            <form method="post">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col booking-li right">
+                        <a href="{% url 'my_bookings' %}">
+                            <button class="btn btn-primary text-center" type="submit">Save Changes</button>
+                        </a>
+                    </div>
+                    <div class="col booking-li left">
+                        <a href="{% url 'my_bookings' %}">
+                            <button class="btn btn-secondary text-center" type="button">Cancel</button>
+                        </a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

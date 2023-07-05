@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'cloudinary',
     'myproject',
     'booking',
+    'widget_tweaks',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap5'

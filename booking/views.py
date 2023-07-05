@@ -9,6 +9,8 @@ from datetime import datetime, date, timedelta, time
 from django.utils import timezone
 from dateutil.parser import parse
 from dateutil import parser
+from django.urls import reverse
+
 
 
 def get_available_slots():
@@ -132,33 +134,86 @@ def booking_form(request):
     return render(request, "booking/booking_form.html", {'form': form, 'available_slots': available_slots})
 
 
+# @login_required
+# def edit_booking(request, booking_id):
+#     booking = get_object_or_404(Booking, id=booking_id)
+#     form = BookingForm(instance=booking)
+
+#     if booking.user == request.user and request.method == 'POST':
+#         form = BookingForm(data=request.POST, instance=booking)
+#         if form.is_valid():
+#             user = request.user
+#             date = form.cleaned_data['date']
+
+#             if Booking.objects.filter(date=date).exists():
+#                 error_message = "This date is already booked. Please choose another date."
+#                 return render(request, "booking/booking_form.html", {'form': form, 'error_message': error_message})
+
+#             if Booking.objects.filter(user=user, date=date).exists():
+#                 error_message = "You have already booked an appointment for this date."
+#                 return render(request, "booking/booking_form.html", {'form': form, 'error_message': error_message})
+
+#             form.instance.user = user
+#             form.save()
+#             messages.success(request, 'Your booking has been changed successfully!')
+#             return redirect("my_bookings")
+#         else:
+#             error_message = "An error occurred. Please try again."
+
+#     return render(request, "booking/edit_booking.html", {'form': form})
 @login_required
 def edit_booking(request, booking_id):
-    booking = get_object_or_404(Booking, id=booking_id)
-    form = BookingForm(instance=booking)
+    booking = get_object_or_404(Booking, pk=booking_id)
 
-    if booking.user == request.user and request.method == 'POST':
-        form = BookingForm(data=request.POST, instance=booking)
+    if request.method == 'POST':
+        form = BookingForm(request.POST)
         if form.is_valid():
-            user = request.user
-            date = form.cleaned_data['date']
+            booking.date = form.cleaned_data['date']
+            booking.time = form.cleaned_data['time']
+            booking.save()
+            return redirect('booking_list')
+    else:
+        form = BookingForm(initial={'date': booking.date, 'time': booking.time})
 
-            if Booking.objects.filter(date=date).exists():
-                error_message = "This date is already booked. Please choose another date."
-                return render(request, "booking/booking_form.html", {'form': form, 'error_message': error_message})
+    available_slots = get_available_slots()
 
-            if Booking.objects.filter(user=user, date=date).exists():
-                error_message = "You have already booked an appointment for this date."
-                return render(request, "booking/booking_form.html", {'form': form, 'error_message': error_message})
+    return render(request, 'booking/edit_booking.html', {
+        'booking': booking,
+        'form': form,
+        'available_slots': available_slots,
+    })
 
-            form.instance.user = user
-            form.save()
-            messages.success(request, 'Your booking has been changed successfully!')
-            return redirect("my_bookings")
-        else:
-            error_message = "An error occurred. Please try again."
 
-    return render(request, "booking/edit_booking.html", {'form': form})
+@login_required
+def edit_booking_confirm(request, booking_id):
+    booking = get_object_or_404(Booking, id=booking_id)
+    new_date = request.GET.get('date')
+    new_time = request.GET.get('time')
+
+    if request.method == 'POST':
+        form = BookingForm(request.POST, instance=booking)
+        if form.is_valid():
+            # Remove the previous booking
+            booking.delete()
+
+            # Create a new booking with the updated data
+            new_booking = form.save(commit=False)
+            new_booking.user = request.user
+            new_booking.save()
+
+            return redirect('booking_list')
+    else:
+        form = BookingForm(instance=booking)
+
+    context = {
+        'form': form,
+        'booking': booking,
+        'new_date': new_date,
+        'new_time': new_time
+    }
+
+    return render(request, 'booking/edit_booking_confirm.html', context)
+
 
 
 @login_required

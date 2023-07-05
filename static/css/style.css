@@ -789,3 +789,13 @@ h4 {
   width: 100%;
 }
 }
+/* style for available and unavailable dates in edit booking */
+.available-date {
+  background-color: green;
+  color: white;
+}
+
+.unavailable-date {
+  background-color: red;
+  color: white;
+}

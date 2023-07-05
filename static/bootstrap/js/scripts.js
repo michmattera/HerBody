@@ -98,3 +98,49 @@ function initMap(data) {
 //         map: map,
 //     });
 // }
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Get the available dates from the server
+    var availableDates = ["2023-07-05", "2023-07-10", "2023-07-15"];
+    
+    // Calculate the date range (next 6 days)
+    var today = new Date();
+    var endRange = new Date();
+    endRange.setDate(today.getDate() + 6);
+    
+    // Initialize the datepicker
+    var datepicker = document.getElementById("datepicker");
+    datepicker.addEventListener("focus", function() {
+      // Show the datepicker when the input is focused
+      var options = {
+        dateFormat: "yy-mm-dd",
+        minDate: today,
+        maxDate: endRange,
+        beforeShowDay: function(date) {
+          var formattedDate = formatDate(date);
+          if (availableDates.includes(formattedDate)) {
+            // The date is available
+            return [true, "available-date", "Available"];
+          } else {
+            // The date is unavailable
+            return [false, "unavailable-date", "Unavailable"];
+          }
+        },
+        onSelect: function(dateText, inst) {
+          // Set the selected date to the input value
+          datepicker.value = dateText;
+        }
+      };
+      
+      jQuery(datepicker).datepicker(options);
+    });
+  
+    // Format date as "yyyy-mm-dd"
+    function formatDate(date) {
+      var year = date.getFullYear();
+      var month = ("0" + (date.getMonth() + 1)).slice(-2);
+      var day = ("0" + date.getDate()).slice(-2);
+      return year + "-" + month + "-" + day;
+    }
+  });
+  
