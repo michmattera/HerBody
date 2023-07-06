@@ -38,13 +38,40 @@ def get_available_slots():
     return available_slots
 
 
+# class booking_list(generic.ListView):
+#     model = Booking
+
+#     def get_queryset(self):
+#         today = date.today()
+#         end_of_week = today + timedelta(days=7)
+#         return self.model.objects.filter(user=self.request.user, date__range=[today, end_of_week])
 class booking_list(generic.ListView):
     model = Booking
+    template_name = 'booking/my_bookings.html'  # Specify the template name
 
     def get_queryset(self):
         today = date.today()
         end_of_week = today + timedelta(days=7)
-        return self.model.objects.filter(user=self.request.user, date__range=[today, end_of_week])
+        queryset = self.model.objects.filter(user=self.request.user, date__range=[today, end_of_week])
+
+        # Check if there are session variables for updated booking
+        new_date = self.request.session.get('new_date')
+        new_time = self.request.session.get('new_time')
+
+        print("New Date:", new_date)
+        print("New Time:", new_time)
+
+        if new_date and new_time:
+            # Create a new booking object with the updated date and time
+            new_booking = Booking(date=new_date, time=new_time, user=self.request.user)
+            queryset |= QuerySet([new_booking])  # Add the updated booking to the queryset
+
+        # Clear the session variables after retrieving them
+        self.request.session.pop('new_date', None)
+        self.request.session.pop('new_time', None)
+
+        return queryset
+
 
 
 @login_required
@@ -163,17 +190,20 @@ def booking_form(request):
 #     return render(request, "booking/edit_booking.html", {'form': form})
 @login_required
 def edit_booking(request, booking_id):
-    booking = get_object_or_404(Booking, pk=booking_id)
-
+    booking = get_object_or_404(Booking, id=booking_id)
     if request.method == 'POST':
-        form = BookingForm(request.POST)
+        form = BookingForm(data=request.POST, instance=booking)
         if form.is_valid():
-            booking.date = form.cleaned_data['date']
-            booking.time = form.cleaned_data['time']
-            booking.save()
-            return redirect('booking_list')
+            new_date = form.cleaned_data['date']
+            new_time = form.cleaned_data['time']
+            date = new_date
+            time = new_time
+            print(date)
+            print(time)
+            form.save()
+            return redirect('edit_booking_confirm', booking_id=booking_id)
     else:
-        form = BookingForm(initial={'date': booking.date, 'time': booking.time})
+        form = BookingForm(instance=booking)
 
     available_slots = get_available_slots()
 
@@ -184,37 +214,87 @@ def edit_booking(request, booking_id):
     })
 
 
+# def SessionUpdate(request,pk):
+# form_class=SessionForm
+# post = get_object_or_404(Sessions, pk=pk)
+# form = SessionForm(request.POST)
+# if request.method == "POST":
+#     if form.is_valid():
+#         form = SessionForm(request.POST, instance=post)
+#         form.save()
+#         return HttpResponseRedirect('/sessions')
 @login_required
 def edit_booking_confirm(request, booking_id):
     booking = get_object_or_404(Booking, id=booking_id)
+    form = BookingForm(data=request.POST, instance=booking)
+
     new_date = request.GET.get('date')
     new_time = request.GET.get('time')
-
+    # until here is working
+    # print(new_date)
     if request.method == 'POST':
-        form = BookingForm(request.POST, instance=booking)
+        form = BookingForm(data=request.POST, instance=booking)
         if form.is_valid():
-            # Remove the previous booking
-            booking.delete()
+            print("is valid the form")
 
-            # Create a new booking with the updated data
-            new_booking = form.save(commit=False)
-            new_booking.user = request.user
-            new_booking.save()
+            new_date = form.cleaned_data['date']
+            new_time = form.cleaned_data['time']
+            date = new_date
+            time = new_time
+            # here is showing new date and time : none
+            print(new_date)
+            form.save()  # Update the existing booking with the new data++
 
-            return redirect('booking_list')
+            # Update the booking's date and time
+            return redirect("my_bookings")
+
     else:
+        # the problem is that is going here instead of the post
+        print("This is the else the form is not post")
         form = BookingForm(instance=booking)
 
     context = {
         'form': form,
         'booking': booking,
         'new_date': new_date,
-        'new_time': new_time
+        'new_time': new_time,
     }
 
     return render(request, 'booking/edit_booking_confirm.html', context)
 
 
+
+
+
+
+# @login_required
+# def edit_booking_confirm(request, booking_id):
+#     booking = get_object_or_404(Booking, id=booking_id)
+#     new_date = request.GET.get('date')
+#     new_time = request.GET.get('time')
+
+#     if request.method == 'POST':
+#         form = BookingForm(request.POST, instance=booking)
+#         if form.is_valid():
+#             # Remove the previous booking
+#             booking.delete()
+
+#             # Create a new booking with the updated data
+#             new_booking = form.save(commit=False)
+#             new_booking.user = request.user
+#             new_booking.save()
+#             return redirect("my_bookings")
+#     else:
+#         form = BookingForm(instance=booking)
+
+#     context = {
+#         'form': form,
+#         'booking': booking,
+#         'new_date': new_date,
+#         'new_time': new_time
+#     }
+
+#     return render(request, 'booking/edit_booking_confirm.html', context)
 
 @login_required
 def delete_booking(request, booking_id):

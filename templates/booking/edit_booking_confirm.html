@@ -46,13 +46,11 @@
                     {{ new_time }}
                 </div>
             </div>
-            <form method="post">
+            <form method="POST" action="{% url 'edit_booking_confirm' booking_id=booking.id %}">
                 {% csrf_token %}
                 <div class="row">
                     <div class="col booking-li right">
-                        <a href="{% url 'my_bookings' %}">
-                            <button class="btn btn-primary text-center" type="submit">Save Changes</button>
-                        </a>
+                        <a href="{% url 'my_bookings'%}" class="btn btn-primary text-center" name="confirm" type="submit">confirm Booking</a>
                     </div>
                     <div class="col booking-li left">
                         <a href="{% url 'my_bookings' %}">
