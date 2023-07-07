@@ -29,6 +29,34 @@ from .models import Booking
 #             'date', 'time'
 #             ]
 
+# class BookingForm(forms.ModelForm):
+#     """
+#     Form to create booking
+#     """
+
+#     def __init__(self, *args, **kwargs):
+#         super().__init__(*args, **kwargs)
+#         self.fields['date'].widget = forms.widgets.DateInput(
+#             attrs={
+#                 'type': 'date',
+#                 'class': 'form-control',
+#                 'min': 'datetime.date.today',
+#                 'max': 'datetime.datetime.today() + datetime.timedelta(days=6)'
+#             }
+#         )
+#         self.fields['time'].widget = forms.widgets.TimeInput(
+#             attrs={
+#                 'type': 'time',
+#                 'class': 'form-control'
+#             }
+#         )
+
+#     class Meta:
+#         """ Set fields and labels """
+#         model = Booking
+#         fields = [
+#             'date', 'time'
+#         ]
 class BookingForm(forms.ModelForm):
     """
     Form to create booking
@@ -36,25 +64,12 @@ class BookingForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['date'].widget = forms.widgets.DateInput(
-            attrs={
-                'type': 'date',
-                'class': 'form-control',
-                'min': 'datetime.date.today',
-                'max': 'datetime.datetime.today() + datetime.timedelta(days=6)'
-            }
-        )
-        self.fields['time'].widget = forms.widgets.TimeInput(
-            attrs={
-                'type': 'time',
-                'class': 'form-control'
-            }
-        )
+        self.fields['time'].widget = forms.HiddenInput()
 
     class Meta:
         """ Set fields and labels """
         model = Booking
-        fields = [
-            'date', 'time'
-        ]
+        fields = ['date', 'time']
+
+
 

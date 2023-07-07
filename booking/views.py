@@ -223,44 +223,42 @@ def edit_booking(request, booking_id):
 #         form = SessionForm(request.POST, instance=post)
 #         form.save()
 #         return HttpResponseRedirect('/sessions')
+
 @login_required
 def edit_booking_confirm(request, booking_id):
     booking = get_object_or_404(Booking, id=booking_id)
-    form = BookingForm(data=request.POST, instance=booking)
 
-    new_date = request.GET.get('date')
-    new_time = request.GET.get('time')
-    # until here is working
-    # print(new_date)
+    date_comp = None  # Assign a default value to date_comp
+    time_comp = None
     if request.method == 'POST':
         form = BookingForm(data=request.POST, instance=booking)
         if form.is_valid():
-            print("is valid the form")
-
-            new_date = form.cleaned_data['date']
-            new_time = form.cleaned_data['time']
-            date = new_date
-            time = new_time
-            # here is showing new date and time : none
-            print(new_date)
-            form.save()  # Update the existing booking with the new data++
-
-            # Update the booking's date and time
+            form.save()
             return redirect("my_bookings")
-
     else:
-        # the problem is that is going here instead of the post
-        print("This is the else the form is not post")
-        form = BookingForm(instance=booking)
+        new_time = request.GET.get('time')
+
+        if new_time:
+            time_obj = parser.parse(new_time)
+            time_comp = time_obj.strftime('%H')  # Format time as 'HH'
+            date_comp = time_obj.date()
+
+        initial_data = {'date': date_comp, 'time': int(time_comp)}
+
+        form = BookingForm(instance=booking, initial=initial_data)
 
     context = {
         'form': form,
         'booking': booking,
-        'new_date': new_date,
-        'new_time': new_time,
+        'date': date_comp,
+        'time': time_comp,
     }
 
     return render(request, 'booking/edit_booking_confirm.html', context)
+
+
+
+
 
 
 
