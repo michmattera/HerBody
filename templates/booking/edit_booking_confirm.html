@@ -51,9 +51,7 @@
                 {% csrf_token %}
                 <div class="row">
                     <div class="col booking-li right">
-                        <input type = "submit" value = "Submit">
-                        <!-- <button class="btn btn-primary text-center" type="submit">Submit</button> -->
-                        <!-- <a href="{% url 'my_bookings'%}" class="btn btn-primary text-center" name="confirm" type="submit">confirm Booking</a> -->
+                        <input type = "submit" value = "Submit" class="btn btn-primary">
                     </div>
                     <div class="col booking-li left">
                         <a href="{% url 'my_bookings' %}">

@@ -4,6 +4,7 @@
 <div class="container">
     <div class="booking-confirmation text-center">
         <h1 class="text-uppercase text-center booking-title">List of your bookings</h1>
+        
         <!-- Iterate over booking list -->
         {% for booking in booking_list %}
         <!-- Display Objects -->
@@ -26,6 +27,11 @@
                 </div>
             </div>
         </div>
+        <td>
+            <a href="{% url 'booking_form'%}">
+                <button class="btn btn-primary text-center">Book here a session</button>
+            </a>
+        </td>
         <!-- If object_list is empty  -->
         {% empty %}
         <div class="container-booking-card">

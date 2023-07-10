@@ -58,9 +58,6 @@ class booking_list(generic.ListView):
         new_date = self.request.session.get('new_date')
         new_time = self.request.session.get('new_time')
 
-        print("New Date:", new_date)
-        print("New Time:", new_time)
-
         if new_date and new_time:
             # Create a new booking object with the updated date and time
             new_booking = Booking(date=new_date, time=new_time, user=self.request.user)
@@ -198,8 +195,6 @@ def edit_booking(request, booking_id):
             new_time = form.cleaned_data['time']
             date = new_date
             time = new_time
-            print(date)
-            print(time)
             form.save()
             return redirect('edit_booking_confirm', booking_id=booking_id)
     else:
@@ -213,16 +208,6 @@ def edit_booking(request, booking_id):
         'available_slots': available_slots,
     })
 
-
-# def SessionUpdate(request,pk):
-# form_class=SessionForm
-# post = get_object_or_404(Sessions, pk=pk)
-# form = SessionForm(request.POST)
-# if request.method == "POST":
-#     if form.is_valid():
-#         form = SessionForm(request.POST, instance=post)
-#         form.save()
-#         return HttpResponseRedirect('/sessions')
 
 @login_required
 def edit_booking_confirm(request, booking_id):
