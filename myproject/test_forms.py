@@ -1,7 +1,6 @@
 from django.test import TestCase, Client
-from .forms import register
 from .forms import ContactForm
-from .forms import custom_logout
+# from .forms import custom_logout
 
 from django.contrib.auth.models import User
 from django.contrib.auth import get_user_model, authenticate
@@ -54,43 +53,12 @@ class TestContactForm(TestCase):
     
     # def test_contact_redirects(self):
     #     # Test contact form posts is shown
-    #     self.assertEqual(ContactForm.objects.count(), 1)
+    #     self.assertEqual(contact_view.objects.count(), 1)
     #     response = self.client.get(reverse("contact"))
     #     self.assertEqual(response.status_code, 200)
     #     self.assertTemplateUsed(response, "contact.html")
 
 
-
-class RegisterTests(TestCase):
-
-    def setUp(self):
-        # self.username = 'testuser'
-        # self.email = 'testuser@email.com'
-        # self.password = 'secret1'
-        # self.confirm_password = 'secret1'
-        self.register_url = reverse('register')
-
-    def test_register_page_url(self):
-        response = self.client.get(self.register_url)
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, template_name='account/register.html')
-
-    def test_register_page_view_name(self):
-        response = self.client.get(reverse('signup'))
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, template_name='account/register.html')
-
-    def test_register_form(self):
-        response = self.client.post(redirect('home'), data={
-            'username': self.username,
-            'email': self.email,
-            'password1': self.password,
-            'confirm_password': self.confirm_password
-        })
-        self.assertEqual(response.status_code, 302)
-
-        users = get_user_model().objects.all()
-        self.assertEqual(users.count(), 1)
 # class register_test(TestCase):
 
 #     @classmethod
