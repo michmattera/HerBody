@@ -7,6 +7,8 @@ from django.contrib.auth import get_user_model, authenticate
 from django.core.exceptions import ValidationError
 from django.shortcuts import redirect
 from django.urls import reverse
+# test for the contact form and view
+from .views import contact_view
 
 # https://stackoverflow.com/questions/68680262/django-testing-how-to-make-a-request-as-logged-in-user
 
@@ -15,7 +17,7 @@ class TestContactForm(TestCase):
 
     def test_form_is_valid(self):
         # test form is valid
-        form_data = {"name": "name", "email": "test@email.com" , "subject": "testing", "message": "passwordtesting"}
+        form_data = {"name": "name1", "email": "test@email.com" , "subject": "testing", "message": "This is a test if the form works"}
         form = ContactForm(data=form_data)
         self.assertTrue(form.is_valid())
         
@@ -24,7 +26,7 @@ class TestContactForm(TestCase):
         form = ContactForm()
         self.assertTrue(
             form.fields["name"].label is None
-            or form.fields["name"].label == "name"
+            or form.fields["name"].label == "name1"
         )
 
     def test_contact_form_email_field_label(self):
@@ -50,13 +52,16 @@ class TestContactForm(TestCase):
             form.fields["message"].label is None
             or form.fields["message"].label == "message"
         )
-    
-    # def test_contact_redirects(self):
-    #     # Test contact form posts is shown
-    #     self.assertEqual(contact_view.objects.count(), 1)
-    #     response = self.client.get(reverse("contact"))
-    #     self.assertEqual(response.status_code, 200)
-    #     self.assertTemplateUsed(response, "contact.html")
+
+    def test_contact_form_submission(self):
+        # Test contact form posts to database
+        contact = contact_view.objects.last()
+        self.assertEqual(contact.name, "name")
+        self.assertEqual(contact.email, "test@email.com")
+        self.assertEqual(
+            contact.message,
+            "This is a test if the form works"
+        )
 
 
 # class register_test(TestCase):

@@ -3,7 +3,7 @@ from django.urls import resolve
 from django.urls import reverse
 from .views import Home, About, register
 from . import views
-from pprint import pprint
+from django.contrib.auth import get_user_model
 
 
 class TestTemplates(TestCase):
@@ -17,7 +17,6 @@ class TestTemplates(TestCase):
 
     def test_home_url_renders(self):
         # Test home page renders correctly
-        # response = self.client.get(reverse("home"))
         response = self.client.get('/')
         self.assertEqual(response.status_code, 200)
 
@@ -26,16 +25,21 @@ class TestTemplates(TestCase):
         response = self.client.get(reverse("home"))
         self.assertTemplateUsed(response, "index.html")
 
-    def test_about_url_accessible_by_name(self):
+    def test_about_url(self):
         # Test about page renders correctly
-        # response = self.client.get(reverse("/about/"))
         response = self.client.get(reverse('about'))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "about.html")
 
+    def test_contact_url(self):
+        # Test contact page renders correctly
+        response = self.client.get(reverse('contact'))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, "contact/contact.html")
+
 
 class RegisterTests(TestCase):
-
+    # Create SetUp with all fields for register model
     def setUp(self):
         self.username = 'testuser'
         self.email = 'testuser@email.com'
@@ -44,26 +48,24 @@ class RegisterTests(TestCase):
         self.register_url = reverse('register')
         
     def test_register_page_url(self):
-        # response = self.client.get('/register/')
-        # print(response.data)
-        # self.assertEqual(response.status_code, 200)
-        response = self.client.get('/')
-        # pprint(response.context['exception_value'])
+        # Test register url
+        response = self.client.get('/register/')
         self.assertEqual(response.status_code, 200)
-        # self.assertTemplateUsed(response, template_name='account/register.html')
 
     def test_register_page_view_name(self):
+        # Test register template
         response = self.client.get(reverse('register'))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, template_name='account/register.html')
 
-    # def test_register_form(self):
-    #     response = self.client.post(reverse('register'), data={
-    #         'username': self.username,
-    #         'email': self.email,
-    #         'password': self.password,
-    #         'confirm_password': self.confirm_password
-    #     })
-    #     self.assertEqual(response.status_code, 302)
-    #     users = get_user_model().objects.all()
-    #     self.assertEqual(users.count(), 1)
+    def test_register_form(self):
+        # Test register form
+        response = self.client.post(reverse('register'), data={
+            'username': self.username,
+            'email': self.email,
+            'password': self.password,
+            'confirm_password': self.confirm_password
+        })
+        self.assertEqual(response.status_code, 302)
+        users = get_user_model().objects.all()
+        self.assertEqual(users.count(), 1)
