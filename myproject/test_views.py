@@ -4,6 +4,10 @@ from django.urls import reverse
 from .views import Home, About, register
 from . import views
 from django.contrib.auth import get_user_model
+from django.test import RequestFactory
+from django.contrib import auth, messages
+from django.shortcuts import redirect, render
+from .views import login
 
 
 class TestTemplates(TestCase):
@@ -45,7 +49,6 @@ class RegisterTests(TestCase):
         self.email = 'testuser@email.com'
         self.password = 'secret1'
         self.confirm_password = 'secret1'
-        self.register_url = reverse('register')
         
     def test_register_page_url(self):
         # Test register url
@@ -69,3 +72,50 @@ class RegisterTests(TestCase):
         self.assertEqual(response.status_code, 302)
         users = get_user_model().objects.all()
         self.assertEqual(users.count(), 1)
+
+
+class LoginViewTests(TestCase):
+    def setUp(self):
+        self.username = 'testuser'
+        self.password = 'testpassword'
+        self.user = auth.get_user_model().objects.create_user(username=self.username, password=self.password)
+
+    def test_login_valid_credentials(self):
+        # Prepare test data
+        data = {
+            'username': self.username,
+            'password': self.password,
+        }
+
+        # Call the view function
+        response = self.client.post(reverse('login'), data=data)
+
+        # Assert the expected outcome
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.url, '/')
+        self.assertEqual(messages.get_messages(response.wsgi_request).__iter__().__next__().message, 'You have logged in correctly')
+
+    def test_login_invalid_credentials(self):
+        # Prepare test data
+        data = {
+            'username': 'invaliduser',
+            'password': 'invalidpassword',
+        }
+
+        # Call the view function
+        response = self.client.post(reverse('login'), data=data)
+
+        # Assert the expected outcome
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.url, '/login/')
+        self.assertEqual(messages.get_messages(response.wsgi_request).__iter__().__next__().message, 'Invalid Username or Password')
+
+    def test_login_get_request(self):
+        # Call the view function
+        response = self.client.get(reverse('login'))
+
+        # Assert the expected outcome
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'account/login.html')
+
+
