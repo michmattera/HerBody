@@ -1,15 +1,13 @@
 from django.test import TestCase, Client
-from .forms import ContactForm
-# from .forms import custom_logout
-
 from django.contrib.auth.models import User
 from django.contrib.auth import get_user_model, authenticate
 from django.core.exceptions import ValidationError
 from django.shortcuts import redirect
 from django.urls import reverse
 # test for the contact form and view
-from .views import contact_view
-from .models import Contact
+from myproject.forms import ContactForm
+from myproject.views import contact_view
+from myproject.models import Contact
 
 # https://stackoverflow.com/questions/68680262/django-testing-how-to-make-a-request-as-logged-in-user
 

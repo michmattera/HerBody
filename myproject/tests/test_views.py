@@ -1,13 +1,11 @@
 from django.test import TestCase, Client
 from django.urls import resolve
 from django.urls import reverse
-from .views import Home, About, register
-from . import views
+from myproject.views import Home, About, register, login, custom_logout
 from django.contrib.auth import get_user_model
 from django.test import RequestFactory
 from django.contrib import auth, messages
 from django.shortcuts import redirect, render
-from .views import login, custom_logout
 
 
 class TestTemplates(TestCase):
