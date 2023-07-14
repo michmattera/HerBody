@@ -62,7 +62,7 @@ def register(request):
             return redirect(register)
             
     else:
-        return render(request, 'account/register.html')
+        return render(request, 'accounts/register.html')
 
 
 # function to login the user
@@ -83,7 +83,7 @@ def login(request):
             return redirect('login')
 
     else:
-        return render(request, 'account/login.html')
+        return render(request, 'accounts/login.html')
 
 
 @login_required

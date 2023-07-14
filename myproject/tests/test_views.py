@@ -50,14 +50,14 @@ class RegisterTests(TestCase):
         
     def test_register_page_url(self):
         # Test register url
-        response = self.client.get('/register/')
+        response = self.client.get('/accounts/register/')
         self.assertEqual(response.status_code, 200)
 
     def test_register_page_view_name(self):
         # Test register template
         response = self.client.get(reverse('register'))
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, template_name='account/register.html')
+        self.assertTemplateUsed(response, template_name='accounts/register.html')
 
     def test_register_form(self):
         # Test register form
@@ -105,7 +105,7 @@ class LoginViewTests(TestCase):
 
         # Assert the expected outcome
         self.assertEqual(response.status_code, 302)
-        self.assertEqual(response.url, '/login/')
+        self.assertEqual(response.url, '/accounts/login/')
         self.assertEqual(messages.get_messages(response.wsgi_request).__iter__().__next__().message, 'Invalid Username or Password')
 
     def test_login_get_request(self):
@@ -114,7 +114,7 @@ class LoginViewTests(TestCase):
 
         # Assert the expected outcome
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'account/login.html')
+        self.assertTemplateUsed(response, 'accounts/login.html')
 
 
 class LogoutViewTests(TestCase):

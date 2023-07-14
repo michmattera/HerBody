@@ -16,10 +16,7 @@ class Booking(models.Model):
     Model for booking private lesson
     Model will save User, date, time of the lesson chosen
     """
-    def Date_validation(value):
-        if value < datetime.date.today():
-            raise ValidationError("The date cannot be in the past")
-    date = models.DateField(default=datetime.date.today, validators=[Date_validation])
+    date = models.DateField(default=datetime.date.today)
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="hiuser", default=User)
     time = models.IntegerField(choices=TIME_CHOISES, blank=False, default=9)

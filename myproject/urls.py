@@ -14,8 +14,8 @@ urlpatterns = [
     path('about/', views.About, name='about'),
 
     # url for account links
-    path('register/', views.register, name="register"),
-    path("login/", views.login, name="login"),
+    path('accounts/register/', views.register, name="register"),
+    path("accounts/login/", views.login, name="login"),
     path("logout/", views.custom_logout, name="logout"),
 
     # for contact links
