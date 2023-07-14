@@ -7,7 +7,7 @@ from django.contrib.auth import get_user_model
 from django.test import RequestFactory
 from django.contrib import auth, messages
 from django.shortcuts import redirect, render
-from .views import login
+from .views import login, custom_logout
 
 
 class TestTemplates(TestCase):
@@ -117,5 +117,25 @@ class LoginViewTests(TestCase):
         # Assert the expected outcome
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'account/login.html')
+
+
+class LogoutViewTests(TestCase):
+    def setUp(self):
+        self.user = auth.get_user_model().objects.create_user(username='testuser', password='testpassword')
+
+    def test_logout_view(self):
+        # Log in the user
+        self.client.login(username='testuser', password='testpassword')
+
+        # Call the view function
+        response = self.client.get(reverse('logout'))
+
+        # Assert the expected outcome
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.url, '/')
+        self.assertEqual(messages.get_messages(response.wsgi_request).__iter__().__next__().message, 'Logged out successfully!')
+
+        # Check if the user is logged out
+        self.assertFalse(auth.get_user(self.client).is_authenticated)
 
 
