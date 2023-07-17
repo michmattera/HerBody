@@ -97,8 +97,6 @@ class BookingFormViewTest(TestCase):
         self.assertIsNotNone(response.context['available_slots'])
 
 
-
-
 class BookingConfirmationViewTest(TestCase):
     def setUp(self):
         self.client = Client()
@@ -138,4 +136,78 @@ class BookingConfirmationViewTest(TestCase):
 
         # Assert that the response redirects to the login page
         self.assertRedirects(response, reverse('login') + '?next=' + url)
+
+
+class EditBookingViewTest(TestCase):
+    def setUp(self):
+        self.client = Client()
+        self.user = User.objects.create_user(username='testuser', password='testpassword')
+        self.booking = Booking.objects.create(user=self.user, date=datetime.now().date(), time=9)
+
+    def test_edit_booking(self):
+        self.client.force_login(self.user)
+        response = self.client.get(reverse('edit_booking', args=[self.booking.id]))
+        self.assertEqual(response.status_code, 200)
+        self.assertIsInstance(response.context['form'], BookingForm)
+        self.assertEqual(response.context['booking'], self.booking)
+        self.assertIsNotNone(response.context['available_slots'])
+
+
+class EditBookingConfirmViewTest(TestCase):
+    def setUp(self):
+        self.client = Client()
+        self.user = User.objects.create_user(username='testuser', password='testpassword')
+        self.booking = Booking.objects.create(user=self.user, date=datetime.now().date(), time=9)
+
+    def test_edit_booking_confirm_get(self):
+        self.client.force_login(self.user)
+        new_time = '10:00'  # Provide a specific time for testing
+        response = self.client.get(reverse('edit_booking_confirm', args=[self.booking.id]), {'time': new_time})
+        self.assertEqual(response.status_code, 200)
+        self.assertIsInstance(response.context['form'], BookingForm)
+        self.assertIsNotNone(response.context['date'])
+        self.assertIsNotNone(response.context['time'])
+
+    def test_edit_booking_confirm_post(self):
+        self.client.force_login(self.user)
+        new_date = datetime.now().date() + timedelta(days=1)
+        new_time = None  # Set new_time to None
+        form_data = {
+            'date': new_date,
+        }
+        response = self.client.post(reverse('edit_booking_confirm', args=[self.booking.id]), data=form_data)
+        self.assertEqual(response.status_code, 200)  # Expect a status code of 200 (form not valid)
+
+        # Check if the booking has not been updated
+        updated_booking = Booking.objects.get(id=self.booking.id)
+        self.assertEqual(updated_booking.date, self.booking.date)
+        self.assertEqual(updated_booking.time, self.booking.time)
+
+
+
+
+class DeleteBookingViewTest(TestCase):
+    def setUp(self):
+        self.client = Client()
+        self.user = User.objects.create_user(username='testuser', password='testpassword')
+        self.booking = Booking.objects.create(user=self.user, date=datetime.now().date(), time=9)
+
+    def test_delete_booking(self):
+        self.client.force_login(self.user)
+        response = self.client.get(reverse('delete_booking', args=[self.booking.id]))
+        self.assertEqual(response.status_code, 200)
+
+    def test_delete_booking_post(self):
+        self.client.force_login(self.user)
+        response = self.client.post(reverse('delete_booking', args=[self.booking.id]))
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.url, reverse('my_bookings'))
+
+        # Check if the booking has been deleted
+        with self.assertRaises(Booking.DoesNotExist):
+            Booking.objects.get(id=self.booking.id)
+
+
+
+
 

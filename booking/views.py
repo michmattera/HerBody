@@ -131,21 +131,33 @@ def booking_form(request):
 
 
 
+# @login_required
+# def edit_booking(request, booking_id):
+#     booking = get_object_or_404(Booking, id=booking_id)
+#     if request.method == 'POST':
+#         form = BookingForm(data=request.POST, instance=booking)
+#         if form.is_valid():
+#             new_date = form.cleaned_data['date']
+#             new_time = form.cleaned_data['time']
+#             date = new_date
+#             time = new_time
+#             form.save()
+#             return redirect('edit_booking_confirm', booking_id=booking_id)
+#     else:
+#         form = BookingForm(instance=booking)
+
+#     available_slots = get_available_slots()
+
+#     return render(request, 'booking/edit_booking.html', {
+#         'booking': booking,
+#         'form': form,
+#         'available_slots': available_slots,
+#     })
 @login_required
 def edit_booking(request, booking_id):
     booking = get_object_or_404(Booking, id=booking_id)
-    if request.method == 'POST':
-        form = BookingForm(data=request.POST, instance=booking)
-        if form.is_valid():
-            new_date = form.cleaned_data['date']
-            new_time = form.cleaned_data['time']
-            date = new_date
-            time = new_time
-            form.save()
-            return redirect('edit_booking_confirm', booking_id=booking_id)
-    else:
-        form = BookingForm(instance=booking)
 
+    form = BookingForm(instance=booking)
     available_slots = get_available_slots()
 
     return render(request, 'booking/edit_booking.html', {
@@ -155,11 +167,10 @@ def edit_booking(request, booking_id):
     })
 
 
-@login_required
 def edit_booking_confirm(request, booking_id):
     booking = get_object_or_404(Booking, id=booking_id)
 
-    date_comp = None  # Assign a default value to date_comp
+    date_comp = None
     time_comp = None
     if request.method == 'POST':
         form = BookingForm(data=request.POST, instance=booking)
@@ -171,12 +182,14 @@ def edit_booking_confirm(request, booking_id):
 
         if new_time:
             time_obj = parser.parse(new_time)
-            time_comp = time_obj.strftime('%H')  # Format time as 'HH'
+            time_comp = time_obj.strftime('%H')
             date_comp = time_obj.date()
 
-        initial_data = {'date': date_comp, 'time': int(time_comp)}
-
+        initial_data = {'date': date_comp, 'time': time_comp or 0}  # Use 0 as the default value for time_comp
         form = BookingForm(instance=booking, initial=initial_data)
+
+    if form is None:
+        form = BookingForm()  # Create a default form
 
     context = {
         'form': form,
@@ -186,6 +199,8 @@ def edit_booking_confirm(request, booking_id):
     }
 
     return render(request, 'booking/edit_booking_confirm.html', context)
+
+
 
 
 @login_required
