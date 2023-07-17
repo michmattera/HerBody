@@ -167,10 +167,11 @@ def edit_booking(request, booking_id):
     })
 
 
+@login_required
 def edit_booking_confirm(request, booking_id):
     booking = get_object_or_404(Booking, id=booking_id)
 
-    date_comp = None
+    date_comp = None  # Assign a default value to date_comp
     time_comp = None
     if request.method == 'POST':
         form = BookingForm(data=request.POST, instance=booking)
@@ -182,14 +183,12 @@ def edit_booking_confirm(request, booking_id):
 
         if new_time:
             time_obj = parser.parse(new_time)
-            time_comp = time_obj.strftime('%H')
+            time_comp = time_obj.strftime('%H')  # Format time as 'HH'
             date_comp = time_obj.date()
 
-        initial_data = {'date': date_comp, 'time': time_comp or 0}  # Use 0 as the default value for time_comp
-        form = BookingForm(instance=booking, initial=initial_data)
+        initial_data = {'date': date_comp, 'time': int(time_comp)}
 
-    if form is None:
-        form = BookingForm()  # Create a default form
+        form = BookingForm(instance=booking, initial=initial_data)
 
     context = {
         'form': form,
@@ -199,8 +198,6 @@ def edit_booking_confirm(request, booking_id):
     }
 
     return render(request, 'booking/edit_booking_confirm.html', context)
-
-
 
 
 @login_required

@@ -72,67 +72,73 @@ class RegisterTests(TestCase):
         self.assertEqual(users.count(), 1)
 
 
+# Testinglogin view
 class LoginViewTests(TestCase):
+    # Setting up the user with password and username
     def setUp(self):
         self.username = 'testuser'
         self.password = 'testpassword'
         self.user = auth.get_user_model().objects.create_user(username=self.username, password=self.password)
 
+    # Testing the login with valid credentials
     def test_login_valid_credentials(self):
         # Prepare test data
         data = {
             'username': self.username,
             'password': self.password,
         }
-
         # Call the view function
         response = self.client.post(reverse('login'), data=data)
-
         # Assert the expected outcome
         self.assertEqual(response.status_code, 302)
         self.assertEqual(response.url, '/')
-        self.assertEqual(messages.get_messages(response.wsgi_request).__iter__().__next__().message, 'You have logged in correctly')
+        self.assertEqual(
+            messages.get_messages(response.wsgi_request).__iter__().__next__().message,
+            'You have logged in correctly')
 
+    # Test the login with wrong credentias
     def test_login_invalid_credentials(self):
         # Prepare test data
         data = {
             'username': 'invaliduser',
             'password': 'invalidpassword',
         }
-
         # Call the view function
         response = self.client.post(reverse('login'), data=data)
-
         # Assert the expected outcome
         self.assertEqual(response.status_code, 302)
         self.assertEqual(response.url, '/accounts/login/')
         self.assertEqual(messages.get_messages(response.wsgi_request).__iter__().__next__().message, 'Invalid Username or Password')
 
+    # Test the login get request
     def test_login_get_request(self):
         # Call the view function
         response = self.client.get(reverse('login'))
-
         # Assert the expected outcome
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'accounts/login.html')
 
 
+# Testing the logout view
 class LogoutViewTests(TestCase):
+    # Settig up the user
     def setUp(self):
-        self.user = auth.get_user_model().objects.create_user(username='testuser', password='testpassword')
+        self.user = auth.get_user_model().objects.create_user(
+            username='testuser',
+            password='testpassword')
 
+    # Test if the user after login , with the logout view is not authenticate
     def test_logout_view(self):
         # Log in the user
         self.client.login(username='testuser', password='testpassword')
-
         # Call the view function
         response = self.client.get(reverse('logout'))
-
         # Assert the expected outcome
         self.assertEqual(response.status_code, 302)
         self.assertEqual(response.url, '/')
-        self.assertEqual(messages.get_messages(response.wsgi_request).__iter__().__next__().message, 'Logged out successfully!')
-
+        self.assertEqual(
+            messages.get_messages(response.wsgi_request).__iter__().__next__().message,
+            'Logged out successfully!')
         # Check if the user is logged out
         self.assertFalse(auth.get_user(self.client).is_authenticated)
 
