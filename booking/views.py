@@ -124,31 +124,11 @@ def booking_form(request):
         messages.warning(request, 'You have already booked two sessions this week. You cannot book another session.')
         return redirect("my_bookings")
 
-
-    if request.method == 'POST':
-        form = BookingForm(request.POST)
-        if form.is_valid():
-            slot = form.cleaned_data['slot']
-            date = slot.date()
-            time = slot.time()
-
-            if Booking.objects.filter(date=date, time=time).exists():
-                error_message = "This slot is already booked. Please choose another slot."
-                return render(request, "booking/booking_form.html", {'error_message': error_message})
-
-            # Set session variables
-            request.session['booking_date'] = str(date)
-            request.session['booking_time'] = str(time)
-
-            # Redirect to booking_confirmation view with query parameters
-            return redirect('booking_confirmation?date={}&time={}'.format(str(date), str(time)))
-
-    else:
-        form = BookingForm()
-
+    form = BookingForm()
     available_slots = get_available_slots()
 
     return render(request, "booking/booking_form.html", {'form': form, 'available_slots': available_slots})
+
 
 
 @login_required
