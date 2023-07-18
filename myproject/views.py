@@ -79,7 +79,7 @@ def login(request):
 
             return redirect('home')
         else:
-            messages.info(request, 'Invalid Username or Password')
+            messages.warning(request, 'Invalid Username or Password')
             return redirect('login')
 
     else:
