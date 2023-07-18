@@ -75,7 +75,7 @@ h4 {
 
 /* buttons */
 .btn-primary {
-  --bs-btn-color: #F3EFEE;
+  --bs-btn-color: #FFF;
   --bs-btn-bg: #d63384;
   --bs-btn-hover-color: #d63384;
   --bs-btn-hover-bg: #F3EFEE;
@@ -371,7 +371,7 @@ h4 {
 
 .Copyright {
   background-color: #d63384;
-  color: #F3EFEE;
+  color: #FFF;
 }
 
 .footer-text>* {
