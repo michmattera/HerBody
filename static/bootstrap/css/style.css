@@ -12408,8 +12408,7 @@ p {
   color: black;
   letter-spacing: 0.0625em; */
 /* } */
-#mainNav .navbar-nav .nav-item .nav-link.active,
-#mainNav .navbar-nav .nav-item .nav-link:hover {
+#mainNav .navbar-nav .nav-item .nav-link.active {
   color: var(--bs-pink);
 }
 
@@ -12466,10 +12465,11 @@ header.masthead {
   background-size: cover;
 }
 .home-pic{
-  background-image: url(../../assets/images/woman_with_weights.webp);
+  background-image: url(../../assets/images/woman-with-weights-compressed.JPG);
   background-position: center center;
 
 }
+
 .contact-pic{
   margin-top: 80px;
   background-image: url(../../assets/images/contact.jpg);

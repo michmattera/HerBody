@@ -42,6 +42,8 @@ def get_available_slots():
     time_choices = Booking._meta.get_field('time').choices
     for day in range(0, 6):
         current_date = start_of_week + timedelta(days=day)
+        if current_date < today_date:  # Check if the date is in the past
+            continue
         time_slots = []
 
         for hour, label in time_choices:

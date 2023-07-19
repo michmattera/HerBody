@@ -19,6 +19,14 @@ purple text color or inverted background
 .active {
   border: 3px solid #241E30;
 }
+.nav-item:hover{
+  font-weight: bolder;
+  transform: scale(1.2);
+
+}
+.active-nav{
+  border-bottom: 3px solid #241E30;
+}
 
 .paragraph {
   background-color: #241E30;
