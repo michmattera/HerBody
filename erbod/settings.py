@@ -29,7 +29,7 @@ GOOGLE_MAPS_API_KEY = os.environ.get('GOOGLE_MAPS_API_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['her-body.herokuapp.com', 'localhost', '8000-michmattera-herbody-gbxqj18gckg.ws-us101.gitpod.io']
+ALLOWED_HOSTS = ['her-body.herokuapp.com', 'localhost', '8000-michmattera-herbody-gbxqj18gckg.ws-us102.gitpod.io']
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 
@@ -50,10 +50,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'cloudinary_storage',
     'django.contrib.staticfiles',
+    'cloudinary',
     'crispy_forms',
     'crispy_bootstrap5',
-    # 'bootstrap_datepicker_plus',
-    'cloudinary',
     'myproject',
     'booking',
     'widget_tweaks',
@@ -98,11 +97,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'erbod.wsgi.application'
-
-
-
-# Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 
 DATABASES = {
@@ -155,12 +149,6 @@ STATIC_URL = '/static/'
 STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
 MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

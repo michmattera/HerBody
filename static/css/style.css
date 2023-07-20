@@ -346,7 +346,8 @@ h4 {
 }
 
 .place-review {
-  color: #d63384;
+  /* color: #d63384; */
+  color: #241E30;
   font-style: italic;
 }
 
