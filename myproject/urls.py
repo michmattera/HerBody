@@ -10,7 +10,7 @@ from django.urls import path
 urlpatterns = [
     # url for navigation links
     # path('', views.Home.as_view(), name='home'),
-    path('', views.Home, name='home'),
+    path('/', views.Home, name='home'),
     path('about/', views.About, name='about'),
 
     # url for account links
