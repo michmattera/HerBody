@@ -3269,7 +3269,7 @@ textarea.form-control.is-invalid {
 .btn.active,
 .btn.show {
   color: var(--bs-btn-active-color);
-  background-color: var(--bs-btn-active-bg);
+  /* background-color: var(--bs-btn-active-bg); */
   border-color: var(--bs-btn-active-border-color);
 }
 
@@ -3369,6 +3369,7 @@ fieldset:disabled .btn {
 
 .dropdown-toggle {
   white-space: nowrap;
+  margin: 7%;
   
 }
 
@@ -3406,7 +3407,7 @@ fieldset:disabled .btn {
   --bs-dropdown-link-color: #212529;
   --bs-dropdown-link-hover-color: #1e2125;
   --bs-dropdown-link-hover-bg: #e9ecef;
-  --bs-dropdown-link-active-color: #fff;
+  --bs-dropdown-link-active-color: #d63384;
   --bs-dropdown-link-active-bg: #d63384;
   --bs-dropdown-link-disabled-color: #adb5bd;
   --bs-dropdown-item-padding-x: 1rem;
@@ -3684,6 +3685,7 @@ fieldset:disabled .btn {
 
 .dropdown-menu.show {
   display: block;
+  /* border: 3px solid #241E30; */
 }
 
 .dropdown-header {

@@ -504,8 +504,6 @@ h4 {
   padding: 1rem;
   border: 5px solid #d63384;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
-
 }
 
 .contact-side {
@@ -732,6 +730,9 @@ h4 {
 
   .flex-column-rules {
     flex-direction: column;
+  }
+  .title-container {
+    margin-top: 60px;
   }
 
   .text-side {
