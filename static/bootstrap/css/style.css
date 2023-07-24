@@ -12481,17 +12481,9 @@ header.masthead {
   background-size: cover;
 }
 .home-pic{
-  background-image: url(/static/images/woman-with-weights-compressed.jpg);
+  /* background-image: url('/static/images/woman-with-weights-compressed.jpg'); */
   background-position: center center;
 
-}
-
-.contact-pic{
-  margin-top: 80px;
-  background-image: url('{% static "images/contact.jpg" %}');
-  height: 100px;                     
-  background-position: top;
-  padding-bottom: 0;
 }
 
 header.masthead .masthead-subheading {

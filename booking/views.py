@@ -11,11 +11,18 @@ from dateutil.parser import parse
 from dateutil import parser
 from django.urls import reverse
 
-
 def get_week_start_end_dates(today_date):
-    days_until_tuesday = (today_date.weekday() - 1) % 7
-    start_of_week = today_date - timedelta(days=days_until_tuesday)
+    current_weekday = today_date.weekday()
+
+    # Calculate the start and end dates for the current week, excluding Monday
+    if current_weekday == 0:  # If today is Monday, skip to Tuesday
+        start_of_week = today_date + timedelta(days=1)
+    else:
+        days_until_tuesday = (1 - current_weekday) % 7
+        start_of_week = today_date + timedelta(days=days_until_tuesday)
+
     end_of_week = start_of_week + timedelta(days=6)
+
     return start_of_week, end_of_week
 
 def get_week_start_date(today):
@@ -23,7 +30,6 @@ def get_week_start_date(today):
     days_to_tuesday = (current_weekday - 1) % 7
     start_of_week = today - timedelta(days=days_to_tuesday)
     return start_of_week
-
 
 def get_week_end_date(today):
     current_weekday = today.weekday()
@@ -35,14 +41,14 @@ def get_week_end_date(today):
 def get_available_slots():
     today_date = timezone.localdate()
     start_of_week, end_of_week = get_week_start_end_dates(today_date)
-    
+
     booked_slots = Booking.objects.filter(date__range=[start_of_week, end_of_week]).values_list('date', 'time')
     available_slots = []
 
     time_choices = Booking._meta.get_field('time').choices
-    for day in range(0, 6):
+    for day in range(0, 7):  # Adjusted range to include Sunday
         current_date = start_of_week + timedelta(days=day)
-        if current_date < today_date:  # Check if the date is in the past
+        if current_date < today_date or current_date.weekday() == 0:  # Check if the date is in the past or Monday
             continue
         time_slots = []
 
@@ -59,36 +65,13 @@ def get_available_slots():
 
     return available_slots
 
-# def get_available_slots():
-#     today_date = timezone.localdate()
-#     end_of_week = today_date + timedelta(days=7)
-#     booked_slots = Booking.objects.filter(date__range=[today_date, end_of_week]).values_list('date', 'time')
-#     available_slots = []
-
-#     time_choices = Booking._meta.get_field('time').choices
-#     for day in range(1, 7):
-#         current_date = today_date + timedelta(days=day)
-#         time_slots = []
-
-#         for hour, label in time_choices:
-#             current_time = time(hour)
-#             current_slot = datetime.combine(current_date, current_time)
-#             if (current_date, hour) in booked_slots:
-#                 slot_status = 'Booked'
-#             else:
-#                 slot_status = 'Available'
-#             time_slots.append({'time': current_slot, 'status': slot_status})
-
-#         available_slots.append({'date': current_date, 'time_slots': time_slots})
-
-#     return available_slots
 
 class booking_list(generic.ListView):
     model = Booking
     template_name = 'booking/my_bookings.html'
 
     def get_queryset(self):
-        today = date.today()
+        today = timezone.localdate()
         start_of_week = get_week_start_date(today)
         end_of_week = get_week_end_date(today)
 
@@ -102,31 +85,6 @@ class booking_list(generic.ListView):
         self.request.session.pop('new_time', None)
 
         return queryset
-
-# class booking_list(generic.ListView):
-#     model = Booking
-#     template_name = 'booking/my_bookings.html'  # Specify the template name
-
-#     def get_queryset(self):
-#         today = date.today()
-#         end_of_week = today + timedelta(days=7)
-#         queryset = self.model.objects.filter(user=self.request.user, date__range=[today, end_of_week])
-
-#         # Check if there are session variables for updated booking
-#         new_date = self.request.session.get('new_date')
-#         new_time = self.request.session.get('new_time')
-
-#         if new_date and new_time:
-#             # Create a new booking object with the updated date and time
-#             new_booking = Booking(date=new_date, time=new_time, user=self.request.user)
-#             queryset |= QuerySet([new_booking])  # Add the updated booking to the queryset
-
-#         # Clear the session variables after retrieving them
-#         self.request.session.pop('new_date', None)
-#         self.request.session.pop('new_time', None)
-
-#         return queryset
-
 
 
 @login_required
@@ -174,8 +132,6 @@ def booking_confirmation(request):
 
     return render(request, 'booking/booking_confirmation.html', context)
 
-
-
 @login_required
 def booking_form(request):
     user = request.user
@@ -192,6 +148,8 @@ def booking_form(request):
     available_slots = get_available_slots()
 
     return render(request, "booking/booking_form.html", {'form': form, 'available_slots': available_slots})
+
+
 
 
 @login_required

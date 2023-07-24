@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-
-<header class="masthead home-pic">
+<!-- https://www.youtube.com/watch?v=UGbyOSvA8rI for background-image using django and static -->
+<header class="masthead home-pic" style="background-image: url('{% static 'images/woman-with-weights-compressed.jpg' %}');">
     <div class="container overlay">
         <div class="masthead-subheading">Strong women lift each other up</div>
         {% if user.is_authenticated %}
