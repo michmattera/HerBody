@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 <!-- https://www.youtube.com/watch?v=UGbyOSvA8rI for background-image using django and static -->
-<header class="masthead home-pic" style="background-image: url('{% static 'images/woman-with-weights-compressed.jpg' %}');">
+<header class="masthead home-pic" style="background-image: url('{% static 'images/woman-with-weights-compressed.webp' %}');">
     <div class="container overlay">
         <div class="masthead-subheading">Strong women lift each other up</div>
         {% if user.is_authenticated %}
@@ -111,7 +111,7 @@
 
             <div class="review">
                 <div class="head-review">
-                    <img src="{% static 'bootstrap/assets/img/team/2.jpg' %}" alt="woman with curly blonde hair smiling" width="250px">
+                    <img src="{% static 'bootstrap/assets/img/team/mom_hugging_child.webp' %}" alt="woman hugging her daughter" width="250px">
                 </div>
                 <div class="body-review">
                     <div class="name-review">Maribel</div>
