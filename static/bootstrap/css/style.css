@@ -12489,7 +12489,7 @@ header.masthead {
 .contact-pic{
   margin-top: 80px;
   background-image: url('{% static "images/contact.jpg" %}');
-  height: 100px;
+  height: 100px;                     
   background-position: top;
   padding-bottom: 0;
 }
