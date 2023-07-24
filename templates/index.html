@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block content %}
 
 <header class="masthead home-pic">
@@ -89,7 +89,7 @@
         <div class="reviews">
             <div class="review">
                 <div class="head-review">
-                    <img src="https://res.cloudinary.com/dvq4ujlbt/image/upload/v1689782723/woman_green_shirt_iwthrl.webp" alt="woman with green shirt smiling" width="250px">
+                    <img src="{% static 'images/woman_running.jpg' %}" alt="woman with green shirt smiling" width="250px">
                 </div>
                 <div class="body-review">
                     <div class="name-review">Daniela</div>
@@ -132,8 +132,7 @@
 
             <div class="review">
                 <div class="head-review">
-                    <img src="static/images/woman_woods.webp" alt="woman looking at the camera in the woods " width="250px">
-                    <!-- <img src="{% static 'images/woman_woods.webp' %}" alt="woman looking at the camera in the woods " width="250px"> -->
+                    <img src="../static/images/woman_woods.webp" alt="woman looking at the camera in the woods " width="250px">
                     
                 </div>
                 <div class="body-review">
