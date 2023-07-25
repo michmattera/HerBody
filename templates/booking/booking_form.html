@@ -10,7 +10,8 @@
         <div class="row flex-column-rules" id="no-padding">
             <div class="col">
                 {% load static %}
-                <img class="half" src="{% static 'images/woman_running.webp' %}" alt="woman looking at a clock while running in the gym">
+                <img class="half" src="{% static 'images/woman_running.webp' %}"
+                    alt="woman looking at a clock while running in the gym">
             </div>
             <div class="col">
                 <div class="text-side">
@@ -37,7 +38,7 @@
                     </ol>
                     <p class="text-uppercase">for any issues or problems please contact us</p>
                     <!-- <a href="{% url 'contact'%}"> -->
-                        <a href="{% url 'contact'%}" class="btn btn-primary">Contact Us</a>
+                    <a href="{% url 'contact'%}" class="btn btn-primary">Contact Us</a>
                     <!-- </a> -->
                 </div>
             </div>
@@ -62,13 +63,11 @@
             {% for slot in available_slots %}
             <tr class="container-slots">
                 <td class="date">{{ slot.date|date:"D d" }}</td>
-                <!-- {{ value|date:"SHORT_DATE_FORMAT" }} -->
                 {% for time_slot in slot.time_slots %}
                 {% if time_slot.status == 'Available' %}
                 <td class="available"><a class="slot"
-                        href="{% url 'booking_confirmation' %}?date={{ slot.date }}&time={{ time_slot.time }}">{{ time_slot.time|time:"h:i A" }}</a>
+                        href="{% url 'booking_confirmation' %}?date={{ slot.date|date:'Y-m-d' }}&time={{ time_slot.time|time:'H:i' }}">{{ time_slot.time|time:"h:i A" }}</a>
                 </td>
-
                 {% else %}
                 <td class="not-available"><span>Not Available</span></td>
                 {% endif %}
@@ -76,6 +75,7 @@
             </tr>
             {% endfor %}
         </tbody>
+        
     </table>
 </div>
 

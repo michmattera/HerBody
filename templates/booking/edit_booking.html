@@ -29,8 +29,10 @@
                     {% if time_slot.status == 'Available' %}
                     <td class="available">
                         <a class="slot"
-                            href="{% url 'edit_booking_confirm' booking.id %}?date={{ slot.date }}&time={{ time_slot.time }}">{{ time_slot.time|time:"h:i A" }}</a>
+                            href="{% url 'edit_booking_confirm' booking.id %}?date={{ slot.date|date:'Y-m-d'|urlencode }}&time={{ time_slot.time|time:'H:i'|urlencode }}">{{ time_slot.time|time:"h:i A" }}</a>
                     </td>
+
+
                     {% else %}
                     <td class="not-available"><span>Not Available</span></td>
                     {% endif %}
@@ -41,9 +43,8 @@
         </table>
 
         <div class="row">
-                <a href="{% url 'booking_form' %}">
-                    <button class="btn btn-secondary text-center">Cancel</button>
-                </a>
+            <a href="{% url 'booking_form' %}" class="btn btn-secondary text-center" role="button">Cancel</a>
+
         </div>
     </div>
 </div>

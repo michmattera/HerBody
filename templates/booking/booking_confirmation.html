@@ -31,18 +31,16 @@
                     Time:
                 </div>
                 <div class="col booking-li right">
-                    <td>{{ booking.time }}</td>
+                    {{ booking.time }}
                 </div>
             </div>
         </div>
-        <form method = "post">
+        <form method="post">
             {% csrf_token %}
-            <!-- <a href="{% url 'my_bookings'%}">Confirm Booking</a> -->
-            
-            <a href="{% url 'my_bookings'%}" class="btn btn-primary text-center" name="confirm" type="submit">confirm Booking</a>
-            <button class="btn btn-primary text-center" type="submit" name="cancel">cancel</button>
-        
+            <a href="{% url 'my_bookings'%}" class="btn btn-primary text-center" id="confirm" role="button">Confirm Booking</a>
+            <button class="btn btn-primary text-center" type="submit" id="cancel" name="cancel">Cancel</button>
         </form>
+        
     </div>
     {% else %}
     <div class="booking-confirmation">
@@ -52,7 +50,7 @@
             <p class="text-center">Do you want to cancel the booking?</p>
             <form method="post">
                 {% csrf_token %}
-                <button class="btn btn-primary text-center" type="submit" name="cancel">Cancel Booking</button>
+                <button class="btn btn-primary text-center" type="submit" id="cancel">Cancel Booking</button>
                 
             </form>
         </div>

@@ -4,7 +4,7 @@
 <div class="container">
     <div class="booking-confirmation text-center">
         <h1 class="text-uppercase text-center booking-title">List of your bookings</h1>
-        
+
         <!-- Iterate over booking list -->
         {% for booking in booking_list %}
         <!-- Display Objects -->
@@ -16,14 +16,12 @@
             </ul>
             <div class="row">
                 <div class="col booking-li right">
-                    <a href="{% url 'edit_booking' booking_id=booking.id %}">
-                        <button class="btn btn-primary text-center">Edit</button>
-                    </a>                    
+                    <a href="{% url 'edit_booking' booking_id=booking.id %}" class="btn btn-primary text-center"
+                    role="button">Edit</a>
                 </div>
                 <div class="col booking-li left">
-                    <a href="{% url 'delete_booking' booking.id %}">
-                        <button class="btn btn-secondary text-center">Delete</button>
-                    </a>
+                    <a href="{% url 'delete_booking' booking.id %}" class="btn btn-secondary text-center"
+                        role="button">Delete</a>
                 </div>
             </div>
         </div>
@@ -35,12 +33,8 @@
             </ul>
         </div>
         {% endfor %}
-        <td>
-            <a href="{% url 'booking_form'%}">
-                <button class="btn btn-primary text-center">Book here a session</button>
-            </a>
-        </td>
-
+            <a href="{% url 'booking_form'%}" class="btn btn-primary text-center"
+            role="button">Book here a session</a>
     </div>
 </div>
 {% endblock %}
