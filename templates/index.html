@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
+
 <!-- https://www.youtube.com/watch?v=UGbyOSvA8rI for background-image using django and static -->
 <header class="masthead home-pic" style="background-image: url('{% static 'images/woman-with-weights-compressed.webp' %}');">
     <div class="container overlay">
@@ -89,7 +90,7 @@
         <div class="reviews">
             <div class="review">
                 <div class="head-review">
-                    <img src="{% static 'images/woman_green_shirt.webp' %}" alt="woman with green shirt smiling" width="250px">
+                    <img src="{% static 'images/woman_green_shirt.webp' %}" alt="woman with green shirt smiling" width="250">
                 </div>
                 <div class="body-review">
                     <div class="name-review">Daniela</div>
@@ -111,7 +112,7 @@
 
             <div class="review">
                 <div class="head-review">
-                    <img src="{% static 'bootstrap/assets/img/team/mom_hugging_child.webp' %}" alt="woman hugging her daughter" width="250px">
+                    <img src="{% static 'images/mom_hugging_child.webp' %}" alt="woman hugging her daughter" width="250">
                 </div>
                 <div class="body-review">
                     <div class="name-review">Maribel</div>
@@ -132,7 +133,7 @@
 
             <div class="review">
                 <div class="head-review">
-                    <img src="{% static 'images/woman_woods.webp' %}" alt="woman looking at the camera in the woods" width="250px">
+                    <img src="{% static 'images/woman_woods.webp' %}" alt="woman looking at the camera in the woods" width="250">
                     
                 </div>
                 <div class="body-review">

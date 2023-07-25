@@ -14,11 +14,6 @@ from django.contrib.auth.decorators import login_required
 from .forms import ContactForm
 
 
-# class Home(generic.TemplateView):
-#     """
-#     Opens to landing page
-#     """
-#     template_name = "index.html"
 def Home(request):
     """
     Home Page

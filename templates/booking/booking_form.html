@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
+{% load static %}
 {% block content %}
 <div class="text-center">
     <h2 class="session-title text-uppercase">Book your session!</h2>
@@ -7,11 +8,11 @@
 <div class="flex-column">
     <div class="rules-table">
         <div class="row flex-column-rules" id="no-padding">
-            <div class="col" id="no-padding">
+            <div class="col">
                 {% load static %}
-                <img class="half" src="{% static 'images/woman_running.webp' %}" alt="woman looking at a clock while running in the gym"/>
+                <img class="half" src="{% static 'images/woman_running.webp' %}" alt="woman looking at a clock while running in the gym">
             </div>
-            <div class="col" id="no-padding">
+            <div class="col">
                 <div class="text-side">
                     <h4 class="booking-subtitle">
                         What you should know about your free lessons!
@@ -35,9 +36,9 @@
                         </li>
                     </ol>
                     <p class="text-uppercase">for any issues or problems please contact us</p>
-                    <a href="{% url 'contact'%}">
-                        <button class="btn btn-primary">Contact Us</button>
-                    </a>
+                    <!-- <a href="{% url 'contact'%}"> -->
+                        <a href="{% url 'contact'%}" class="btn btn-primary">Contact Us</a>
+                    <!-- </a> -->
                 </div>
             </div>
         </div>

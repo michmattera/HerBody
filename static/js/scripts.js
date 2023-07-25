@@ -1,4 +1,3 @@
-
 window.addEventListener('DOMContentLoaded', event => {
 
     // Navbar shrink function
@@ -57,8 +56,7 @@ setTimeout(function () {
     if (messages) {
         let alert = new bootstrap.Alert(messages);
         alert.close();
-    } else {
-    }
+    } else {}
 }, 2500);
 
 
@@ -66,7 +64,7 @@ setTimeout(function () {
 let map;
 
 function initMap(data) {
-        const gym = {
+    const gym = {
         lat: 20.659698,
         lng: -103.349609
     };
@@ -80,5 +78,3 @@ function initMap(data) {
     });
 
 }
-
-  
