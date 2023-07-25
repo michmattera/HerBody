@@ -148,8 +148,6 @@ def booking_form(request):
     return render(request, "booking/booking_form.html", {'form': form, 'available_slots': available_slots})
 
 
-
-
 @login_required
 def edit_booking(request, booking_id):
     booking = get_object_or_404(Booking, id=booking_id)
@@ -168,33 +166,28 @@ def edit_booking(request, booking_id):
 def edit_booking_confirm(request, booking_id):
     booking = get_object_or_404(Booking, id=booking_id)
 
-    date_comp = None  # Assign a default value to date_comp
-    time_comp = None
+    date_comp = request.GET.get('date')  # Get the date from the query parameters
+    time_comp = request.GET.get('time')  # Get the time from the query parameters
+
     if request.method == 'POST':
         form = BookingForm(data=request.POST, instance=booking)
         if form.is_valid():
             form.save()
             return redirect("my_bookings")
     else:
-        new_time = request.GET.get('time')
-
-        if new_time:
-            time_obj = parser.parse(new_time)
-            time_comp = time_obj.strftime('%H')  # Format time as 'HH'
-            date_comp = time_obj.date()
-
-        initial_data = {'date': date_comp, 'time': int(time_comp)}
+        initial_data = {'date': date_comp, 'time': time_comp}  # Use the provided date and time
 
         form = BookingForm(instance=booking, initial=initial_data)
 
     context = {
         'form': form,
         'booking': booking,
-        'date': date_comp,
-        'time': time_comp,
+        'date': date_comp,  # Pass the date to the template
+        'time': time_comp,  # Pass the time to the template
     }
 
     return render(request, 'booking/edit_booking_confirm.html', context)
+
 
 
 @login_required

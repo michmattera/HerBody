@@ -1,60 +1,65 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
-
 {% block content %}
-<div class="container">
-    {% if is_available %}
-    <div class="booking-confirmation">
-        <h1 class="text-uppercase text-center booking-title">Booking Confirmation</h1>
 
-        <h4 class="text-center white">Slot is available for booking. Do you want to confirm the booking?</h4>
-        <div class="container-booking-card">
+<!-- booking confirmation page -->
+<section>
+    <div class="container">
+        <!-- if the booking is available for the booking , will ask user to confirm, summary of the booking -->
+        {% if is_available %}
+        <div class="booking-confirmation">
+            <h1 class="text-uppercase text-center booking-title">Booking Confirmation</h1>
 
-            <div class="row">
-                <div class="col booking-li left">
-                    Booking name:
+            <h4 class="text-center white">Slot is available for booking. Do you want to confirm the booking?</h4>
+            <div class="container-booking-card">
+
+                <div class="row">
+                    <div class="col booking-li left">
+                        Booking name:
+                    </div>
+                    <div class="col booking-li right">
+                        {{ booking.user }}
+                    </div>
                 </div>
-                <div class="col booking-li right">
-                    {{ booking.user }}
+                <div class="row">
+                    <div class="col booking-li left">
+                        Date:
+                    </div>
+                    <div class="col booking-li right">
+                        {{ booking.date }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col booking-li left">
+                        Time:
+                    </div>
+                    <div class="col booking-li right">
+                        {{ booking.time }}
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col booking-li left">
-                    Date:
-                </div>
-                <div class="col booking-li right">
-                    {{ booking.date }}
-                </div>
-            </div>
-            <div class="row">
-                <div class="col booking-li left">
-                    Time:
-                </div>
-                <div class="col booking-li right">
-                    {{ booking.time }}
-                </div>
-            </div>
-        </div>
-        <form method="post">
-            {% csrf_token %}
-            <a href="{% url 'my_bookings'%}" class="btn btn-primary text-center" id="confirm" role="button">Confirm Booking</a>
-            <button class="btn btn-primary text-center" type="submit" id="cancel" name="cancel">Cancel</button>
-        </form>
-        
-    </div>
-    {% else %}
-    <div class="booking-confirmation">
-        <h1 class="text-uppercase text-center booking-title">Booking Confirmation</h1>
-        <div class="container-booking-card">
-            <h4 class="text-center booking-li">This slot is already booked.</h4>
-            <p class="text-center">Do you want to cancel the booking?</p>
+            <!-- ask user to confirm the booking or to cancel and booking will not be saved , with redirection of user -->
             <form method="post">
                 {% csrf_token %}
-                <button class="btn btn-primary text-center" type="submit" id="cancel">Cancel Booking</button>
-                
+                <a href="{% url 'my_bookings'%}" class="btn btn-primary text-center" id="confirm" role="button">Confirm
+                    Booking</a>
+                <button class="btn btn-primary text-center" type="submit" id="cancel" name="cancel">Cancel</button>
             </form>
         </div>
+        for any other error the else will prompt the user to
+        {% else %}
+        <div class="booking-confirmation">
+            <h1 class="text-uppercase text-center booking-title">Booking Confirmation</h1>
+            <div class="container-booking-card">
+                <h4 class="text-center booking-li">An error occurred</h4>
+                <p class="text-center">Please try again later</p>
+                <form method="post">
+                    {% csrf_token %}
+                    <a href="{% url 'my_bookings'%}" class="btn btn-primary text-center" id="cancel" role="button">Go to my bookings</a>
+                </form>
+            </div>
+        </div>
+        {% endif %}
     </div>
-    {% endif %}
-</div>
+</section>
 {% endblock content %}

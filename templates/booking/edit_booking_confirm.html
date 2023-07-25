@@ -51,12 +51,12 @@
                 {% csrf_token %}
                 <div class="row">
                     <div class="col booking-li right">
-                        <input type = "submit" value = "Submit" class="btn btn-primary">
+                        <input type="submit" value="Submit" class="btn btn-primary">
                     </div>
                     <div class="col booking-li left">
-                        <a href="{% url 'my_bookings' %}">
-                            <button class="btn btn-secondary text-center" type="button">Cancel</button>
-                        </a>
+                        <a href="{% url 'my_bookings'%}" class="btn btn-secondary text-center" id="confirm"
+                            role="button">Cancel</a>
+
                     </div>
                 </div>
             </form>

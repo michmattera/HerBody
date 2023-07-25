@@ -3,11 +3,13 @@
 {% block content %}
 
 <!-- https://www.youtube.com/watch?v=UGbyOSvA8rI for background-image using django and static -->
+<!-- header with background image ,catchfrase and button-->
 <header class="masthead home-pic" style="background-image: url('{% static 'images/woman-with-weights-compressed.webp' %}');">
     <div class="container overlay">
         <div class="masthead-subheading">Strong women lift each other up</div>
         {% if user.is_authenticated %}
         <div class="masthead-heading text-uppercase">Hi {{ user.username }}!</div>
+        <a class="btn btn-primary btn-xl text-uppercase" href="{% url 'booking_form' %}">Book your lesson</a>
         {% else %}
         <div class="masthead-heading text-uppercase">Let's be strong!</div>
         <a class="btn btn-primary btn-xl text-uppercase" href="{% url 'register' %}">Sign Up</a>
@@ -16,13 +18,11 @@
     </div>
 </header>
 
-
-
 {% if redirect_field_value %}
 <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
 {% endif %}
 
-<!-- Services-->
+<!-- Services section with 3 highlights-->
 <section class="page-section" id="services">
     <div class="container">
         <div class="text-center">

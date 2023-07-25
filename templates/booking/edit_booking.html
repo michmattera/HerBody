@@ -31,8 +31,6 @@
                         <a class="slot"
                             href="{% url 'edit_booking_confirm' booking.id %}?date={{ slot.date|date:'Y-m-d'|urlencode }}&time={{ time_slot.time|time:'H:i'|urlencode }}">{{ time_slot.time|time:"h:i A" }}</a>
                     </td>
-
-
                     {% else %}
                     <td class="not-available"><span>Not Available</span></td>
                     {% endif %}

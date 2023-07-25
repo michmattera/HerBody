@@ -1,33 +1,37 @@
 {% extends "base.html" %}
-
 {% block title %}Login{% endblock %}
-
 {% block content %}
-<form action="{% url 'login' %}" method="POST" class="form-horizontal">
-	{% csrf_token%}
-	<div class="mx-auto account-form">
-		<div class="col-xs-8 col-xs-offset-4">
-			<h2 style="text-align:center;">LOGIN</h2>
+
+<!-- login -->
+<!-- login form, required username , password, user can choose to be remember next time he will try to log in-->
+<section>
+	<form action="{% url 'login' %}" method="POST" class="form-horizontal">
+		{% csrf_token%}
+		<div class="mx-auto account-form">
+			<div class="col-xs-8 col-xs-offset-4">
+				<h2 style="text-align:center;">LOGIN</h2>
+			</div>
+			<hr>
+			<div class="form-group">
+				<label for="username">Username</label>
+				<input type="text" class="form-control" name="username" id="username" placeholder="Enter Username"
+					Required>
+			</div>
+			<div class="form-group">
+				<label for="password">Password</label>
+				<input type="password" class="form-control" name="password" id="password" placeholder="Enter Password"
+					Required>
+			</div>
+			<button type="submit" class="btn btn-primary btn-block">LOGIN</button>
+			<p>You don't have an account? Then please <a href="{% url 'register' %}" class="link">Register
+					&raquo;</a></p>
+			<div class="checkbox">
+				<label for="checkbox">
+					<input type="checkbox" name="remember_me" value="remember_me" id="checkbox"> Remember
+					Me
+				</label>
+			</div>
 		</div>
-		<hr>
-		<div class="form-group">
-			<label for="username">Username</label>
-			<input type="text" class="form-control" name="username" id="username" placeholder="Enter Username" Required>
-		</div>
-		<div class="form-group">
-			<label for="password">Password</label>
-			<input type="password" class="form-control" name="password" id="password" placeholder="Enter Password"
-				Required>
-		</div>
-		<button type="submit" class="btn btn-primary btn-block">LOGIN</button>
-		<p>You don't have an account? Then please <a href="{% url 'register' %}" class="link">Register
-				&raquo;</a></p>
-		<div class="checkbox">
-			<label for="checkbox">
-				<input type="checkbox" name="remember_me" value="remember_me" id="checkbox"> Remember
-				Me
-			</label>
-		</div>
-	</div>
-</form>
+	</form>
+</section>
 {% endblock %}
