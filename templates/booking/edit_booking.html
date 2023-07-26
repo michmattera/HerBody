@@ -1,49 +1,56 @@
 {% extends "base.html" %}
-
 {% block content %}
-<div class="container">
-    <div class="booking-confirmation text-center">
-        <h1 class="text-uppercase text-center booking-title">Edit Booking</h1>
 
-        <div class="container-booking-card">
-            <ul>
-                <li class="booking-li">Booking name: {{ booking.user }}</li>
-            </ul>
-        </div>
-
-        <h4 class="text-center white">Choose the new date and time</h4>
-        <table class="slots-table">
-            <thead>
-                <tr>
-                    <th class="booking-subtitle">Date</th>
-                    <th class="booking-subtitle">1st lesson</th>
-                    <th class="booking-subtitle">2nd lesson</th>
-                    <th class="booking-subtitle">3rd lesson</th>
-                </tr>
-            </thead>
-            <tbody class="slots-body">
-                {% for slot in available_slots %}
-                <tr class="container-slots">
-                    <td class="date">{{ slot.date|date:"D d" }}</td>
-                    {% for time_slot in slot.time_slots %}
-                    {% if time_slot.status == 'Available' %}
-                    <td class="available">
-                        <a class="slot"
-                            href="{% url 'edit_booking_confirm' booking.id %}?date={{ slot.date|date:'Y-m-d'|urlencode }}&time={{ time_slot.time|time:'H:i'|urlencode }}">{{ time_slot.time|time:"h:i A" }}</a>
-                    </td>
-                    {% else %}
-                    <td class="not-available"><span>Not Available</span></td>
-                    {% endif %}
+<!-- edit booking page -->
+<section>
+    <div class="container">
+        <div class="booking-confirmation text-center">
+            <!-- title and name of the user -->
+            <h1 class="text-uppercase text-center booking-title">Edit Booking</h1>
+            <div class="container-booking-card">
+                <ul>
+                    <li class="booking-li">Booking name: {{ booking.user }}</li>
+                </ul>
+            </div>
+            <h4 class="text-center white">Choose the new date and time</h4>
+            <table class="slots-table">
+                <thead>
+                    <tr>
+                        <th class="booking-subtitle">Date</th>
+                        <th class="booking-subtitle">1st lesson</th>
+                        <th class="booking-subtitle">2nd lesson</th>
+                        <th class="booking-subtitle">3rd lesson</th>
+                    </tr>
+                </thead>
+                <tbody class="slots-body">
+                    <!-- loop through all the slots -->
+                    {% for slot in available_slots %}
+                    <tr class="container-slots">
+                        <!-- row for the date -->
+                        <td class="date">{{ slot.date|date:"D d" }}</td>
+                        <!-- loop through the different time in slot -->
+                        {% for time_slot in slot.time_slots %}
+                        <!-- if time slot is available link to confirmation page , url with correct date and time -->
+                        {% if time_slot.status == 'Available' %}
+                        <td class="available">
+                            <a class="slot"
+                                href="{% url 'edit_booking_confirm' booking.id %}?date={{ slot.date|urlencode }}&time={{ time_slot.time|time:'H:i'|urlencode }}">{{ time_slot.time|time:"h:i A" }}</a>
+                        </td>
+                        <!-- if time slot is not available , not clickable, user notified -->
+                        {% else %}
+                        <td class="not-available"><span>Not Available</span></td>
+                        {% endif %}
+                        {% endfor %}
+                    </tr>
                     {% endfor %}
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+            <!-- link if the user do not want to edit anymore, bring user to booking form -->
+            <div class="row">
+                <a href="{% url 'booking_form' %}" class="btn btn-secondary text-center" role="button">Cancel</a>
 
-        <div class="row">
-            <a href="{% url 'booking_form' %}" class="btn btn-secondary text-center" role="button">Cancel</a>
-
+            </div>
         </div>
     </div>
-</div>
+</section>
 {% endblock %}

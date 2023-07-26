@@ -1,19 +1,21 @@
 {% extends "base.html" %}
-
 {% block content %}
+
+<!-- booking list page -->
 <div class="container">
     <div class="booking-confirmation text-center">
         <h1 class="text-uppercase text-center booking-title">List of your bookings</h1>
 
         <!-- Iterate over booking list -->
         {% for booking in booking_list %}
-        <!-- Display Objects -->
+        <!-- Display summary of bookings with, user name , date and time of appointment-->
         <div class="container-booking-card">
             <ul>
                 <li class="booking-li">Booking name : {{ booking.user }}</li>
                 <li class="booking-li">Date: {{ booking.date|date:"D d" }}</li>
                 <li class="booking-li">Time : {{ booking.time }}</li>
             </ul>
+            <!-- edit and delete booking with redirection to modify or delete booking -->
             <div class="row">
                 <div class="col booking-li right">
                     <a href="{% url 'edit_booking' booking_id=booking.id %}" class="btn btn-primary text-center"
@@ -25,7 +27,7 @@
                 </div>
             </div>
         </div>
-        <!-- If object_list is empty  -->
+        <!-- If object_list is empty and no booking to display -->
         {% empty %}
         <div class="container-booking-card">
             <ul>
@@ -33,6 +35,7 @@
             </ul>
         </div>
         {% endfor %}
+        <!-- button to book a session always present -->
             <a href="{% url 'booking_form'%}" class="btn btn-primary text-center"
             role="button">Book here a session</a>
     </div>

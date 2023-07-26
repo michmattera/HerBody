@@ -1,67 +1,72 @@
 {% extends "base.html" %}
-
 {% block content %}
-<div class="container">
-    <div class="booking-confirmation">
-        <h1 class="text-uppercase text-center booking-title">Edit Booking Confirmation</h1>
 
-        <div class="container-booking-card">
-            <div class="row">
-                <div class="col booking-li left">
-                    Booking name:
-                </div>
-                <div class="col booking-li right">
-                    {{ booking.user }}
-                </div>
-            </div>
-            <div class="row">
-                <div class="col booking-li left">
-                    Old Date:
-                </div>
-                <div class="col booking-li right">
-                    {{ booking.date }}
-                </div>
-            </div>
-            <div class="row">
-                <div class="col booking-li left">
-                    Old Time:
-                </div>
-                <div class="col booking-li right">
-                    {{ booking.time }}
-                </div>
-            </div>
-            <div class="row">
-                <div class="col booking-li left">
-                    New Date:
-                </div>
-                <div class="col booking-li right">
-                    {{ date }}
-                </div>
-            </div>
-            <div class="row">
-                <div class="col booking-li left">
-                    New Time:
-                </div>
-                <div class="col booking-li right">
-                    {{ time }}
-                </div>
-            </div>
-            <form method="POST" action="{% url 'edit_booking_confirm' booking_id=booking.id %}">
-                {{form}}
-                {% csrf_token %}
+<!-- edit booking confirm page -->
+<section>
+    <div class="container">
+        <div class="booking-confirmation">
+            <!-- title -->
+            <h1 class="text-uppercase text-center booking-title">Edit Booking Confirmation</h1>
+            <!-- booking summary user name, of old date, old time , and new date and new time -->
+            <div class="container-booking-card">
                 <div class="row">
-                    <div class="col booking-li right">
-                        <input type="submit" value="Submit" class="btn btn-primary">
-                    </div>
                     <div class="col booking-li left">
-                        <a href="{% url 'my_bookings'%}" class="btn btn-secondary text-center" id="confirm"
-                            role="button">Cancel</a>
-
+                        Booking name:
+                    </div>
+                    <div class="col booking-li right">
+                        {{ booking.user }}
                     </div>
                 </div>
-            </form>
+                <div class="row">
+                    <div class="col booking-li left">
+                        Old Date:
+                    </div>
+                    <div class="col booking-li right">
+                        {{ booking.date }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col booking-li left">
+                        Old Time:
+                    </div>
+                    <div class="col booking-li right">
+                        {{ booking.time }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col booking-li left">
+                        New Date:
+                    </div>
+                    <div class="col booking-li right">
+                        {{ date }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col booking-li left">
+                        New Time:
+                    </div>
+                    <div class="col booking-li right">
+                        {{ time }}
+                    </div>
+                </div>
+                <!-- form with confirm or Cancel the mofication for the booking -->
+                <form method="POST" action="{% url 'edit_booking_confirm' booking_id=booking.id %}">
+                    {{form}}
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col booking-li right">
+                            <input type="submit" value="Submit" class="btn btn-primary">
+                        </div>
+                        <div class="col booking-li left">
+                            <a href="{% url 'my_bookings'%}" class="btn btn-secondary text-center"
+                                role="button">Cancel</a>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-</div>
+</section>
 
 {% endblock content %}

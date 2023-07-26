@@ -399,13 +399,25 @@ h4 {
   background-color: #F3EFEE;
 }
 
+.dropdown-toggle {
+  white-space: nowrap;
+  margin: 7%;
+}
+
+
 @media (max-width: 768px) {
   .about-section>h3 {
     font-size: 1.7rem;
   }
-
+  .dropdown-toggle {
+    margin: 0;
+    border: 2px solid #fff;
+  }
   #about-title {
     font-size: 2rem;
+  }
+  .dropdown-toggle {
+    margin: o;
   }
 
   #about-subtitle {
@@ -504,6 +516,15 @@ h4 {
   background-attachment: scroll;
   background-position: center;
   background-size: cover;
+}
+.contact-row{
+  flex-wrap: nowrap;
+  flex-direction: row;
+  display: flex;
+}
+#contactForm{
+  width: 100%;
+
 }
 /* .contact-pic{
   margin-top: 80px;
