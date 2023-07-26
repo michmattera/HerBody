@@ -14,29 +14,31 @@ from django.urls import reverse
 def get_week_start_end_dates(today_date):
     current_weekday = today_date.weekday()
 
-    # Calculate the start and end dates for the current week, excluding Monday
-    if current_weekday == 0:  # If today is Monday, skip to Tuesday
-        start_of_week = today_date + timedelta(days=1)
-    else:
-        days_until_tuesday = (1 - current_weekday) % 7
-        start_of_week = today_date + timedelta(days=days_until_tuesday)
+    # Calculate the start and end dates for the current week, starting from Wednesday
+    if current_weekday <= 2:  # If today is Monday, Tuesday, or Wednesday, skip to Wednesday
+        start_of_week = today_date + timedelta(days=(2 - current_weekday))
+    else:  # If today is Thursday, Friday, Saturday, or Sunday, start from the next Wednesday
+        start_of_week = today_date + timedelta(days=(9 - current_weekday))
 
-    end_of_week = start_of_week + timedelta(days=6)
+    days_until_sunday = (6 - current_weekday) % 7
+    end_of_week = start_of_week + timedelta(days=days_until_sunday)
 
     return start_of_week, end_of_week
 
+
 def get_week_start_date(today):
     current_weekday = today.weekday()
-    days_to_tuesday = (current_weekday - 1) % 7
-    start_of_week = today - timedelta(days=days_to_tuesday)
+    days_to_wednesday = (2 - current_weekday) % 7
+    start_of_week = today + timedelta(days=days_to_wednesday)
+    print(start_of_week)
     return start_of_week
 
 def get_week_end_date(today):
     current_weekday = today.weekday()
     days_to_sunday = (6 - current_weekday) % 7
-    end_of_week = today + timedelta(days=days_to_sunday)
+    end_of_week = today + timedelta(days=days_to_sunday + 1)
+    print(end_of_week)
     return end_of_week
-
 
 def get_available_slots():
     today_date = timezone.localdate()
@@ -46,9 +48,11 @@ def get_available_slots():
     available_slots = []
 
     time_choices = Booking._meta.get_field('time').choices
-    for day in range(0, 7):  # Adjusted range to include Sunday
+    for day in range(1, 8):  # Start from Tuesday to include next Tuesday
         current_date = start_of_week + timedelta(days=day)
-        if current_date < today_date or current_date.weekday() == 0:  # Check if the date is in the past or Monday
+        if current_date.weekday() == 0:  # If the current date is Monday, stop generating slots
+            break
+        if current_date < today_date:  # If the current date is in the past, skip it
             continue
         time_slots = []
 
@@ -64,6 +68,7 @@ def get_available_slots():
         available_slots.append({'date': current_date, 'time_slots': time_slots})
 
     return available_slots
+
 
 
 class booking_list(generic.ListView):
@@ -130,6 +135,7 @@ def booking_confirmation(request):
 
     return render(request, 'booking/booking_confirmation.html', context)
 
+
 @login_required
 def booking_form(request):
     user = request.user
@@ -146,6 +152,7 @@ def booking_form(request):
     available_slots = get_available_slots()
 
     return render(request, "booking/booking_form.html", {'form': form, 'available_slots': available_slots})
+
 
 
 @login_required
