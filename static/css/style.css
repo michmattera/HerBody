@@ -1,13 +1,24 @@
-
 .active {
   border: 3px solid #241E30;
 }
-.nav-item:hover{
+
+.logo {
+  height: 100%;
+  width: 100%;
+}
+
+.logo-div {
+  width: 150px;
+  height: 150px;
+}
+
+.nav-item:hover {
   font-weight: bolder;
   transform: scale(1.2);
 
 }
-.active-nav{
+
+.active-nav {
   border-bottom: 3px solid #241E30;
 }
 
@@ -345,11 +356,6 @@ h4 {
   color: rgb(150, 150, 150);
 }
 
-@media (max-width: 678px) {
-  .review {
-    margin-top: 1.5rem;
-  }
-}
 
 /* footer */
 .p-4 {
@@ -401,33 +407,9 @@ h4 {
 
 .dropdown-toggle {
   white-space: nowrap;
-  margin: 7%;
+  margin-left: 1rem;
 }
 
-
-@media (max-width: 768px) {
-  .about-section>h3 {
-    font-size: 1.7rem;
-  }
-  .dropdown-toggle {
-    margin: 0;
-    border: 2px solid #fff;
-  }
-  #about-title {
-    font-size: 2rem;
-  }
-  .dropdown-toggle {
-    margin: o;
-  }
-
-  #about-subtitle {
-    font-size: 1.4rem;
-  }
-  .small-paragraph{
-    margin-left: 0;
-    margin-right: 0;
-  }
-}
 
 @media (max-width: 575px) {
   .about-container {
@@ -439,11 +421,12 @@ h4 {
     font-size: 1.5rem;
     padding-top: 25px;
   }
-  
+
 
   #about-subtitle {
     font-size: 1.3rem;
   }
+
   .small-paragraph {
     font-size: 1.3rem;
   }
@@ -456,9 +439,11 @@ h4 {
     margin-bottom: 20px;
     padding: 0;
   }
+
   .small-paragraph {
     font-size: 1rem;
   }
+
   .small-title {
     font-size: 1.5rem;
   }
@@ -508,38 +493,44 @@ h4 {
 
 /* contact us page */
 .contact-container {
-  width: 100%;
+  /* width: 100%; */
   margin: 2% 0;
-  margin-top: 100px;
-  height: 550px;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-position: center;
-  background-size: cover;
+  margin-top: 150px;
+  height: 450px;
+  display: flex;
 }
-.contact-row{
+
+.contact-container>img {
+  width: 75%;
+  height: 100%;
+  display: flex;
+}
+
+.pic-side {
+  width: 100%;
+}
+
+.contact-img {
+  max-width: 100%;
+  object-fit: cover;
+}
+
+.contact-row {
   flex-wrap: nowrap;
   flex-direction: row;
   display: flex;
+  height: 400px;
 }
-#contactForm{
-  width: 100%;
 
+#contactForm {
+  width: 100%;
 }
-/* .contact-pic{
-  margin-top: 80px;
-  background-image: url('{% static "contact.jpg" %}');
-  height: 100px;                     
-  background-position: top;
-  padding-bottom: 0;
-} */
 
 .contact {
-  font-size: 4rem;
+  font-size: 3.5rem;
   text-align: center;
   vertical-align: middle;
   color: #d63384;
-  padding-top: 2rem;
 }
 
 .sm-contact-col {
@@ -563,7 +554,7 @@ h4 {
     padding: 1.6rem;
   }
 
-  .contact-div{
+  .contact-div {
     flex-direction: column;
   }
 }
@@ -627,10 +618,12 @@ h4 {
   text-align: center;
   font-size: large;
 }
-.contact-btn{
+
+.contact-btn {
   text-align: center;
   width: 100%;
 }
+
 .links {
   color: #d63384;
   background-color: #F3EFEE;
@@ -703,9 +696,16 @@ h4 {
 }
 
 .text-side {
-  width: 90%;
-  margin: 0 3%;
+  margin: 0;
   text-align: center;
+  width: 25%;
+  height: 100%;
+  padding: 3%;
+  overflow: hidden;
+}
+
+.pic-side {
+  padding: 0 !important;
 }
 
 .rules>* {
@@ -744,6 +744,7 @@ h4 {
   .flex-column-rules {
     flex-direction: column;
   }
+
   .title-container {
     margin-top: 60px;
   }
@@ -752,10 +753,12 @@ h4 {
     margin: 0;
     width: 100%;
   }
-  .flex-column{
+
+  .flex-column {
     display: flex;
     flex-direction: column;
   }
+
   .rules>* {
     text-align: center;
     line-height: 35px;
@@ -771,91 +774,185 @@ h4 {
     margin: 5%;
     flex-direction: column;
   }
-  .slots-body{
+
+  .slots-body {
     width: 100%;
   }
+
   .session-title {
     margin-top: 12%;
   }
+
   .booking-subtitle {
     background-color: #fff;
     border: none;
   }
-  .container-slots{
+
+  .container-slots {
     width: 100%;
   }
+
   .booking-confirmation {
     width: 100%;
     margin: 20% 0;
+  }
 }
+
+/* .logo-div {
+  width: 150px;
+  height: 150px;
+} */
+@media (max-width: 991px) {
+  .logo-div {
+    height: 50px;
+    display: flex;
+    align-items: center;
+  }
+
+  .dropdown-toggle {
+    margin-left: 0;
+  }
+
 }
+
 /* media query for booking pages  */
 @media (max-width: 600px) {
   .slots-table {
     width: 100%;
     margin-left: 0;
     margin-right: 0;
+  }
+
+  .booking-subtitle {
+    font-size: 0.8rem;
+  }
+
+  .slot,
+  .date,
+  .time,
+  .not-available {
+    font-size: 0.7rem;
+  }
+
+  .container-slots {
+    line-height: 38px;
+  }
+
+  .rules>* {
+    line-height: 30px;
+    font-size: 1rem;
+    margin: 0 5%;
+  }
+
+  /* for contact page s */
+  .contact {
+    font-size: 1.7rem;
+  }
+
+  .contact-div {
+    width: 90%;
+    margin: 5%;
+  }
+
+  .sm-contact-col>h5 {
+    font-size: 0.9rem;
+  }
+
+  .form-control {
+    width: 100%;
+  }
+
+  .container-booking-card {
+    margin: 5%;
+    padding: 1.2rem;
+    line-height: 30px;
+    border: 4px solid #d63384;
+  }
+
+  .session-title {
+    margin-top: 20%;
+  }
+
+  .booking-li {
+    font-size: 1.2rem;
+  }
+
+  .booking-confirmation {
+    width: 100%;
+    margin: 25% 0 10% 0;
+    border: none;
+    border-top: 4px solid #d63384;
+    border-bottom: 3px solid #d63384;
+  }
+
+  /* style for available and unavailable dates in edit booking */
+  .available-date {
+    background-color: green;
+    color: white;
+  }
+
+  .unavailable-date {
+    background-color: red;
+    color: white;
+  }
+
+  .contact-btn {
+    text-align: center;
+    width: 100%;
+  }
 }
 
-.booking-subtitle{
-  font-size: 0.8rem;
-}
-.slot, .date, .time, .not-available{
-  font-size: 0.7rem;
-}
-.container-slots{
-  line-height: 38px;
-}
-.rules>* {
-  line-height: 30px;
-  font-size: 1rem;
-  margin: 0 5%;
-}
-/* for contact page s */
-.contact {
-  font-size: 1.7rem;
-}
-.contact-div {
-  width: 90%;
-  margin: 5%;
-}
-.sm-contact-col>h5{
-  font-size: 0.9rem;
-}
-.form-control{
-  width: 100%;
-}
-.container-booking-card {
-  margin: 5%;
-  padding: 1.2rem;
-  line-height: 30px;
-  border: 4px solid #d63384;
-}
-.session-title {
-  margin-top: 20%;
-}
-.booking-li {
-  font-size: 1.2rem;
-}
-.booking-confirmation {
-  width: 100%;
-  margin: 25% 0 10% 0;
-  border: none;
-  border-top: 4px solid #d63384;
-  border-bottom: 3px solid #d63384;
-}
-/* style for available and unavailable dates in edit booking */
-.available-date {
-  background-color: green;
-  color: white;
+@media (max-width: 768px) {
+  .about-section>h3 {
+    font-size: 1.7rem;
+  }
+
+  .dropdown-toggle {
+    margin: 0;
+  }
+
+  #about-title {
+    font-size: 2rem;
+  }
+
+  .dropdown-toggle {
+    margin: o;
+  }
+
+  #about-subtitle {
+    font-size: 1.4rem;
+  }
+
+
+  .small-paragraph {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .contact-container {
+    height: 650px;
+    margin-top: 105px;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .text-side {
+    overflow: visible;
+  }
+
+  .contact-container>img {
+    width: 100%;
+  }
 }
 
-.unavailable-date {
-  background-color: red;
-  color: white;
-}
-.contact-btn{
-  text-align: center;
-  width: 100%;
+@media (max-width: 678px) {
+  .review {
+    margin-top: 1.5rem;
+  }
+  .contact-container {
+    margin-top: 80px;
+  }
+  .text-side {
+    padding: 8%;
 }
 }
