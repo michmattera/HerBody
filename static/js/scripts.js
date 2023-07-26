@@ -80,12 +80,12 @@ function initMap(data) {
 }
 
 // Remove the existing click event handler
-$(".slot").off("click");
+// $(".slot").off("click");
 
 // Add a new click event handler to show the corresponding form on click
-$(".slot").on("click", function (e) {
-  e.preventDefault();
-  var formId = $(this).attr("id");
-  $("#" + formId + "-form").show();
-});
+// $(".slot").on("click", function (e) {
+//   e.preventDefault();
+//   var formId = $(this).attr("id");
+//   $("#" + formId + "-form").show();
+// });
 

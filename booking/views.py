@@ -40,6 +40,7 @@ def get_week_end_date(today):
     print(end_of_week)
     return end_of_week
 
+
 def get_available_slots():
     today_date = timezone.localdate()
     start_of_week, end_of_week = get_week_start_end_dates(today_date)
@@ -169,12 +170,87 @@ def edit_booking(request, booking_id):
     })
 
 
+# @login_required
+# def edit_booking_confirm(request, booking_id):
+#     booking = get_object_or_404(Booking, id=booking_id)
+
+#     date_comp = request.GET.get('date')  # Get the date from the query parameters
+#     time_comp = request.GET.get('time')  # Get the time from the query parameters
+
+#     if request.method == 'POST':
+#         form = BookingForm(data=request.POST, instance=booking)
+#         if form.is_valid():
+#             form.save()
+#             return redirect("my_bookings")
+#     else:
+#         initial_data = {'date': date_comp, 'time': time_comp}  # Use the provided date and time
+
+#         form = BookingForm(instance=booking, initial=initial_data)
+
+#     context = {
+#         'form': form,
+#         'booking': booking,
+#         'date': date_comp,  # Pass the date to the template
+#         'time': time_comp,  # Pass the time to the template
+#     }
+
+#     return render(request, 'booking/edit_booking_confirm.html', context)
+
+
+# @login_required
+# def edit_booking_confirm(request, booking_id):
+#     booking = get_object_or_404(Booking, id=booking_id)
+
+#     date_comp = None  # Assign a default value to date_comp
+#     time_comp = None
+#     if request.method == 'POST':
+#         form = BookingForm(data=request.POST, instance=booking)
+#         if form.is_valid():
+#             form.save()
+#             return redirect("my_bookings")
+#     else:
+#         new_time = request.GET.get('time')
+
+#         if new_time:
+#             time_obj = parser.parse(new_time)
+#             time_comp = time_obj.strftime('%H')  # Format time as 'HH'
+#             date_comp = time_obj.date()
+
+#         initial_data = {'date': date_comp, 'time': int(time_comp)}
+
+#         form = BookingForm(instance=booking, initial=initial_data)
+
+#     context = {
+#         'form': form,
+#         'booking': booking,
+#         'date': date_comp,
+#         'time': time_comp,
+#     }
+
+#     return render(request, 'booking/edit_booking_confirm.html', context)
+
 @login_required
 def edit_booking_confirm(request, booking_id):
     booking = get_object_or_404(Booking, id=booking_id)
 
-    date_comp = request.GET.get('date')  # Get the date from the query parameters
-    time_comp = request.GET.get('time')  # Get the time from the query parameters
+    date_comp = request.GET.get('date')
+    time_comp = request.GET.get('time')
+
+    formatted_date_comp = None  # Variable for formatted display date
+    formatted_time_comp = None  # Variable for formatted display time
+
+    if date_comp:
+        # Format date as 'Month DD, YYYY' (e.g., 'July 29, 2023')
+        date_obj = datetime.strptime(date_comp, '%Y-%m-%d')
+        formatted_date_comp = date_obj.strftime('%B %d, %Y')
+
+    if time_comp:
+        # Format time as 'HH' (e.g., '11')
+        time_obj = parser.parse(time_comp)
+        formatted_time_comp = int(time_obj.strftime('%H'))  # Convert to integer before formatting
+
+    # Preserve the original format for hidden input fields
+    initial_data = {'date': date_comp, 'time': formatted_time_comp}  # Use formatted time for the initial data
 
     if request.method == 'POST':
         form = BookingForm(data=request.POST, instance=booking)
@@ -182,20 +258,19 @@ def edit_booking_confirm(request, booking_id):
             form.save()
             return redirect("my_bookings")
     else:
-        initial_data = {'date': date_comp, 'time': time_comp}  # Use the provided date and time
-
         form = BookingForm(instance=booking, initial=initial_data)
+
+    # Format time choices in the form to 'HH' (e.g., '11')
+    form.fields['time'].choices = [(str(time_obj), time_str) for time_obj, time_str in form.fields['time'].choices]
 
     context = {
         'form': form,
         'booking': booking,
-        'date': date_comp,  # Pass the date to the template
-        'time': time_comp,  # Pass the time to the template
+        'date': formatted_date_comp,  # Use formatted date for display
+        'time': formatted_time_comp,  # Use formatted time for display
     }
 
     return render(request, 'booking/edit_booking_confirm.html', context)
-
-
 
 @login_required
 def delete_booking(request, booking_id):
