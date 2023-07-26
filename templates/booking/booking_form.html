@@ -6,19 +6,19 @@
 <!-- booking form page -->
 <!-- first section , with image and a list of rules for the booking -->
 <section>
-    <div class="text-center">
-        <h2 class="session-title text-uppercase">Book your session!</h2>
+    <div class="text-center session-title">
+        <h2 class="text-uppercase">Book your session!</h2>
     </div>
     <div class="flex-column">
         <div class="rules-table">
             <div class="row flex-column-rules" id="no-padding">
-                <div class="col">
+                <div class="col fluid-img">
                     {% load static %}
                     <img class="half" src="{% static 'images/woman_running.webp' %}"
                         alt="woman looking at a clock while running in the gym">
                 </div>
                 <div class="col">
-                    <div class="text-side">
+                    <div class="rules-side">
                         <h4 class="booking-subtitle">
                             What you should know about your free lessons!
                         </h4>
@@ -30,7 +30,7 @@
                                 You cannot book more than 2 lessons per week.
                             </li>
                             <li class="rules-list">
-                                You can choose between 3 different time-slot
+                                You cannot book your lesson the same day, at least 1 day before
                             </li>
                             <li class="rules-list">
                                 Below you will find all available and not available sessions
@@ -42,9 +42,7 @@
                             </li>
                         </ol>
                         <p class="text-uppercase">for any issues or problems please contact us</p>
-                        <!-- <a href="{% url 'contact'%}"> -->
                         <a href="{% url 'contact'%}" class="btn btn-primary">Contact Us</a>
-                        <!-- </a> -->
                     </div>
                 </div>
             </div>

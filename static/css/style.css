@@ -10,12 +10,14 @@
 .logo-div {
   width: 150px;
   height: 150px;
+  align-items: center;
+  text-align: center;
+  display: flex;
 }
 
 .nav-item:hover {
   font-weight: bolder;
   transform: scale(1.2);
-
 }
 
 .active-nav {
@@ -395,7 +397,7 @@ h4 {
 } */
 .about-container {
   border: 5px solid #d63384;
-  margin-top: 5rem;
+  margin-top: 7rem;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   /* background-color: #F3EFEE; */
 
@@ -495,7 +497,7 @@ h4 {
 .contact-container {
   /* width: 100%; */
   margin: 2% 0;
-  margin-top: 150px;
+  margin-top: 11rem;
   height: 450px;
   display: flex;
 }
@@ -544,6 +546,12 @@ h4 {
   padding: 4rem;
 }
 
+.rules-side {
+  padding: 0 3%;
+  text-align: center;
+  align-items: center;
+}
+
 /* style for media query contact page */
 @media (max-width: 1080px) {
   .contact {
@@ -568,7 +576,7 @@ h4 {
 .booking-confirmation {
   width: 70%;
   height: auto;
-  margin: 10% 15%;
+  margin: 20% 15%;
   background-color: #241E30;
   border: 5px solid #d63384;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -621,7 +629,8 @@ h4 {
 
 .contact-btn {
   text-align: center;
-  width: 100%;
+  align-items: center;
+  width: 50%;
 }
 
 .links {
@@ -639,8 +648,6 @@ h4 {
 
 .half {
   width: 100%;
-  height: 450px;
-  /* border-radius: 15%; */
   text-align: center;
   background-repeat: no-repeat;
   background-attachment: scroll;
@@ -653,13 +660,19 @@ h4 {
   margin: 5% 15%;
 }
 
-.rules-table {
+/* .rules-table {
   height: 450px;
   margin-top: 10%;
   width: 100%;
   margin: 6% 0;
+} */
+.rules-table {
+  display: flex;
+  height: auto;
 }
-
+.flex-column-rules {
+  flex-direction: column;
+}
 .container-slots {
   line-height: 50px;
   width: 100%;
@@ -700,7 +713,7 @@ h4 {
   text-align: center;
   width: 25%;
   height: 100%;
-  padding: 3%;
+  padding: 0 3% 3% 3%;
   overflow: hidden;
 }
 
@@ -719,7 +732,7 @@ h4 {
 }
 
 .session-title {
-  margin-top: 7%;
+  margin-top: 13%;
 }
 
 .slot {
@@ -813,6 +826,27 @@ h4 {
     margin-left: 0;
   }
 
+  .half {
+    width: 100%;
+    height: auto;
+  }
+
+  .nav-item:hover {
+    font-weight: bolder;
+    transform: none;
+  }
+}
+
+@media (max-width: 900px) {
+
+  h5,
+  .h5 {
+    font-size: 1.1rem;
+  }
+
+  .session-title {
+    margin-top: 15%;
+  }
 }
 
 /* media query for booking pages  */
@@ -870,7 +904,7 @@ h4 {
   }
 
   .session-title {
-    margin-top: 20%;
+    margin-top: 22%;
   }
 
   .booking-li {
@@ -949,10 +983,17 @@ h4 {
   .review {
     margin-top: 1.5rem;
   }
+
   .contact-container {
     margin-top: 80px;
   }
+
   .text-side {
     padding: 8%;
+  }
 }
+@media (max-width: 400px) {
+  .session-title {
+    margin-top: 34%;
+  }
 }
