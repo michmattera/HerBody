@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
 
+{% include 'includes/messages.html' %}
+
 <!-- edit booking page -->
 <section>
     <div class="container">
@@ -12,7 +14,7 @@
                     <li class="booking-li">Booking name: {{ booking.user }}</li>
                 </ul>
             </div>
-            <h4 class="text-center white">Choose the new date and time</h4>
+            <h4 class="text-center white edit-subtitle">Choose the new date and time</h4>
             <table class="slots-table">
                 <thead>
                     <tr>
@@ -46,8 +48,8 @@
                 </tbody>
             </table>
             <!-- link if the user do not want to edit anymore, bring user to booking list -->
-            <div class="row">
-                <a href="{% url 'my_bookings' %}" class="btn btn-primary text-center" role="button">Cancel</a>
+            <div >
+                <a href="{% url 'my_bookings' %}" class="btn btn-primary center-btn text-center" role="button">Cancel</a>
 
             </div>
         </div>

@@ -2,6 +2,7 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
+{% include 'includes/messages.html' %}
 <!-- booking confirmation page -->
 <section>
     <div class="container">
@@ -41,9 +42,8 @@
             <!-- ask user to confirm the booking or to cancel and booking will not be saved , with redirection of user -->
             <form method="post">
                 {% csrf_token %}
-                <a href="{% url 'my_bookings'%}" class="btn btn-primary text-center" id="confirm" role="button">Confirm
-                    Booking</a>
-                <button class="btn btn-primary text-center" type="submit" id="cancel" name="cancel">Cancel</button>
+                <a href="{% url 'my_bookings'%}" class="btn btn-primary center-btn text-center" id="confirm" role="button">Confirm</a>
+                <button class="btn btn-secondary border center-btn text-center" type="submit" id="cancel" name="cancel">Cancel</button>
             </form>
         </div>
         {% else %}

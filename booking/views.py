@@ -157,7 +157,7 @@ def booking_confirmation(request):
             # Cancel the booking
             booking.delete()
             form = BookingForm()
-            available_slots = get_available_slots()
+            available_slots = get_available_slots(request)
             return render(request, "booking/booking_form.html", {'form': form, 'available_slots': available_slots})
 
         elif 'confirm' in request.POST:
