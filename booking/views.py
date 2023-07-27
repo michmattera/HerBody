@@ -11,24 +11,26 @@ from dateutil.parser import parse
 from dateutil import parser
 from django.urls import reverse
 
-
 def get_week_start_end_dates(today_date):
     current_weekday = today_date.weekday()
 
-    # Calculate the start and end dates for the current week, starting from Wednesday
+    # Calculate the start and end dates for the current week
     if current_weekday == 6:  # If today is Sunday, start from Tuesday of the next week
         start_of_week = today_date + timedelta(days=2)
+        end_of_week = start_of_week + timedelta(days=5)  # Add 5 days to get to Sunday
     elif current_weekday == 0:  # If today is Monday, start from Tuesday
         start_of_week = today_date + timedelta(days=1)
+        end_of_week = start_of_week + timedelta(days=6)  # Add 6 days to get to Sunday
     else:  # For all other days (Tuesday to Saturday), start from tomorrow
         start_of_week = today_date + timedelta(days=(1 - current_weekday))
-
-    days_until_sunday = (6 - current_weekday) % 7
-    end_of_week = start_of_week + timedelta(days=days_until_sunday)
+        end_of_week = start_of_week + timedelta(days=5)  # Add 5 days to get to Sunday
 
     print(start_of_week)
     print(end_of_week)
     return start_of_week, end_of_week
+
+
+
 
 
 def get_week_start_date(today):
@@ -40,8 +42,8 @@ def get_week_start_date(today):
 
 def get_week_end_date(today):
     current_weekday = today.weekday()
-    days_to_sunday = (6 - current_weekday) % 7
-    end_of_week = today + timedelta(days=days_to_sunday + 1)
+    days_until_sunday = (6 - current_weekday) % 7
+    end_of_week = today + timedelta(days=days_until_sunday)
     return end_of_week
 
 
@@ -49,20 +51,15 @@ def get_available_slots(request):
     today_date = timezone.localdate()
     start_of_week, end_of_week = get_week_start_end_dates(today_date)
 
-    booked_slots = Booking.objects.filter(date__range=[start_of_week, end_of_week], user=request.user).values_list(
-        'date', 'time'
-    )
+    booked_slots = Booking.objects.filter(date__range=[start_of_week, end_of_week]).values_list('date', 'time')
     available_slots = []
 
     time_choices = Booking._meta.get_field('time').choices
 
-    if today_date.weekday() == 6:  # If today is Sunday, start from Tuesday of the next week
-        start_of_week, end_of_week = get_week_start_end_dates(today_date + timedelta(weeks=1))
-
-    # Loop from tomorrow (Wednesday) to Sunday of the current week or next week if today is Sunday
-    for day in range(1, 7):  # Start from Wednesday (day=1) to Sunday (day=6)
+    # Loop through the available dates starting from today (Wednesday) to Sunday of the current week
+    for day in range(0, 7):  # Start from today (day=0) to Sunday (day=6)
         current_date = start_of_week + timedelta(days=day)
-        if current_date < today_date:  # If the current date is in the past, skip it
+        if current_date <= today_date:  # If the current date is in the past, skip it
             continue
         if current_date.weekday() == 0:  # If the current date is Monday, skip it
             continue
@@ -80,6 +77,9 @@ def get_available_slots(request):
         available_slots.append({'date': current_date, 'time_slots': time_slots})
 
     return available_slots
+
+
+
 
 
 # class booking_list(generic.ListView):
@@ -174,6 +174,22 @@ def booking_confirmation(request):
     return render(request, 'booking/booking_confirmation.html', context)
 
 
+# @login_required
+# def booking_form(request):
+#     user = request.user
+#     today = datetime.today().date()
+#     start_of_week, end_of_week = get_week_start_end_dates(today)
+
+#     user_booking_count = Booking.objects.filter(user=user, date__range=[start_of_week, end_of_week]).count()
+
+#     if user_booking_count >= 2:
+#         messages.warning(request, 'You have already booked two sessions this week. You cannot book another session.')
+#         return redirect("my_bookings")
+
+#     form = BookingForm()
+#     available_slots = get_available_slots(request)
+
+#     return render(request, "booking/booking_form.html", {'form': form, 'available_slots': available_slots})
 @login_required
 def booking_form(request):
     user = request.user
@@ -187,9 +203,18 @@ def booking_form(request):
         return redirect("my_bookings")
 
     form = BookingForm()
-    available_slots = get_available_slots()
+    available_slots = get_available_slots(request)
 
-    return render(request, "booking/booking_form.html", {'form': form, 'available_slots': available_slots})
+    # Get all the bookings for the current week and beyond
+    all_bookings = Booking.objects.filter(date__range=[start_of_week, end_of_week])
+
+    return render(request, "booking/booking_form.html", {
+        'form': form,
+        'available_slots': available_slots,
+        'all_bookings': all_bookings,
+    })
+
+
 
 
 
