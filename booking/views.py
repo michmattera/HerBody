@@ -45,11 +45,13 @@ def get_week_end_date(today):
     return end_of_week
 
 
-def get_available_slots():
+def get_available_slots(request):
     today_date = timezone.localdate()
     start_of_week, end_of_week = get_week_start_end_dates(today_date)
 
-    booked_slots = Booking.objects.filter(date__range=[start_of_week, end_of_week]).values_list('date', 'time')
+    booked_slots = Booking.objects.filter(date__range=[start_of_week, end_of_week], user=request.user).values_list(
+        'date', 'time'
+    )
     available_slots = []
 
     time_choices = Booking._meta.get_field('time').choices
@@ -76,7 +78,6 @@ def get_available_slots():
             time_slots.append({'time': current_slot, 'status': slot_status})
 
         available_slots.append({'date': current_date, 'time_slots': time_slots})
-        print(available_slots)
 
     return available_slots
 
@@ -105,8 +106,8 @@ class booking_list(generic.ListView):
     template_name = 'booking/my_bookings.html'
 
     def get_queryset(self):
-        today = timezone.localdate()
-        start_of_week, end_of_week = get_week_start_end_dates(today)
+        user = self.request.user
+        return Booking.objects.filter(user=user).order_by('date', 'time')
 
         queryset = self.model.objects.filter(user=self.request.user, date__range=[start_of_week, end_of_week])
 
@@ -197,13 +198,14 @@ def edit_booking(request, booking_id):
     booking = get_object_or_404(Booking, id=booking_id)
 
     form = BookingForm(instance=booking)
-    available_slots = get_available_slots()
+    available_slots = get_available_slots(request)  # Pass the request object to the function
 
     return render(request, 'booking/edit_booking.html', {
         'booking': booking,
         'form': form,
         'available_slots': available_slots,
     })
+
 
 
 # @login_required
