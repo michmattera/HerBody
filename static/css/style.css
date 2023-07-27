@@ -990,4 +990,24 @@ h4 {
   .booking-subtitle {
     font-size: 0.6rem;
 }
+.review {
+  margin: 0;
+  min-width: 300px;
+}
+.rev-section {
+  width: 100%;
+  padding: 0;
+}
+.title-review {
+  font-size: 1.5rem;
+}
+.head-review {
+  margin: 5% auto;
+  width: 130px;
+  height: 130px;
+}
+.review {
+  margin: 0;
+  min-width: 200px;
+}
 }
