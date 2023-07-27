@@ -11,18 +11,23 @@ from dateutil.parser import parse
 from dateutil import parser
 from django.urls import reverse
 
+
 def get_week_start_end_dates(today_date):
     current_weekday = today_date.weekday()
 
     # Calculate the start and end dates for the current week, starting from Wednesday
-    if current_weekday <= 2:  # If today is Monday, Tuesday, or Wednesday, skip to Wednesday
-        start_of_week = today_date + timedelta(days=(2 - current_weekday))
-    else:  # If today is Thursday, Friday, Saturday, or Sunday, start from the next Wednesday
-        start_of_week = today_date + timedelta(days=(9 - current_weekday))
+    if current_weekday == 6:  # If today is Sunday, start from Tuesday of the next week
+        start_of_week = today_date + timedelta(days=2)
+    elif current_weekday == 0:  # If today is Monday, start from Tuesday
+        start_of_week = today_date + timedelta(days=1)
+    else:  # For all other days (Tuesday to Saturday), start from tomorrow
+        start_of_week = today_date + timedelta(days=(1 - current_weekday))
 
     days_until_sunday = (6 - current_weekday) % 7
     end_of_week = start_of_week + timedelta(days=days_until_sunday)
 
+    print(start_of_week)
+    print(end_of_week)
     return start_of_week, end_of_week
 
 
@@ -32,6 +37,7 @@ def get_week_start_date(today):
     start_of_week = today + timedelta(days=days_to_wednesday)
     print(start_of_week)
     return start_of_week
+
 
 def get_week_end_date(today):
     current_weekday = today.weekday()
@@ -49,11 +55,16 @@ def get_available_slots():
     available_slots = []
 
     time_choices = Booking._meta.get_field('time').choices
-    for day in range(1, 8):  # Start from Tuesday to include next Tuesday
+
+    if today_date.weekday() == 6:  # If today is Sunday, start from Tuesday of the next week
+        start_of_week, end_of_week = get_week_start_end_dates(today_date + timedelta(weeks=1))
+
+    # Loop from tomorrow (Wednesday) to Sunday of the current week or next week if today is Sunday
+    for day in range(1, 7):  # Start from Wednesday (day=1) to Sunday (day=6)
         current_date = start_of_week + timedelta(days=day)
-        if current_date.weekday() == 0:  # If the current date is Monday, stop generating slots
-            break
         if current_date < today_date:  # If the current date is in the past, skip it
+            continue
+        if current_date.weekday() == 0:  # If the current date is Monday, skip it
             continue
         time_slots = []
 
@@ -69,6 +80,8 @@ def get_available_slots():
         available_slots.append({'date': current_date, 'time_slots': time_slots})
 
     return available_slots
+
+
 
 
 
