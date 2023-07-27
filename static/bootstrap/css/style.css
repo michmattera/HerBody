@@ -12405,6 +12405,8 @@ header.masthead {
 .home-pic{
   /* background-image: url('/static/images/woman-with-weights-compressed.jpg'); */
   background-position: center center;
+  /* height: auto;
+  width: 100%; */
 
 }
 
