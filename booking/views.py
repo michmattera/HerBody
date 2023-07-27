@@ -35,7 +35,6 @@ def get_week_start_date(today):
     current_weekday = today.weekday()
     days_to_wednesday = (2 - current_weekday) % 7
     start_of_week = today + timedelta(days=days_to_wednesday)
-    print(start_of_week)
     return start_of_week
 
 
@@ -43,7 +42,6 @@ def get_week_end_date(today):
     current_weekday = today.weekday()
     days_to_sunday = (6 - current_weekday) % 7
     end_of_week = today + timedelta(days=days_to_sunday + 1)
-    print(end_of_week)
     return end_of_week
 
 
@@ -78,32 +76,57 @@ def get_available_slots():
             time_slots.append({'time': current_slot, 'status': slot_status})
 
         available_slots.append({'date': current_date, 'time_slots': time_slots})
+        print(available_slots)
 
     return available_slots
 
 
+# class booking_list(generic.ListView):
+#     model = Booking
+#     template_name = 'booking/my_bookings.html'
 
+#     def get_queryset(self):
+#         today = timezone.localdate()
+#         start_of_week = get_week_start_date(today)
+#         end_of_week = get_week_end_date(today)
 
+#         queryset = self.model.objects.filter(user=self.request.user, date__range=[start_of_week, end_of_week])
+#         new_date = self.request.session.get('new_date')
+#         new_time = self.request.session.get('new_time')
 
+#         if new_date and new_time:
+#             new_booking = Booking(date=new_date, time=new_time, user=self.request.user)
+#         self.request.session.pop('new_date', None)
+#         self.request.session.pop('new_time', None)
+
+#         return queryset
 class booking_list(generic.ListView):
     model = Booking
     template_name = 'booking/my_bookings.html'
 
     def get_queryset(self):
         today = timezone.localdate()
-        start_of_week = get_week_start_date(today)
-        end_of_week = get_week_end_date(today)
+        start_of_week, end_of_week = get_week_start_end_dates(today)
 
         queryset = self.model.objects.filter(user=self.request.user, date__range=[start_of_week, end_of_week])
+
+        # Get new_date and new_time from the session
         new_date = self.request.session.get('new_date')
         new_time = self.request.session.get('new_time')
 
+        # If new_date and new_time exist, check if a new booking has been made and add it to the queryset
         if new_date and new_time:
             new_booking = Booking(date=new_date, time=new_time, user=self.request.user)
+            queryset |= Booking.objects.filter(date=new_date, time=new_time, user=self.request.user)
+
+        # Remove new_date and new_time from the session
         self.request.session.pop('new_date', None)
         self.request.session.pop('new_time', None)
 
         return queryset
+
+
+
 
 
 @login_required
