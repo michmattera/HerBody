@@ -50,7 +50,7 @@ def register(request):
                                         email=email)
                 user.save()
                 
-                return redirect('home')
+                return redirect('login')
 
         else:
             messages.info(request, 'Both passwords are not matching')

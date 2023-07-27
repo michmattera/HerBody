@@ -547,7 +547,7 @@ h4 {
 }
 
 .rules-side {
-  padding: 0 3%;
+  padding: 0 1%;
   text-align: center;
   align-items: center;
 }
@@ -647,7 +647,7 @@ h4 {
 }
 
 .half {
-  width: 100%;
+  width: 70%;
   text-align: center;
   background-repeat: no-repeat;
   background-attachment: scroll;
@@ -660,6 +660,10 @@ h4 {
   margin: 5% 15%;
 }
 
+.rules-side {
+  width: 30%;
+}
+
 /* .rules-table {
   height: 450px;
   margin-top: 10%;
@@ -670,9 +674,12 @@ h4 {
   display: flex;
   height: auto;
 }
+
 .flex-column-rules {
-  flex-direction: column;
+  /* flex-direction: column; */
+  display: flex;
 }
+
 .container-slots {
   line-height: 50px;
   width: 100%;
@@ -705,7 +712,7 @@ h4 {
 }
 
 .margin-top {
-  margin-top: 10%;
+  margin-top: 7%;
 }
 
 .text-side {
@@ -724,7 +731,7 @@ h4 {
 .rules>* {
   text-align: left;
   line-height: 35px;
-  font-size: 1.1rem;
+  font-size: 0.9rem;
 }
 
 .rules-list {
@@ -733,6 +740,7 @@ h4 {
 
 .session-title {
   margin-top: 13%;
+  margin-bottom: 3%;
 }
 
 .slot {
@@ -747,15 +755,38 @@ h4 {
   color: #F3EFEE;
 }
 
+@media (max-width: 1400px) {
+  .half {
+    width: 100%;
+    /* height: auto; */
+  }
+
+  .flex-column-rules {
+    flex-direction: column;
+  }
+
+  .rules-side {
+    width: 100%;
+    margin-top: 5%;
+  }
+
+  .rules-title {
+    padding: 2% 0;
+    width: 50%;
+    margin: 2% 25%;
+  }
+
+  .rules>* {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+}
+
 /* media query for booking pages  */
 @media (max-width: 1000px) {
   .rules-table {
     display: flex;
     height: auto;
-  }
-
-  .flex-column-rules {
-    flex-direction: column;
   }
 
   .title-container {
@@ -824,11 +855,6 @@ h4 {
 
   .dropdown-toggle {
     margin-left: 0;
-  }
-
-  .half {
-    width: 100%;
-    height: auto;
   }
 
   .nav-item:hover {
@@ -992,8 +1018,24 @@ h4 {
     padding: 8%;
   }
 }
+
 @media (max-width: 400px) {
   .session-title {
     margin-top: 34%;
   }
+
+  .rules>* {
+    line-height: 25px;
+    font-size: 0.8rem;
+    margin: 0;
+  }
+
+  .rules-title {
+    padding: 2% 0;
+    width: 100%;
+    margin: 0;
+  }
+  .slots-table {
+    border-left: none;
+}
 }
