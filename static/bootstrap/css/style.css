@@ -3174,11 +3174,11 @@ textarea.form-control.is-invalid {
   border-color: var(--bs-btn-hover-border-color);
 }
 
-.btn-check+.btn:hover {
+/* .btn-check+.btn:hover {
   color: var(--bs-btn-color);
   background-color: var(--bs-btn-bg);
   border-color: var(--bs-btn-border-color);
-}
+} */
 
 .btn:focus-visible {
   color: var(--bs-btn-hover-color);
@@ -3222,14 +3222,14 @@ fieldset:disabled .btn {
   opacity: var(--bs-btn-disabled-opacity);
 }
 
-
+/* 
 .btn-link:focus-visible {
   color: var(--bs-btn-color);
-}
-
+} */
+/* 
 .btn-link:hover {
   color: var(--bs-btn-hover-color);
-}
+} */
 
 .btn-lg,
 .btn-group-lg>.btn {

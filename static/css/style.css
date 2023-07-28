@@ -91,6 +91,12 @@ h4 {
   --bs-btn-hover-bg: #F3EFEE;
   --bs-btn-active-color: #d63384;
 }
+.btn-primary:active{
+  background-color: #e94c9a;
+}
+.btn-primary:focus {
+  background-color: #e94c9a;
+}
 
 .btn-secondary {
   --bs-btn-color: #F3EFEE;
