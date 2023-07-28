@@ -100,6 +100,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'erbod.wsgi.application'
 
+SITE_ID = 1
+
 
 DATABASES = {
     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))

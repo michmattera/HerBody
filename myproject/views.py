@@ -101,6 +101,8 @@ def contact_view(request):
     """
     if request.method == "POST":
         form = ContactForm(request.POST)
+        print("Form POST data:", request.POST)  # Debug print to see the form data
+        print("Form is valid:", form.is_valid())  # Debug print to see if the form is valid
 
         if form.is_valid():
             subject = "Website Inquiry"
@@ -122,11 +124,7 @@ def contact_view(request):
                 request,
                 "Failed to send message. Please try again. All fields are required.",
             )
-            try:
-                send_mail(subject, message, 'admin@example.com', ['admin@example.com']) 
-            except BadHeaderError:
-                return HttpResponse('Invalid header found.')
-            return redirect("/")
+            return redirect("contact")
 
     if request.user.is_authenticated:
         form = ContactForm(initial={'email': request.user.email, 'name' : request.user.username})
