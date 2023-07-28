@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% include 'includes/messages.html' %}
+
+<!-- 404 error page -->
+<section>
+    <div class="booking-confirmation">
+        <h1 class="text-uppercase text-center booking-title">404 Page Not Found</h1>
+        <h4 class="text-center white">Something went wrong</h4>
+        <form method="POST">
+            {% csrf_token %}
+            <!-- Button to return homepage -->
+            <div class="text-center mt-3">
+                <a href="{% url 'home' %}" class="btn-primary btn">Go back</a>
+            </div>
+        </form>
+    </div>
+</section>
+
+{% endblock %}
