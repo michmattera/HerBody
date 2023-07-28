@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% include 'includes/messages.html' %}
+
+<!-- confirmation contact form -->
+<section>
+    <div class="booking-confirmation">
+        <h1 class="text-uppercase text-center booking-title">Thank you!</h1>
+        <h4 class="text-center white">Contact form submitted correctly</h4>
+        <h4 class="text-center white">We will be in touch soon!</h4>
+        <form method="POST">
+            {% csrf_token %}
+            <!-- Button to return homepage -->
+            <div class="text-center mt-3">
+                <a href="{% url 'home' %}" class="btn-primary btn">Home</a>
+            </div>
+        </form>
+    </div>
+</section>
+
+{% endblock %}

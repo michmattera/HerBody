@@ -1,6 +1,5 @@
 from . import views
-from .views import About, contact_view, register, login, custom_logout, Home
-
+from .views import About, contact_view, register, login, custom_logout, Home, ConfirmationContact
 from django.urls import path
 
 # from . import forms
@@ -20,4 +19,5 @@ urlpatterns = [
 
     # for contact links
     path("contact/", views.contact_view, name="contact"),  
+    path("contact/confirmation_contact", views.ConfirmationContact, name="confirmation_contact"),
 ]

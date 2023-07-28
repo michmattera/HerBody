@@ -28,6 +28,13 @@ def About(request):
     return render(request, "about.html")
 
 
+def ConfirmationContact(request):
+    """
+    Confirmation contact Page
+    """
+    return render(request, "contact/confirmation_contact.html")
+
+
 
 
 # function to register users
@@ -109,7 +116,7 @@ def contact_view(request):
 
             messages.success(request, 'You have submitted the form correctly!')
             form.save()
-            return redirect('/')
+            return redirect('confirmation_contact')
         else:
             messages.error(
                 request,
