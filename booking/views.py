@@ -191,7 +191,7 @@ def booking_confirmation(request):
 @login_required
 def booking_form(request):
     """
-    retireve user, start of the week, end of the week,
+    retrieve user, start of the week, end of the week,
     if the user already has 2 bookings it gave error message
     and it brings the user to his bookings,
     it gets all bookings from this and other user for the current week
