@@ -46,18 +46,18 @@ _____________________________________________________________________________
         - [Error pages](#error-pages)
     - [Colour Scheme](#colour-scheme)
     - [Typography](#typography)
-    - [Imagery](#imagery)
+    - [Images](#images)
 - ### Technologies Used
     - [Languages used](#languages)
     - [Frameworks, Packages & Programs Used](#frameworks-packages--programs-used)
+        - [Python packages installed](#python-packages-installed)
+        -[Programs used](#programs-used)
 - ### Testing
     - [TESTING.md](#testingmd)
-- ### Development and Deployment
-    - [Development](#development)
+- ### Deployment
     - [Deploy to Heroku](#deployment)
 - ### Credits
     - [Code](#code)
-    - [Youtube tutorials](#youtube-tutorials-i-have-watched)
     - [Acknowledgements](#acknowledgements)
 
 
@@ -73,7 +73,8 @@ _____________________________________________________________________________
 ### Future projects: 
 
 -   Creating a website where user could choose between 3 differents trainers.
--   Creating a webste where user could reset the password and email, and create his profile with more information.
+-   Creating a website where user could reset the password and email, and create his profile.
+-   Creating a website where after submitting the form user will receive a real email.
 
 ### Audience:
 
@@ -554,9 +555,149 @@ With the help of [Colourmind](http://colormind.io/template/material-dashboard/) 
 
 ____________________________________________________________________________
 
+
+### Typography
+
+The fonts used for the website were the following:
+
+- font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+____________________________________________________________________________
+
+
+### Images
+
+The images in the website were taken from the following website:
+
+- [Pexels](https://www.pexels.com/)
+- [Shutterstock](https://www.shutterstock.com/it)
+
+All images were checked for copyright.
+
+The logo for the website was create using Canva, and used as well for favicon.
+
+____________________________________________________________________________
+
+## Technologies Used
+
+### Languages used
+
+The following languages were used for the application from the developer:
+
+1. Python = Main language used with django application
+2. Javascript = Minimal javascript used for google map api, dropdown and nav.
+3. Css = To style all application
+
+### Frameworks, Packages & Programs Used
+
+The following were installed using django framework to develop the application.
+
+#### Python packages installed
+
+1. asgiref==3.7.2: ASGI stands for Asynchronous Server Gateway Interface, and asgiref provides a reference implementation for ASGI servers and applications. It's used to build asynchronous web applications.
+
+2. cloudinary==1.32.0: Cloudinary is a cloud-based media management platform. The Python SDK (cloudinary package) enables seamless integration and manipulation of images and videos in web applications.
+
+3. crispy-bootstrap5==0.7: This package is an extension for Django's crispy-forms library, providing templates and layout styles for rendering forms using Bootstrap 5.
+
+4. dj-database-url==0.5.0: dj-database-url simplifies the configuration of Django database settings by allowing you to use a URL (e.g., for Heroku) instead of manually configuring database settings.
+
+5. dj3-cloudinary-storage==0.0.6: This package provides a custom Django storage backend for handling media files on Cloudinary in Django applications.
+
+6. Django==3.2.19: Django is a high-level Python web framework that allows you to build web applications rapidly and securely. Version 3.2.19 corresponds to a specific release of Django.
+
+7. django-crispy-forms==2.0: Crispy-forms is a Django application that helps you easily render Django forms with a DRY (Don't Repeat Yourself) methodology. Version 2.0 corresponds to a specific release of the package.
+
+8. gunicorn==20.1.0: Gunicorn is a popular WSGI (Web Server Gateway Interface) HTTP server for running Django and other Python web applications.
+
+9. psycopg2==2.9.6: Psycopg2 is a PostgreSQL adapter for Python, allowing Django to communicate with PostgreSQL databases.
+
+10. pytz==2023.3: Pytz provides time zone support in Python. Version 2023.3 corresponds to a specific release of the package.
+
+11. sqlparse==0.4.4: Sqlparse is a non-validating SQL parser for Python, commonly used in development and debugging of database-related applications.
+
+12. python-dateutil==2.8.2: The python-dateutil library provides various utilities for working with dates and times in Python.
+
+13. django-widget-tweaks==1.4.12: Django-widget-tweaks allows you to customize form widgets' attributes and classes in Django templates more easily.
+
+#### Programs used:
+
+The developer used different external programs throughout the development of this project.
+There are all external programs used :
+- [Font Awesome](https://fontawesome.com/ "Link to FontAwesome")
+     - Font Awesome was used to import icons (e.g. social media icons).
+- [GitPod](https://gitpod.io/ "Link to GitPod homepage")
+     - GitPod was used for writing code, committing, and then pushing to GitHub.
+- [GitHub](https://github.com/ "Link to GitHub")
+     - GitHub was used to store the readme and testing files, along with all code after pushing.
+- [Heroku](https://dashboard.heroku.com/ "Link to Heroku")
+     - Heroku was used to deploy the application.
+- [Cloudinary](https://cloudinary.com/ "Link to Cloudinary")
+     - Cloudinary was used to store all static files.
+- [Canva](https://www.canva.com/ "Link to Canva homepage")
+     - Canva was used to create the logo used for the website.
+- [Am I Responsive?](http://ami.responsivedesign.is/# "Link to Am I Responsive Homepage")
+     - Am I Responsive was used to see responsive design throughout the process and to generate mockup imagery to be used.
+- [Ezgif](https://ezgif.com/video-to-gif "Link to go to ezgif homepage")
+    - Ezgif was used to convert all videos to gifs for the testing file.
+- [Convertio](https://convertio.co/ "Link to go to convertio homepage")
+    - Convertio was used to convert all png-jpg to webp.
+- [Free screen recorder](https://screencast-o-matic.com/screen-recorder?from=app&installed=true "Link to go to Free screen recorder homepage")
+    - Free screen recorder was installed on the pc, and used to screen record all videos for the testing files.
+
+[Back to Top](#table-of-contents)
+
+<br>
+
  ## Testing
 
+
 Testing information can be found in a separate testing [file](TESTING.md "Link to testing file")
+
+[Back to Top](#table-of-contents)
+
+<br>
+
+# Deployment
+
+The following are the steps I went through to deploy my live site:
+
+- The site was deployed using Heroku. The steps to deploy are as follows: 
+1. Go to [Heroku](https://dashboard.heroku.com/apps)
+2. Go to 'New' and select 'Create a new app'
+3. Input your app name and create app.
+4. Navigate to 'Settings'
+5. On the Config Vars section, enter the following values:
+    - SECRET_KEY: The Secret Key for your project
+    - DATABASE_URL: The URL from your ElephantSQL dashboard
+    - CLOUNDINARY_URL: The URL from your Cloudinary dashboard
+    - PORT: 8000
+6. Navigate to the 'Deploy' section. 
+7. Connect to GitHub, search for your repo and confirm. 
+8. Choose branch to deploy.
+9. Your app should now be available to see. You can choose whether to have your app automatically redeploy with every push or to keep it manual. 
+
+[Back to Top](#table-of-contents)
+
+<br>
+
+## **Credits**
+
+### **Code**
+
+The code for the website was made by the developer.
+For the most complex functions, the developer took ispiration from:
+- Slack
+- Stack Overflow
+- Tutors
+- Youtube videos
+
+## Acknowledgements
+
+- To my amazing girlfriend Dani. For listening to me worry about this project, to keeping me relaxed even after a really long day, and keeping me positive :)
+- My family and my friends to helped me test out everything.
+- My tutors and my mentor to have saved me in the most difficult moments, thank you.
+
  
 
 
