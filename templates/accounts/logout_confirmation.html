@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% include 'includes/messages.html' %}
+
+<!-- logout confirmation page -->
+<section>
+    <div class="booking-confirmation">
+        <h1 class="text-uppercase text-center booking-title">Logout Confirmation</h1>
+        <h4 class="text-center white">Are you sure you want to logout?</h4>
+        <form method="POST" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <!-- Button to confirm or not logging out -->
+            <div class="text-center mt-3">
+                <button type="submit" class="btn btn-primary center-btn text-center" id="confirm">Yes</button>
+                <a href="{% url 'home'%}" class="btn btn-secondary text-center center-btn" id="cancel" role="button">No</a>
+            </div>
+        </form>
+    </div>
+</section>
+
+{% endblock %}

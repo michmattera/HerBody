@@ -88,6 +88,9 @@ def login(request):
         return render(request, 'accounts/login.html')
 
 
+def logout_confirmation(request):
+    return render(request, 'accounts/logout_confirmation.html')
+
 @login_required
 def custom_logout(request):
     logout(request)

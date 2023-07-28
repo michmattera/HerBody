@@ -1,5 +1,6 @@
 from . import views
-from .views import About, contact_view, register, login, custom_logout, Home, ConfirmationContact
+from .views import About, contact_view, register, login, custom_logout, Home
+from .views import ConfirmationContact, logout_confirmation
 from django.urls import path
 
 # from . import forms
@@ -16,6 +17,7 @@ urlpatterns = [
     path('accounts/register/', views.register, name="register"),
     path("accounts/login/", views.login, name="login"),
     path("logout/", views.custom_logout, name="logout"),
+    path('accounts/logout_confirmation/', views.logout_confirmation, name='logout_confirmation'),
 
     # for contact links
     path("contact/", views.contact_view, name="contact"),  

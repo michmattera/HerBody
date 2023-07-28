@@ -38,10 +38,8 @@ _____________________________________________________________________________
         - [Register](#register)
         - [Logout](#logout)
 - ### Design and Features
-    - [Design and Features](#design-and-features-1)
+    - [Design and Features element](#design-and-features-element)
         - [Navbar](#navbar)
-        - [Register](#register)
-        - [Login](#login)
         - [Home page](#home-page)
         - [Footer](#footer)
         - [Messages](#messages)
@@ -355,8 +353,206 @@ Contact page functionality , will have a form , where the user will be prompted 
 - Message
 
 If the user is logged in than automatically the name and the email will be inserted automatically, while if the user is not logged in no.
-The user than will have a success message and will be redirected to a contact confirmation page , just toconfirm the correct submission of the form.
+The user than will have a success message and will be redirected to a contact confirmation page , just to confirm the correct submission of the form.
+
+<details>
+<summary>Contact functionality</summary>
+
+![Contact functionality](/assets/images/read-me-images/)
+
+</details>
+
 _____________________________________________________________________________
+
+ ### Account
+
+ Account templates can be found in an account folder , where there will be:
+
+- Login
+- Register
+- Logout
+
+ ### Login
+
+ The [Login template](templates/account/login.html "Link to login template") is a form where the user will be prompted to ask just the username and the password .
+ If the username or the password are not correct than it will show a error message.
+ If not than the user will be redirect to the home page.
+
+ <details>
+<summary>Login functionality</summary>
+
+![Login functionality](/assets/images/read-me-images/)
+
+</details>
+
+ ### Register
+
+ The [Register template](templates/account/register.html "Link to register template") is a form where the user will be prompted to ask just the username, the email, the password and a confirmation of the password .
+ If there are any error in the form than it will show a error message.
+ If not it will be redirect to the login page.
+
+ <details>
+<summary>Register functionality</summary>
+
+![Register functionality](/assets/images/read-me-images/)
+
+</details>
+
+ ### Logout
+
+ The [Logout template](templates/account/logout.html "Link to logout template") is a template page where the user will be asked to confirm if he wants to logout or not.
+ He will have two choices:
+
+ 1. Confirm = Logging out the user, redirecting to the homepage.
+ 1. Cancel = Just redirecting him to the previuos page.
+
+ <details>
+<summary>Logout functionality</summary>
+
+![Logout functionality](/assets/images/read-me-images/)
+
+</details>
+
+_____________________________________________________________________________
+
+## Design and features
+
+### Design and features element
+
+Design and features throughout the page is consistent.
+
+#### Navbar
+
+The navbar has the following common and different features base on different media query size:
+
+##### Common features =
+
+1. Fixed on the top.
+2. Dropdown is different if user is logged in or not:
+    - Logged in user = Will have displayed book a session , my bookings and logout button
+    - Not logged in user = Will have displayed Login and Register
+
+##### For screen bigger than 992px =
+
+1. When the user land in the page, it does not have any background-color, but when is scrolling down, it becomes bigger and take the main colour #d63384 as his background
+2. Elements inside the navigation bar are all displayed and divided from right and left:
+    - Home , About, Contact, Dropdown on the right
+    - Logo on the left
+
+##### For screen smaller than 992px =
+
+1. When the user land in the page, it does have a dark background #241e30.
+2. Elements inside the navigation bar are all displayed and divided from right and left:
+    - Menu dropdown on the right
+    - Logo on the left
+3. The dropdown menu will than open all the elements on the left when clicked
+
+ <details>
+<summary>Navbar</summary>
+
+![Navbar functionality](/assets/images/read-me-images/)
+
+</details>
+
+
+#### Home page
+
+The homepage is divided in different sections:
+
+- The first one with a 100% background image with a small text on the top and a button that differ from logged and not logged user
+    - Logged user: SignUp
+    - Not logged user: Book a session
+- Second section with three different features, that pass from 3 column to one column for smaller screen size.
+- Central section with a big paragraph.
+And testimonial section where as before it changes the number of column , passing from 3, to 2 to 1 column for different media size.
+
+ <details>
+<summary>Homepage</summary>
+
+![Homepage functionality](/assets/images/read-me-images/)
+
+</details>
+
+
+
+#### Footer
+
+The footer has the following common and different features base on different media query size:
+
+##### features =
+
+1. Not fixed on the bottom , with dak color: #241e30.
+2. It has four different features: 
+    - Socials: with three different links that open in a new page
+    - Contact: Contact information
+    - Opening hours: With opening hours and dates
+    - Copyright: With name of the developer, and different background color: #d63384.
+3. Depending on different size as well it change elements position for better user interface.
+
+ <details>
+<summary>Footer functionality</summary>
+
+![Footer functionality](/assets/images/read-me-images/)
+
+</details>
+
+
+#### Messages
+
+Developer decided to use django.messages , adding just a small timeout javascript function to set a timer for the message to fade alone.
+The color were the default color from django:
+- Green = Correct 
+- Red = Error
+- Yellow = Warning
+
+Almost all templates page have implemented the messages .
+Developer decided to insert messages loop in includes folder inside the template and then include them in the templates directly.
+
+ <details>
+<summary>Messages functionality</summary>
+
+![Messages functionality](/assets/images/read-me-images/)
+
+</details>
+
+
+#### Error pages
+
+Developer decided to use and implement personalized error pages such as :
+- 404
+- 500
+- 400
+
+All have the same structure, same of the delete booking template.
+All of them has as well a link that take the user back to the homepage, and a different error explanation.
+
+ <details>
+<summary>Error pages</summary>
+
+![Error pages functionality](/assets/images/read-me-images/)
+
+</details>
+
+
+### Colour Scheme
+
+The color scheme that the developer choose was based on a dark pink as the main colour for the application : #d63384 .
+It was chosen because pink is usually associated with womans , and an only girls gym site want to let the user know at first impact that womans are represented .
+<br>
+<br>
+With the help of [Colourmind](http://colormind.io/template/material-dashboard/) palette generator were than chosen the other 2 main color for the application.
+
+- #241E30
+- #F3EFEE
+
+ <details>
+<summary>Colour scheme</summary>
+
+![Color scheme](/assets/images/read-me-images/)
+
+</details>
+
+____________________________________________________________________________
 
  ## Testing
 
