@@ -186,6 +186,7 @@ def booking_confirmation(request):
     return render(request, 'booking/booking_confirmation.html', context)
 
 
+
 # login required, booking form function
 @login_required
 def booking_form(request):

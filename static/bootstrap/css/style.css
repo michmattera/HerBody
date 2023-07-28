@@ -12346,7 +12346,7 @@ p {
   color: var(--bs-pink);
 }
 
-@media (min-width: 992px) {
+@media (min-width: 993px) {
   #mainNav {
     padding-top: 0;
     padding-bottom: 1.5rem;
