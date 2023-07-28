@@ -604,12 +604,6 @@ h4 {
   border: 3px solid #d63384;
 }
 
-.slots-table {
-  width: 90%;
-  margin: 5%;
-  flex-direction: column;
-}
-
 .margin-top {
   margin-top: 7%;
 }
@@ -757,6 +751,11 @@ h4 {
 
   .session-title {
     margin-top: 6%;
+  }
+  .slots-table {
+    width: 90%;
+    margin: 5%;
+    /* flex-direction: column; */
   }
 }
 

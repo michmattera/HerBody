@@ -1,3 +1,4 @@
+// bootstrap js
 window.addEventListener('DOMContentLoaded', event => {
 
     // Navbar shrink function
@@ -45,6 +46,7 @@ window.addEventListener('DOMContentLoaded', event => {
 });
 
 
+// my js
 // dropdown navigation links
 $(document).ready(function () {
     $('.dropdown-toggle').dropdown()
@@ -62,7 +64,6 @@ setTimeout(function () {
 
 
 let map;
-
 function initMap(data) {
     const gym = {
         lat: 20.659698,
@@ -79,13 +80,4 @@ function initMap(data) {
 
 }
 
-// Remove the existing click event handler
-// $(".slot").off("click");
-
-// Add a new click event handler to show the corresponding form on click
-// $(".slot").on("click", function (e) {
-//   e.preventDefault();
-//   var formId = $(this).attr("id");
-//   $("#" + formId + "-form").show();
-// });
 
