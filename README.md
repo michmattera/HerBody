@@ -20,10 +20,8 @@ _____________________________________________________________________________
     - [Site owner goal](#site-owner-goal)
     - [User Stories](#user-stories)
 - ### Wireframes and templates
-    - [Lucid Chart](#lucid-chart)
-    - [DrawSql Chart](#drawsql-chart)
     - [Database Structure](#database-and-structure)
-    - [Uizard Template](#uizard-templates)
+    - [Wireframes](#wireframes)
 - ### Main functionality
     - [Booking functionality](#booking-functionality)
         - [Create a session](#create-a-session)
@@ -214,9 +212,94 @@ _____________________________________________________________________________
 ## Wireframes and templates.  
 
 ### Lucid Charts
-_____________________________________________________________________________
-## Design and Features
 
+The database structure and expalanation are to be found below.
+
+**Django User Model** is the main model used, where the booking and the contact model are connected.
+- Register model is the one that use directly the django build in model. Where it stores mainly :
+    - Username
+    - Email
+    - Password
+- Booking model stores , time, date for the booking and it is linked to the user foreigh key of the django model.
+- Contact model on the other hand are for logged and not logged user. If the user is logged in that it links as well to the user foreign key. If not it saves just all the info in the contact.
+
+Both of the model have their own folder and are divided in the admin panel as well under:
+
+1. Booking
+2. Contact
+
+<details>
+<summary>Database scheme</summary>
+
+![Database scheme](/assets/images/read-me-images/)
+
+</details>
+
+### Wireframes
+
+Wireframes were used in order to structure all the website, all main pages were structured after the wireframes.
+Other pages as error pages, logout confirmation , contact confirmation were created by the developer for better UX after the creation of wireframes.
+<br>
+Main changes:
+
+- Book a session , changed for a table where the 3 slots are listed for each day.
+- Contact page change the form for one cloumn instead of two.
+
+<details>
+<summary>Wireframe mobile phone</summary>
+
+![Wireframe mobile](documentation/readme_files/wireframes/wire_mobile.PNG)
+
+</details>
+
+<details>
+<summary>Wireframe desktop home</summary>
+
+![Wireframe desktop home](documentation/readme_files/wireframes/wire_home_desktop.PNG)
+
+</details>
+
+<details>
+<summary>Wireframe desktop about</summary>
+
+![Wireframe desktop about](documentation/readme_files/wireframes/wire_about_desktop.PNG)
+
+</details>
+
+<details>
+<summary>Wireframe desktop contact</summary>
+
+![Wireframe desktop contact](documentation/readme_files/wireframes/wire_contact_desktop.PNG)
+
+</details>
+
+<details>
+<summary>Wireframe desktop book a session</summary>
+
+![Wireframe desktop book a session](documentation/readme_files/wireframes/wire_book_a_session_desktop.PNG)
+
+</details>
+
+<details>
+<summary>Wireframe desktop booking list</summary>
+
+![Wireframe desktop booking list](documentation/readme_files/wireframes/wire_booking_list_desktop.PNG)
+
+</details>
+
+<details>
+<summary>Wireframe desktop login</summary>
+
+![Wireframe desktop login](documentation/readme_files/wireframes/wire_login_desktop.PNG)
+
+</details>
+
+<details>
+<summary>Wireframe desktop register</summary>
+
+![Wireframe desktop register](documentation/readme_files/wireframes/wire_register_desktop.PNG)
+
+</details>
 _____________________________________________________________________________
 
 ## Main functionality
