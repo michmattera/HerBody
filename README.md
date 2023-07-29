@@ -26,10 +26,10 @@ _____________________________________________________________________________
 - ### Main functionality
     - [Booking functionality](#booking-functionality)
         - [Create a session](#create-a-session)
-        - [Sessions - view all your sessions](#sessions-view-all-sessions)
-        - [Sessions - edit a session](#edit-a-session)
-        - [Sessions - delete a session](#delete-a-session)
-        - [Sessions - confirm a session](#confirm-a-session)
+        - [View all your sessions](#sessions-view-all-sessions)
+        - [Edit a session](#edit-a-session)
+        - [Delete a session](#delete-a-session)
+        - [Confirm a session](#confirm-a-session)
     - [Contact](#contact)
     - [Account](#account)
         - [Login](#login)
@@ -343,7 +343,7 @@ For each day the user can choose between 3 different slots:
 If the slot is available the user can click the slot and will be brought to the booking confirmation template, where the user can confirm or cancel the booking. Will then be redirected to the booking list.
 
 
-#### Sessions - view all your sessions
+#### View all your sessions
 
 All the bookings are shown to the user in the [Booking list template](templates/booking/booking_list.html "Link to booking list template") where the booking summary will appear, bringing the user to the Read of the CRUD functionality.
 Here a summary of the booking user, booking date, and time will appear.
@@ -356,7 +356,7 @@ As well here the user will have the possibility to edit or delete the booking.
 
 </details>
 
-#### Sessions - edit a session
+#### Edit a session
 
 If the user clicks on edit booking he will be brought to a similar page to when he wanted to book a session, with the same functionality, where as well he will see all the sessions available and not, and where the session clicked by the user to edit is still unavailable [Edit booking template](templates/booking/edit_booking.html "Link to edit booking template").
 <br>
@@ -364,7 +364,7 @@ If the user clicks on edit booking he will be brought to a similar page to when 
 Similar to the book-a-session functionality, he will be brought to a confirmation page.
 
 
-#### Sessions - delete a session
+#### Delete a session
 
 If the user clicks on the delete booking [Delete Booking template](templates/booking/delete_booking.html "Link to delete booking template") where a confirmation to the user will appear.
 <br>
@@ -382,7 +382,7 @@ The user will have 2 choices :
 
 </details>
 
-#### Sessions - confirm a session
+#### Confirm a session
 
 When the user book a new session, or clicks on edit a new session, after selecting the slot, they will be brought to a confirmation page.
 <br>
