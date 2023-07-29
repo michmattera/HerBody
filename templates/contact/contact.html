@@ -11,11 +11,11 @@
         <div class="text-side">
             <h1 class="contact">Contact Us</h1>
             <h5>
-                Looking for more informations or you would like to know more about our free private lessons?
+                Looking for more information or you would like to know more about our free private lessons?
             </h5>
             <hr>
             <h5>
-                Submit the form below and one of our team spacialist will follow up on soon as possible !
+                Submit the form below and one of our team specialists will follow up on soon as possible!
                 <br>
             </h5>
         </div>
@@ -33,35 +33,35 @@
                 <h5>Name</h5>
                 {{ form.name }}
                 {% for error in form.name.errors %}
-                    <p class="error-message">{{ error }}</p>
+                <p class="error-message">{{ error }}</p>
                 {% endfor %}
             </div>
             <div class="form-group">
                 <h5>Email</h5>
                 {{ form.email }}
                 {% for error in form.email.errors %}
-                    <p class="error-message">{{ error }}</p>
+                <p class="error-message">{{ error }}</p>
                 {% endfor %}
             </div>
             <div class="form-group">
                 <h5>Subject</h5>
                 {{ form.subject }}
                 {% for error in form.subject.errors %}
-                    <p class="error-message">{{ error }}</p>
+                <p class="error-message">{{ error }}</p>
                 {% endfor %}
             </div>
             <div class="form-group">
                 <h5>Message</h5>
                 {{ form.message }}
                 {% for error in form.message.errors %}
-                    <p class="error-message">{{ error }}</p>
+                <p class="error-message">{{ error }}</p>
                 {% endfor %}
             </div>
             <div class="form-group text-center">
                 <input class="btn btn-primary contact-btn" type="submit" value="Submit">
             </div>
         </form>
-        
+
     </div>
 </section>
 
