@@ -4,9 +4,9 @@ from django.contrib.auth.models import User
 
 
 class Contact(models.Model):
-    # user = models.ForeignKey(User, on_delete=models.CASCADE,
-    #                          null=True
-    #                      )
+    user = models.ForeignKey(User, on_delete=models.CASCADE,
+                             null=True
+                         )
     name = models.CharField(max_length=50)
     email = models.EmailField()
     subject = models.CharField(max_length=100)
