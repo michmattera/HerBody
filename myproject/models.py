@@ -18,13 +18,3 @@ class Contact(models.Model):
     class Meta:
         # Name for admin panel
         verbose_name = "Contact Form Submission"
-
-
-class UserProfile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
-    username = models.CharField(max_length=150, unique=True)
-    email = models.EmailField(unique=True)
-    password = models.CharField(max_length=128)
-
-    def __str__(self):
-        return self.user.username
