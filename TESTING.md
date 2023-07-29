@@ -35,7 +35,6 @@ The following browser has been tested and checked:
 | Microdoft edge | :heavy_check_mark: |
 | Safari|  :heavy_check_mark: |
 | Firefox | :heavy_check_mark: |
-| Opera | :heavy_check_mark:|
 
 <details>
 <summary> Google Chrome:</summary>
@@ -394,3 +393,114 @@ Lighthouse mobile:
     ![500]()
 
     </details>
+
+
+### Css
+
+All personal css was passed through validator.
+
+<details>
+<summary>Css</summary>
+
+![Css](documentation/testing_files/languages_validator/css_validator.PNG)
+
+</details>
+
+### JS
+
+All personal Js was passed through validator.
+
+<details>
+<summary>JS</summary>
+
+![JS](documentation/testing_files/languages_validator/js_validator.PNG)
+
+</details>
+
+### HTML
+
+All HTML pages were passed through validator.
+
+<details>
+<summary>Home</summary>
+
+![Home](documentation/testing_files/languages_validator/w3c_validator_html_home.gif)
+
+</details>
+
+<details>
+<summary>About</summary>
+
+![About](documentation/testing_files/languages_validator/w3c_validator_about.gif)
+
+</details>
+
+<details>
+<summary>Contact</summary>
+
+![Contact](documentation/testing_files/languages_validator/w3c_validator_html_contact.gif)
+
+</details>
+
+<details>
+<summary>Login</summary>
+
+![Login](documentation/testing_files/languages_validator/w3c_validator_html_login.gif)
+
+</details>
+
+<details>
+<summary>Register</summary>
+
+![Register](documentation/testing_files/languages_validator/w3c_validator_html_register.gif)
+
+</details>
+
+<details>
+<summary>Logout</summary>
+
+![Logout](documentation/testing_files/languages_validator/w3c_validator_logout.gif)
+
+</details>
+
+<details>
+<summary>Book a session</summary>
+
+![Book a session](documentation/testing_files/languages_validator/w3c_validator_book_a_session.gif)
+
+</details>
+
+<details>
+<summary>Booking list</summary>
+
+![Booking list](documentation/testing_files/languages_validator/w3c_validator_html_booking_list.gif)
+
+</details>
+
+<details>
+<summary>Booking confirmation</summary>
+
+![Booking confirmation](documentation/testing_files/languages_validator/w3c_validator_html_booking_confirmation.gif)
+
+</details>
+
+<details>
+<summary>Edit booking</summary>
+
+![Edit booking](documentation/testing_files/languages_validator/w3c_validator_html_edit_booking.gif)
+
+</details>
+
+<details>
+<summary>Confirm edit booking</summary>
+
+![Confirm edit booking](documentation/testing_files/languages_validator/w3c_validator_html_edit_confirm_booking.gif)
+
+</details>
+
+<details>
+<summary>Delete booking</summary>
+
+![Delete booking](documentation/testing_files/languages_validator/w3c_validator_html_delete_booking.gif)
+
+</details>
