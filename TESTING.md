@@ -77,3 +77,7 @@ The following file is where the developer worote the Unit Test:
 ![Review Unittest]()
 
 </details>
+
+## Manual testing
+
+### Navigation Buttons
