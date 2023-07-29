@@ -2,12 +2,11 @@
 
 ## Am I responsive image 
 
-![Screenshot](./static/images/)
+![Screenshot](documentation/readme_files/am_i_responsive_image.PNG)
 
 _____________________________________________________________________________
 
 ### Link to the finished site: [LINK](https://her-body.herokuapp.com/)
-
 
 _____________________________________________________________________________
 ## Content:
@@ -98,7 +97,7 @@ _____________________________________________________________________________
 _____________________________________________________________________________ 
 ## Project management
 
-### Agile method.
+### Agile method
 
 - HerBody was developed using an agile method. That includes using GitHub issues, user stories and kanban boards.
 - That gave me an overview of tasks structured in a to-do, in-progress and done way.
@@ -217,8 +216,6 @@ _____________________________________________________________________________
 ### Lucid Charts
 _____________________________________________________________________________
 ## Design and Features
-
-### Design and Features
 
 _____________________________________________________________________________
 
