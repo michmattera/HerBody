@@ -15,7 +15,7 @@ _____________________________________________________________________________
     - [Future implements](#future-projects)
     - [Audience](#audience)
 - ### Project management
-    - [Project boards](#github-project-board-user-stories-issues)
+    - [Project boards](#project-boards)
     - [Site user goal](#site-user-goal)
     - [Site owner goal](#site-owner-goal)
     - [User Stories](#user-stories)

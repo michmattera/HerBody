@@ -12,6 +12,7 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from .forms import ContactForm
+from .models import UserProfile
 
 
 def Home(request):
@@ -38,6 +39,34 @@ def ConfirmationContact(request):
 
 
 # function to register users
+# def register(request):
+#     if request.method == 'POST':
+#         username = request.POST['username']
+#         email = request.POST['email']
+#         password = request.POST['password']
+#         confirm_password = request.POST['confirm_password']
+
+#         if password == confirm_password:
+#             if User.objects.filter(username=username).exists():
+#                 messages.info(request, 'Username is already taken')
+#                 return redirect('register')
+#             elif User.objects.filter(email=email).exists():
+#                 messages.info(request, 'Email is already taken')
+#                 return redirect('register')
+#             else:
+#                 user = User.objects.create_user(username=username, password=password,
+#                                         email=email)
+#                 user.save()
+                
+#                 return redirect('login')
+
+#         else:
+#             messages.info(request, 'Both passwords are not matching')
+#             return redirect(register)
+            
+#     else:
+#         return render(request, 'accounts/register.html')
+
 def register(request):
     if request.method == 'POST':
         username = request.POST['username']
@@ -46,27 +75,30 @@ def register(request):
         confirm_password = request.POST['confirm_password']
 
         if password == confirm_password:
-            if User.objects.filter(username=username).exists():
+            if UserProfile.objects.filter(username=username).exists():
                 messages.info(request, 'Username is already taken')
                 return redirect('register')
-            elif User.objects.filter(email=email).exists():
+            elif UserProfile.objects.filter(email=email).exists():
                 messages.info(request, 'Email is already taken')
                 return redirect('register')
             else:
-                user = User.objects.create_user(username=username, password=password,
-                                        email=email)
-                user.save()
-                
+                # Create a new UserProfile object and save it to the database
+                user_profile = UserProfile(username=username, email=email, password=password)
+                user_profile.save()
+
+                # Alternatively User model for authentication
+                # user = User.objects.create_user(username=username, email=email, password=password)
+                # user.save()
+
                 return redirect('login')
 
         else:
             messages.info(request, 'Both passwords are not matching')
-            return redirect(register)
-            
+            return redirect('register')
+
     else:
         return render(request, 'accounts/register.html')
-
-
+    
 # function to login the user
 def login(request):
     if request.method == 'POST':
