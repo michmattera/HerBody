@@ -36,37 +36,7 @@ def ConfirmationContact(request):
     return render(request, "contact/confirmation_contact.html")
 
 
-
-
 # function to register users
-# def register(request):
-#     if request.method == 'POST':
-#         username = request.POST['username']
-#         email = request.POST['email']
-#         password = request.POST['password']
-#         confirm_password = request.POST['confirm_password']
-
-#         if password == confirm_password:
-#             if User.objects.filter(username=username).exists():
-#                 messages.info(request, 'Username is already taken')
-#                 return redirect('register')
-#             elif User.objects.filter(email=email).exists():
-#                 messages.info(request, 'Email is already taken')
-#                 return redirect('register')
-#             else:
-#                 user = User.objects.create_user(username=username, password=password,
-#                                         email=email)
-#                 user.save()
-                
-#                 return redirect('login')
-
-#         else:
-#             messages.info(request, 'Both passwords are not matching')
-#             return redirect(register)
-            
-#     else:
-#         return render(request, 'accounts/register.html')
-
 def register(request):
     if request.method == 'POST':
         username = request.POST['username']
@@ -75,68 +45,47 @@ def register(request):
         confirm_password = request.POST['confirm_password']
 
         if password == confirm_password:
-            if UserProfile.objects.filter(username=username).exists():
+            if User.objects.filter(username=username).exists():
                 messages.info(request, 'Username is already taken')
                 return redirect('register')
-            elif UserProfile.objects.filter(email=email).exists():
+            elif User.objects.filter(email=email).exists():
                 messages.info(request, 'Email is already taken')
                 return redirect('register')
             else:
-                # Create a new UserProfile object and save it to the database
-                user_profile = UserProfile(username=username, email=email, password=password)
-                user_profile.save()
-
-                # Alternatively User model for authentication
-                # user = User.objects.create_user(username=username, email=email, password=password)
-                # user.save()
-
+                user = User.objects.create_user(username=username, password=password,
+                                        email=email)
+                user.save()
+                
                 return redirect('login')
 
         else:
             messages.info(request, 'Both passwords are not matching')
-            return redirect('register')
-
+            return redirect(register)
+            
     else:
         return render(request, 'accounts/register.html')
+
     
 # function to login the user
-# def login(request):
-#     if request.method == 'POST':
-#         username = request.POST['username']
-#         password = request.POST['password']
-#         user = auth.authenticate(username=username, password=password)
-#         if not request.POST.get('remember_me', None):
-#             request.session.set_expiry(0)
-#         if user is not None:
-#             auth.login(request, user)
-#             messages.info(request, 'You have logged in correctly')
-
-#             return redirect('home')
-#         else:
-#             messages.warning(request, 'Invalid Username or Password')
-#             return redirect('login')
-
-#     else:
-#         return render(request, 'accounts/login.html')
-
 def login(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
-
         user = auth.authenticate(username=username, password=password)
+        if not request.POST.get('remember_me', None):
+            request.session.set_expiry(0)
         if user is not None:
-            # Authentication successful, proceed with login
             auth.login(request, user)
             messages.info(request, 'You have logged in correctly')
+
             return redirect('home')
         else:
-            # Authentication failed, show error message and redirect back to login page
             messages.warning(request, 'Invalid Username or Password')
             return redirect('login')
 
     else:
         return render(request, 'accounts/login.html')
+
 
 
 # function to bring the user to confirmation to log out
