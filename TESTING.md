@@ -66,3 +66,9 @@ The following browser has been tested and checked:
 ![Opera]()
 
 </details>
+
+## **Unit Testing**
+
+Unittest was used by the developer to check the functionality for the django app.
+Developer tried to check as much as possible with unittest even if is not really clear yet how to use it properly.
+

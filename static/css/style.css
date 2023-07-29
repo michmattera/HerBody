@@ -403,9 +403,8 @@ h4 {
 
 /* contact us page */
 .contact-container {
-  /* width: 100%; */
-  margin: 2% 0;
-  margin-top: 11rem;
+  margin: 0;
+  margin-top: 4rem;
   height: 450px;
   display: flex;
 }
@@ -700,6 +699,9 @@ h4 {
   .title-container {
     margin-top: 60px;
   }
+  .contact-container {
+    margin-top: 2rem;
+}
 
   .text-side {
     margin: 0;
@@ -783,6 +785,67 @@ h4 {
   }
 }
 
+@media (max-width: 768px) {
+  .about-section>h3 {
+    font-size: 1.7rem;
+  }
+
+  .dropdown-toggle {
+    margin: 0;
+  }
+
+  #about-title {
+    font-size: 2rem;
+  }
+
+  .dropdown-toggle {
+    margin: o;
+  }
+
+  #about-subtitle {
+    font-size: 1.4rem;
+  }
+
+
+  .small-paragraph {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .contact-container {
+    height: 650px;
+    margin-top: 67px;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .text-side {
+    overflow: visible;
+  }
+
+  .contact-container>img {
+    width: 100%;
+  }
+  .center-btn {
+    width: 50%;
+    margin: 1% 25%;
+  }
+}
+
+@media (max-width: 678px) {
+  .review {
+    margin-top: 1.5rem;
+  }
+
+  .contact-container {
+    margin-top: 80px;
+  }
+
+  .text-side {
+    padding: 8%;
+  }
+}
+
 /* media query for booking pages  */
 @media (max-width: 600px) {
   .slots-table {
@@ -794,6 +857,9 @@ h4 {
   .booking-subtitle {
     font-size: 0.8rem;
   }
+  .contact-container {
+    margin-top: 30px;
+}
 
   .slot,
   .date,
@@ -867,67 +933,6 @@ h4 {
   .contact-btn {
     text-align: center;
     width: 100%;
-  }
-}
-
-@media (max-width: 768px) {
-  .about-section>h3 {
-    font-size: 1.7rem;
-  }
-
-  .dropdown-toggle {
-    margin: 0;
-  }
-
-  #about-title {
-    font-size: 2rem;
-  }
-
-  .dropdown-toggle {
-    margin: o;
-  }
-
-  #about-subtitle {
-    font-size: 1.4rem;
-  }
-
-
-  .small-paragraph {
-    margin-left: 0;
-    margin-right: 0;
-  }
-
-  .contact-container {
-    height: 650px;
-    margin-top: 105px;
-    display: flex;
-    flex-direction: column-reverse;
-  }
-
-  .text-side {
-    overflow: visible;
-  }
-
-  .contact-container>img {
-    width: 100%;
-  }
-  .center-btn {
-    width: 50%;
-    margin: 1% 25%;
-  }
-}
-
-@media (max-width: 678px) {
-  .review {
-    margin-top: 1.5rem;
-  }
-
-  .contact-container {
-    margin-top: 80px;
-  }
-
-  .text-side {
-    padding: 8%;
   }
 }
 
