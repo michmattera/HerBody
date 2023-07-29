@@ -160,7 +160,7 @@ Lighthouse desktop:
     <details>
     <summary>Booking_confirmation</summary>
 
-    ![Booking confirmation]()
+    ![Booking confirmation](documentation/testing_files/lighthouse/desktop/lighthouse_booking_confirmation_desktop.PNG)
 
     </details>
 
@@ -195,7 +195,7 @@ Lighthouse desktop:
     <details>
     <summary>Edit_booking_confirm</summary>
 
-    ![Edit booking confirm]()
+    ![Edit booking confirm](documentation/testing_files/lighthouse/desktop/lighthouse_edit_booking_confirm_desktop.PNG)
 
     </details>
 
@@ -206,21 +206,21 @@ Lighthouse desktop:
     <details>
     <summary>Login</summary>
 
-    ![Login]()
+    ![Login](documentation/testing_files/lighthouse/desktop/lighthouse_login_desktop.PNG)
 
     </details>
 
     <details>
     <summary>Logout_confirmation</summary>
 
-    ![Logout confirmation]()
+    ![Logout confirmation](documentation/testing_files/lighthouse/desktop/lighthouse_logout_desktop.PNG)
 
     </details>
 
     <details>
     <summary>Register</summary>
 
-    ![Register]()
+    ![Register](documentation/testing_files/lighthouse/desktop/lighthouse_register_desktop.PNG)
 
     </details>
 
@@ -229,14 +229,14 @@ Lighthouse desktop:
     <details>
     <summary>Contact</summary>
 
-    ![Contact]()
+    ![Contact](documentation/testing_files/lighthouse/desktop/lighthouse_contact_desktop.PNG)
 
     </details>
 
     <details>
     <summary>Confirmation_contact</summary>
 
-    ![Confirmation contact]()
+    ![Confirmation contact](documentation/testing_files/lighthouse/desktop/lighthouse_confirmation_contact_desktop.PNG)
 
     </details>
 
@@ -244,26 +244,8 @@ Lighthouse desktop:
 
 4. Error pages
 
-    <details>
-    <summary>400</summary>
-
-    ![400]()
-
-    </details>
-
-    <details>
-    <summary>404</summary>
-
-    ![404]()
-
-    </details>
-
-    <details>
-    <summary>500</summary>
-
-    ![500]()
-
-    </details>
+Error pages has the same structure as the delete_booking.
+After deploying to heroku, lighthouse for error pages are not loaded.
 
 
 Lighthouse mobile:
@@ -287,7 +269,7 @@ Lighthouse mobile:
     <details>
     <summary>Contact</summary>
 
-    ![Contact]()
+    ![Contact](documentation/testing_files/lighthouse/mobile/lighthouse_contact_mobile.PNG)
 
     </details>
 
@@ -298,7 +280,7 @@ Lighthouse mobile:
     <details>
     <summary>Booking_confirmation</summary>
 
-    ![Booking confirmation]()
+    ![Booking confirmation](documentation/testing_files/lighthouse/mobile/lighthouse_booking_confirmation_mobile.PNG)
 
     </details>
 
@@ -333,7 +315,7 @@ Lighthouse mobile:
     <details>
     <summary>Edit_booking_confirm</summary>
 
-    ![Edit booking confirm]()
+    ![Edit booking confirm](documentation/testing_files/lighthouse/mobile/lighthouse_edit_booking_confirm_mobile.PNG)
 
     </details>
 
@@ -351,7 +333,7 @@ Lighthouse mobile:
     <details>
     <summary>Logout_confirmation</summary>
 
-    ![Logout confirmation]()
+    ![Logout confirmation](documentation/testing_files/lighthouse/mobile/lighthouse_logout_mobile.PNG)
 
     </details>
 
@@ -374,7 +356,7 @@ Lighthouse mobile:
     <details>
     <summary>Confirmation_contact</summary>
 
-    ![Confirmation contact]()
+    ![Confirmation contact](documentation/testing_files/lighthouse/mobile/lighthouse_confirmation_contact_mobile.PNG)
 
     </details>
     
@@ -382,26 +364,8 @@ Lighthouse mobile:
 
 4. Error pages
 
-    <details>
-    <summary>400</summary>
-
-    ![400]()
-
-    </details>
-
-    <details>
-    <summary>404</summary>
-
-    ![404]()
-
-    </details>
-
-    <details>
-    <summary>500</summary>
-
-    ![500]()
-
-    </details>
+Error pages has the same structure as the delete_booking.
+After deploying to heroku, lighthouse for error pages are not loaded.
 
 
 ### Css
@@ -577,4 +541,17 @@ Few small bugs were left unsolved by the developer.
 
     </details>
 
+3. Refresh confirmation page : Developer found out that if the user does not click on cancel or confirm but just refresh the page, the page refresh and it says an error occurred, while in the same time the booking is saved and then appear in the booking list. Developer tried to change booking form and booking confirmation , but it was bringing to another issue, were the booking was not brought anymore in the page. Developer did not have time to fix it.
+
+    <details>
+    <summary>Refresh bug</summary>
+
+    ![Refresh bug](documentation/testing_files/bugs/confirm_booking_bug.PNG)
+
+    </details>
+
+
+## **Responsive**
+
+All pages were tested and checked for responsiveness.
 
