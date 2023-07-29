@@ -67,11 +67,11 @@ The following browser has been tested and checked:
 
 ## **Unit Testing**
 
-Unittest was used by the developer to check the functionality for the django app.
-Developer tried to check as much as possible with unittest.
-First time using unittest so developer struggle a bit to test all part of the application.
+Unittest was used by the developer to check the functionality of the Django app.
+The developer tried to check as much as possible with the unit test.
+First time using unit test so the developer struggle a bit to test all parts of the application.
 
-The following file is where the developer worote the Unit Test:
+The following file is where the developer wrote the Unit Test:
 
 - [Booking Unit Test](booking/tests/)
 - [Myproject Unit Test](myproject/tests/)
@@ -244,8 +244,8 @@ Lighthouse desktop:
 
 4. Error pages
 
-Error pages has the same structure as the delete_booking.
-After deploying to heroku, lighthouse for error pages are not loaded.
+Error pages have the same structure as the delete_booking.
+After deploying to Heroku, the lighthouse for error pages is not loaded.
 
 
 Lighthouse mobile:
@@ -364,8 +364,8 @@ Lighthouse mobile:
 
 4. Error pages
 
-Error pages has the same structure as the delete_booking.
-After deploying to heroku, lighthouse for error pages are not loaded.
+Error pages have the same structure as the delete_booking.
+After deploying to Heroku, the lighthouse for error pages is not loaded.
 
 
 ### Css
@@ -480,30 +480,30 @@ All HTML pages were passed through validator.
 
 ### Python
 
-All python files were checked with the 
+All python files were checked
 
 ## **Bugs**
 
-Many bug and issues were found by the developer during the making of this application.
-Below a list of all the most important bugs solved and unsolved by the developer.
-All bugs were than described in Issues with the Label **Bug**
+Many bugs and issues were found by the developer during the making of this application.
+Below is a list of all the most important bugs solved and unsolved by the developer.
+All bugs were then described in Issues with the Label **Bug**
 
 
 ### Solved 
 
-Many bugs were found bu the developer . All bugs are listed here:
+Many bugs were found by the developer. All bugs are listed here:
 
 - [Bugs solved](https://github.com/michmattera/HerBody/issues?q=is%3Aissue+label%3Abug+is%3Aclosed)
 
-Bugs are listed there, with a comment and an explanation oh how the developer solved it.
+Bugs are listed there, with a comment and an explanation of how the developer solved it.
 
 Bigger issue :
 
-- Heroku deployment: The developer face a big issue when try to redeploy to heroku after finish stilying and inserted the images. Heroku log would print that it wasn't finding the cloudinary API. 
+- Heroku deployment: The developer faces a big issue when trying to redeploy to Heroku after finishing stilying and inserting the images. Heroku log would print that it wasn't finding the Cloudinary API. 
 
     1. Developer changed the API, and repush but same issue. 
     2. Then it set again the debug to TRUE, push, set debug to FALSE and the app was opening. 
-    3. Developer than change again the url and add static files url to each page to solve the cloudinary issue.
+    3. Developer then changes again the url and adds static files URL to each page to solve the cloudinary issue.
 
     <details>
     <summary>Heroku issue</summary>
@@ -514,9 +514,9 @@ Bigger issue :
 
 ### Not solved 
 
-Few small bugs were left unsolved by the developer.
+A few small bugs were left unsolved by the developer.
 
-1. HTML validator : In base.html the developer found when doing the html validator a end stray tag in the navigation bootstrap , shown below. Even if the developer check and repush the code to github the validator always find this end div not closed .
+1. HTML validator: In base.html the developer found when doing the HTML validator an end stray tag in the navigation bootstrap, shown below. Even if the developer checks and re-pushes the code to GitHub the validator always find this end div not closed.
 
     <details>
     <summary>Bug validator</summary>
@@ -525,7 +525,7 @@ Few small bugs were left unsolved by the developer.
 
     </details>
 
-2. Logo mobile apple : Developer found that just in safari mobile the logo is slightly squeeze . Developer saw that the error is just in apple, while trying responsive in the pc and android works normallly. Below the differences :
+2. Logo mobile Apple: The developer found that just in Safari mobile the logo is slightly squeezed. The developer saw that the error is just in Apple while trying responsive on the pc and Android works normally. Below are the differences :
 
     <details>
     <summary>Bug apple</summary>
@@ -541,7 +541,7 @@ Few small bugs were left unsolved by the developer.
 
     </details>
 
-3. Refresh confirmation page : Developer found out that if the user does not click on cancel or confirm but just refresh the page, the page refresh and it says an error occurred, while in the same time the booking is saved and then appear in the booking list. Developer tried to change booking form and booking confirmation , but it was bringing to another issue, were the booking was not brought anymore in the page. Developer did not have time to fix it.
+3. Refresh confirmation page: Developer found out that if the user does not click on cancel or confirm but just refreshes the page, the page refresh and says an error occurred, while at the same time, the booking is saved and then appears in the booking list. The developer tried to change the booking form and booking confirmation, but it was brought to another issue, were the booking was not brought up anymore in the page. The developer did not have time to fix it.
 
     <details>
     <summary>Refresh bug</summary>

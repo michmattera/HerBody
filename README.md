@@ -556,13 +556,13 @@ The footer has the following common and different features base on different med
 #### Messages
 
 The developer decided to use Django. messages, adding just a small timeout javascript function to set a timer for the message to fade alone.
-The color were the default color from django:
+The color was the default color from Django:
 - Green = Correct 
 - Red = Error
 - Yellow = Warning
 
-Almost all templates page have implemented the messages .
-Developer decided to insert messages loop in includes folder inside the template and then include them in the templates directly.
+Almost all templates page have implemented the messages.
+Developer decided to insert a messages loop in the includes folder inside the template and then include them in the templates directly.
 
  <details>
 <summary>Messages functionality</summary>
@@ -574,14 +574,13 @@ Developer decided to insert messages loop in includes folder inside the template
 
 #### Error pages
 
-Developer decided to use and implement personalized error pages such as :
+The developer decided to use and implement personalized error pages such as :
 - 404
 - 500
 - 400
 
-All have the same structure, same of the delete booking template.
-All of them has as well a link that take the user back to the homepage, and a different error explanation.
-
+All have the same structure, the same as the delete booking template.
+All of them has as well a link that takes the user back to the homepage, and a different error explanation.
  <details>
 <summary>Error pages</summary>
 
@@ -592,8 +591,9 @@ All of them has as well a link that take the user back to the homepage, and a di
 
 ### Colour Scheme
 
-The color scheme that the developer choose was based on a dark pink as the main colour for the application : #d63384 .
-It was chosen because pink is usually associated with womans , and an only girls gym site want to let the user know at first impact that womans are represented .
+The color scheme that the developer choose was based on a dark pink as the main colour for the application: #d63384 .
+It was chosen because pink is usually associated with women, and an only girls gym site wants to let the user know at the first impact that women are represented.
+
 <br>
 <br>
 With the help of [Colourmind](http://colormind.io/template/material-dashboard/) palette generator were than chosen the other 2 main color for the application.
@@ -739,8 +739,8 @@ The following are the steps I went through to deploy my live site:
     - CLOUNDINARY_URL: The URL from your Cloudinary dashboard
     - PORT: 8000
 6. Navigate to the 'Deploy' section. 
-7. Connect to GitHub, search for your repo and confirm. 
-8. Choose branch to deploy.
+7. Connect to GitHub, search for your repo, and confirm. 
+8. Choose a branch to deploy.
 9. Your app should now be available to see. You can choose whether to have your app automatically redeploy with every push or to keep it manual. 
 
 <br>
@@ -754,7 +754,7 @@ _____________________________________________________________________________
 ### **Code**
 
 The code for the website was made by the developer.
-For the most complex functions, the developer took ispiration from:
+For the most complex functions, the developer took inspiration from:
 - Slack
 - Stack Overflow
 - Tutors
@@ -762,9 +762,9 @@ For the most complex functions, the developer took ispiration from:
 
 ## Acknowledgements
 
-- To my amazing girlfriend Dani. For listening to me worry about this project, to keeping me relaxed even after a really long day, and keeping me positive :)
+- To my amazing girlfriend Dani. For listening to me worry about this project, keeping me relaxed even after a long day, and for keeping me positive :)
 - My family and my friends to helped me test out everything.
-- My tutors and my mentor to have saved me in the most difficult moments, thank you.
+- My tutors and my mentor have saved me in the most difficult moments, thank you.
 
  
 
