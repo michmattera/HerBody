@@ -99,11 +99,16 @@ h4 {
   --bs-btn-hover-bg: #F3EFEE;
   --bs-btn-active-color: #d63384;
 }
-
+.btn-social:focus {
+  box-shadow: #fff;
+}
 .btn-primary:active {
   background-color: #e94c9a;
 }
-
+.btn.focus, .btn:focus {
+  outline: 0;
+  box-shadow: none;
+}
 .btn-primary:focus {
   background-color: #e94c9a;
 }
