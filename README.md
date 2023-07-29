@@ -9,6 +9,7 @@ _____________________________________________________________________________
 ### Link to the finished site: [LINK](https://her-body.herokuapp.com/)
 
 _____________________________________________________________________________
+
 ## Content:
 - ### Project Goals and target audience
     - [Achieved](#achieved)
@@ -231,7 +232,7 @@ Both of the model have their own folder and are divided in the admin panel as we
 <details>
 <summary>Database scheme</summary>
 
-![Database scheme](/assets/images/read-me-images/)
+![Database scheme](documentation/readme_files/database_scheme.PNG)
 
 </details>
 
@@ -501,6 +502,14 @@ _____________________________________________________________________________
 ### Design and features element
 
 Design and features throughout the page is consistent.
+The following pages are available just for logged in users:
+
+- [Book a session](templates/booking/booking_form.html)
+- [Booking confirmation](templates/booking/booking_confirmation.html)
+- [Booking delete](templates/booking/delete_booking.html)
+- [Booking edit](templates/booking/edit_booking.html)
+- [Booking edit confirm](templates/booking/edit_booking_confirm.html)
+- [Logout](templates/accounts/logout_confirmation.html)
 
 #### Navbar
 
