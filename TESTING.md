@@ -111,4 +111,283 @@ Social media links all opens in new page and are situated in the footer.
 </details>
 
 
+## Code Validator
 
+### Lighthouse
+
+Lighthouse reports were made for all pages , for desktop and mobile.
+
+Lighthouse desktop:
+
+1. General pages
+
+    <details>
+    <summary>Home</summary>
+
+    ![Home](documentation/testing_files/lighthouse/desktop/lighthouse_home_desktop.PNG)
+
+    </details>
+
+    <details>
+    <summary>About</summary>
+
+    ![About](documentation/testing_files/lighthouse/desktop/lighthouse_about_desktop.jpg)
+
+    </details>
+
+    <details>
+    <summary>Contact</summary>
+
+    ![Contact](documentation/testing_files/lighthouse/desktop/lighthouse_contact_desktop.PNG)
+
+    </details>
+
+<br>
+
+2. Booking pages
+
+    <details>
+    <summary>Booking_confirmation</summary>
+
+    ![Booking confirmation]()
+
+    </details>
+
+    <details>
+    <summary>Booking_form</summary>
+
+    ![Booking form](documentation/testing_files/lighthouse/desktop/lighthouse_book_a_session_desktop.PNG)
+
+    </details>
+
+    <details>
+    <summary>Booking_list</summary>
+
+    ![Booking list](documentation/testing_files/lighthouse/desktop/lighthouse_booking_list_desktop.PNG)
+
+    </details>
+
+    <details>
+    <summary>Delete_booking</summary>
+
+    ![Delete booking](documentation/testing_files/lighthouse/desktop/lghthouse_delete_booking_desktop.PNG)
+
+    </details>
+
+    <details>
+    <summary>Edit_booking</summary>
+
+    ![Edit booking](documentation/testing_files/lighthouse/desktop/lighthouse_edit_booking_desktop.PNG)
+
+    </details>
+
+    <details>
+    <summary>Edit_booking_confirm</summary>
+
+    ![Edit booking confirm]()
+
+    </details>
+
+<br>
+
+3. Accounts pages
+
+    <details>
+    <summary>Login</summary>
+
+    ![Login]()
+
+    </details>
+
+    <details>
+    <summary>Logout_confirmation</summary>
+
+    ![Logout confirmation]()
+
+    </details>
+
+    <details>
+    <summary>Register</summary>
+
+    ![Register]()
+
+    </details>
+
+3. Contact pages
+
+    <details>
+    <summary>Contact</summary>
+
+    ![Contact]()
+
+    </details>
+
+    <details>
+    <summary>Confirmation_contact</summary>
+
+    ![Confirmation contact]()
+
+    </details>
+
+<br>
+
+4. Error pages
+
+    <details>
+    <summary>400</summary>
+
+    ![400]()
+
+    </details>
+
+    <details>
+    <summary>404</summary>
+
+    ![404]()
+
+    </details>
+
+    <details>
+    <summary>500</summary>
+
+    ![500]()
+
+    </details>
+
+
+Lighthouse mobile:
+
+1. General pages
+
+    <details>
+    <summary>Home</summary>
+
+    ![Home](documentation/testing_files/lighthouse/mobile/lighthouse_home_mobile.PNG)
+
+    </details>
+
+    <details>
+    <summary>About</summary>
+
+    ![About](documentation/testing_files/lighthouse/mobile/lighthouse_about_mobile.PNG)
+
+    </details>
+
+    <details>
+    <summary>Contact</summary>
+
+    ![Contact]()
+
+    </details>
+
+<br>
+
+2. Booking pages
+
+    <details>
+    <summary>Booking_confirmation</summary>
+
+    ![Booking confirmation]()
+
+    </details>
+
+    <details>
+    <summary>Booking_form</summary>
+
+    ![Booking form](documentation/testing_files/lighthouse/mobile/lighthouse_book_a_session_mobile.PNG)
+
+    </details>
+
+    <details>
+    <summary>Booking_list</summary>
+
+    ![Booking list](documentation/testing_files/lighthouse/mobile/lighthouse_booking_list_mobile.PNG)
+
+    </details>
+
+    <details>
+    <summary>Delete_booking</summary>
+
+    ![Delete booking](documentation/testing_files/lighthouse/mobile/lighthouse_delete_booking_mobile.PNG)
+
+    </details>
+
+    <details>
+    <summary>Edit_booking</summary>
+
+    ![Edit booking](documentation/testing_files/lighthouse/mobile/lighthouse_edit_booking_mobile.PNG)
+
+    </details>
+
+    <details>
+    <summary>Edit_booking_confirm</summary>
+
+    ![Edit booking confirm]()
+
+    </details>
+
+<br>
+
+3. Accounts pages
+
+    <details>
+    <summary>Login</summary>
+
+    ![Login](documentation/testing_files/lighthouse/mobile/lighthouse_login_mobile.PNG)
+
+    </details>
+
+    <details>
+    <summary>Logout_confirmation</summary>
+
+    ![Logout confirmation]()
+
+    </details>
+
+    <details>
+    <summary>Register</summary>
+
+    ![Register](documentation/testing_files/lighthouse/mobile/lightouse_register_mobile.PNG)
+
+    </details>
+
+3. Contact pages
+
+    <details>
+    <summary>Contact</summary>
+
+    ![Contact](documentation/testing_files/lighthouse/mobile/lighthouse_contact_mobile.PNG)
+
+    </details>
+
+    <details>
+    <summary>Confirmation_contact</summary>
+
+    ![Confirmation contact]()
+
+    </details>
+    
+<br>
+
+4. Error pages
+
+    <details>
+    <summary>400</summary>
+
+    ![400]()
+
+    </details>
+
+    <details>
+    <summary>404</summary>
+
+    ![404]()
+
+    </details>
+
+    <details>
+    <summary>500</summary>
+
+    ![500]()
+
+    </details>
