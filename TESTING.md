@@ -115,6 +115,15 @@ Social media links all opens in new page and are situated in the footer.
 
 ## Code Validator
 
+All code in the application was checked .
+
+| Language | Checked |
+| --- | --- |
+| Css | :heavy_check_mark: |
+| Js | :heavy_check_mark: |
+| HTML |  :heavy_check_mark: |
+| Python | :heavy_check_mark: |
+
 ### Lighthouse
 
 Lighthouse reports were made for all pages , for desktop and mobile.
@@ -504,3 +513,68 @@ All HTML pages were passed through validator.
 ![Delete booking](documentation/testing_files/languages_validator/w3c_validator_html_delete_booking.gif)
 
 </details>
+
+### Python
+
+All python files were checked with the 
+
+## **Bugs**
+
+Many bug and issues were found by the developer during the making of this application.
+Below a list of all the most important bugs solved and unsolved by the developer.
+All bugs were than described in Issues with the Label **Bug**
+
+
+### Solved 
+
+Many bugs were found bu the developer . All bugs are listed here:
+
+- [Bugs solved](https://github.com/michmattera/HerBody/issues?q=is%3Aissue+label%3Abug+is%3Aclosed)
+
+Bugs are listed there, with a comment and an explanation oh how the developer solved it.
+
+Bigger issue :
+
+- Heroku deployment: The developer face a big issue when try to redeploy to heroku after finish stilying and inserted the images. Heroku log would print that it wasn't finding the cloudinary API. 
+
+    1. Developer changed the API, and repush but same issue. 
+    2. Then it set again the debug to TRUE, push, set debug to FALSE and the app was opening. 
+    3. Developer than change again the url and add static files url to each page to solve the cloudinary issue.
+
+    <details>
+    <summary>Heroku issue</summary>
+
+    ![Heroku issue](documentation/testing_files/bugs/heroku_home_console.PNG)
+
+    </details>
+
+### Not solved 
+
+Few small bugs were left unsolved by the developer.
+
+1. HTML validator : In base.html the developer found when doing the html validator a end stray tag in the navigation bootstrap , shown below. Even if the developer check and repush the code to github the validator always find this end div not closed .
+
+    <details>
+    <summary>Bug validator</summary>
+
+    ![Bug: validator](documentation/testing_files/bugs/validator_html_bug.PNG)
+
+    </details>
+
+2. Logo mobile apple : Developer found that just in safari mobile the logo is slightly squeeze . Developer saw that the error is just in apple, while trying responsive in the pc and android works normallly. Below the differences :
+
+    <details>
+    <summary>Bug apple</summary>
+
+    ![Bug: apple](documentation/testing_files/bugs/bug_apple.jpg)
+
+    </details>
+
+    <details>
+    <summary>No bug android</summary>
+
+    ![No bug android](documentation/testing_files/bugs/android_no_bug.jpg)
+
+    </details>
+
+
