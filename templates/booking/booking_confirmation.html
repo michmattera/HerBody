@@ -43,7 +43,7 @@
             <form method="post">
                 {% csrf_token %}
                 <a href="{% url 'my_bookings'%}" class="btn btn-primary center-btn text-center" id="confirm" role="button">Confirm</a>
-                <button class="btn btn-secondary border center-btn text-center" type="submit" id="cancel" name="cancel">Cancel</button>
+                <button class="btn btn-dark btn center-btn text-center" type="submit" id="cancel" name="cancel">Cancel</button>
             </form>
         </div>
         {% else %}

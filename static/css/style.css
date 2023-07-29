@@ -110,18 +110,14 @@ h4 {
 
 .btn-secondary {
   --bs-btn-color: #F3EFEE;
-  --bs-btn-bg: #241E30;
+  --bs-btn-bg: #241e30f2;
   --bs-btn-hover-border-color: #322d3b;
   --bs-btn-hover-color: #fff;
   --bs-btn-hover-bg: #312a3f;
 }
-
-/* @media (max-width: 992px) {
-  .btn-secondary {
-    --bs-btn-bg: trasparent;
-
-  }
-} */
+.btn-secondary{
+  border: 3px solid #fff;
+}
 
 .btn-secondary:hover {
   color: #fff;
@@ -138,7 +134,7 @@ h4 {
 
 .center-btn {
   width: 30%;
-  margin: 1% 25%;
+  margin: 1% 35%;
 }
 .btn-outline-dark {
   --bs-btn-color: #212529;

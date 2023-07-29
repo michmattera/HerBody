@@ -13,10 +13,13 @@
 2. [Unit Testing](#unit-testing)
 3. [Manual Testing](#manual-Testing)
     1. [Navigation Buttons](#navigation-buttons)
-    2. [Main buttons](#main-buttons)
-    3. [Social-Media](#social-media)
+    2. [Social-Media](#social-media)
 4. [Code validator](#code-validator)
      1. [Lighthouse](#lighthouse)
+     1. [Css](#css)
+     1. [Js](#js)
+     1. [Html](#html)
+     5. [Python](#python)
 5. [Responsive](#responsive)
 
 ## **Browser testing**
@@ -81,3 +84,31 @@ The following file is where the developer worote the Unit Test:
 ## Manual testing
 
 ### Navigation Buttons
+
+<details>
+<summary>Navigation logged in</summary>
+
+![Navigation logged in](documentation/testing_files/nav_logged_in.gif)
+
+</details>
+
+<details>
+<summary>Navigation logged out</summary>
+
+![Navigation logged out](documentation/testing_files/nav_logged_out.gif)
+
+</details>
+
+### Social-Media
+
+Social media links all opens in new page and are situated in the footer.
+
+<details>
+<summary>Social media</summary>
+
+![Social Media](documentation/testing_files/social_media.gif)
+
+</details>
+
+
+
