@@ -100,7 +100,7 @@ h4 {
   --bs-btn-active-color: #d63384;
 }
 .btn-social:focus {
-  box-shadow: #fff;
+  box-shadow: none;
 }
 .btn-primary:active {
   background-color: #e94c9a;
@@ -320,7 +320,7 @@ h4 {
 @media (max-width: 575px) {
   .about-container {
     border: none;
-    margin-top: none;
+    margin-top: 0;
   }
 
   #about-title {
@@ -791,17 +791,13 @@ h4 {
     font-size: 1.7rem;
   }
 
-  .dropdown-toggle {
-    margin: 0;
-  }
-
   #about-title {
     font-size: 2rem;
   }
 
-  .dropdown-toggle {
+  /* .dropdown-toggle {
     margin: o;
-  }
+  } */
 
   #about-subtitle {
     font-size: 1.4rem;

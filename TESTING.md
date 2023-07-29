@@ -20,6 +20,9 @@
      1. [Js](#js)
      1. [Html](#html)
      5. [Python](#python)
+5. [Bugs](#bugs)
+    1. [Solved](#solved)
+    2. [Not solved](#not-solved)
 5. [Responsive](#responsive)
 
 ## **Browser testing**

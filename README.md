@@ -336,7 +336,7 @@ For each day the user can choose between 3 different slot:
 <details>
 <summary>Book a session functionality</summary>
 
-![Book a session functionality](/assets/images/read-me-images/)
+![Book a session functionality](documentation/)
 
 </details>
 
