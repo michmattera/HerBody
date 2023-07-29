@@ -12,6 +12,8 @@ from dateutil import parser
 from django.urls import reverse
 
 
+#https://stackoverflow.com/questions/73436899/initialize-django-modelform-user-field-with-current-logged-user
+
 # function to get correctly the week, end of week, start of the week
 def get_week_start_end_dates(today_date):
     current_weekday = today_date.weekday()

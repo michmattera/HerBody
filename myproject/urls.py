@@ -3,13 +3,9 @@ from .views import About, contact_view, register, login, custom_logout, Home
 from .views import ConfirmationContact, logout_confirmation
 from django.urls import path
 
-# from . import forms
-# from .forms import register, login, custom_logout
-
 
 urlpatterns = [
     # url for navigation links
-    # path('', views.Home.as_view(), name='home'),
     path('', views.Home, name='home'),
     path('about/', views.About, name='about'),
 

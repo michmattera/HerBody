@@ -3,9 +3,6 @@ from django.urls import path, include
 from . import forms
 from .views import booking_list, edit_booking, delete_booking, booking_confirmation, booking_form
 
-# from .forms import BookingForm
-
-# app_name = 'booking'
 
 urlpatterns = [
     # url for bookings

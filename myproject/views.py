@@ -100,19 +100,38 @@ def register(request):
         return render(request, 'accounts/register.html')
     
 # function to login the user
+# def login(request):
+#     if request.method == 'POST':
+#         username = request.POST['username']
+#         password = request.POST['password']
+#         user = auth.authenticate(username=username, password=password)
+#         if not request.POST.get('remember_me', None):
+#             request.session.set_expiry(0)
+#         if user is not None:
+#             auth.login(request, user)
+#             messages.info(request, 'You have logged in correctly')
+
+#             return redirect('home')
+#         else:
+#             messages.warning(request, 'Invalid Username or Password')
+#             return redirect('login')
+
+#     else:
+#         return render(request, 'accounts/login.html')
+
 def login(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
+
         user = auth.authenticate(username=username, password=password)
-        if not request.POST.get('remember_me', None):
-            request.session.set_expiry(0)
         if user is not None:
+            # Authentication successful, proceed with login
             auth.login(request, user)
             messages.info(request, 'You have logged in correctly')
-
             return redirect('home')
         else:
+            # Authentication failed, show error message and redirect back to login page
             messages.warning(request, 'Invalid Username or Password')
             return redirect('login')
 
@@ -120,9 +139,13 @@ def login(request):
         return render(request, 'accounts/login.html')
 
 
+# function to bring the user to confirmation to log out
+@login_required
 def logout_confirmation(request):
     return render(request, 'accounts/logout_confirmation.html')
 
+
+# function to logout the user
 @login_required
 def custom_logout(request):
     logout(request)
@@ -130,6 +153,7 @@ def custom_logout(request):
     return redirect("home")
 
 
+# function to send contact form
 def contact_view(request):
     """
     Contact Page and Form
@@ -170,6 +194,7 @@ def contact_view(request):
     return render(request, "contact/contact.html", context)
 
 
+# function torender google map api
 def map(request):
     key = settings.GOOGLE_MAP_API_KEY
     context = {

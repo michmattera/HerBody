@@ -13,7 +13,7 @@ from booking.views import booking_confirmation
 from booking.views import get_week_start_end_dates
 from booking.views import get_week_start_date
 from booking.views import get_week_end_date
-# importing from froms and models
+# importing from forms and models
 from booking.models import Booking
 from booking.forms import BookingForm
 
@@ -49,6 +49,7 @@ class TestGetWeekStartEndDates(TestCase):
         self.assertEqual(end_of_week, date(2023, 8, 6))
 
 
+# Testing get available slot
 class GetAvailableSlotsTests(TestCase):
 
     def setUp(self):
@@ -84,7 +85,6 @@ class GetAvailableSlotsTests(TestCase):
                 self.assertIn('status', time_slot)
                 self.assertIsInstance(time_slot['time'], datetime)
                 self.assertIn(time_slot['status'], ['Available', 'Booked'])
-
 
 
 # Testing booking list view
@@ -254,6 +254,7 @@ class EditBookingConfirmViewTest(TestCase):
         self.assertEqual(updated_booking.time, self.booking.time)
 
 
+# Testing delete booking view
 class DeleteBookingViewTest(TestCase):
     # Setting up the class with user and booking
     def setUp(self):
@@ -282,8 +283,3 @@ class DeleteBookingViewTest(TestCase):
         # Check if the booking has been deleted
         with self.assertRaises(Booking.DoesNotExist):
             Booking.objects.get(id=self.booking.id)
-
-
-
-
-
