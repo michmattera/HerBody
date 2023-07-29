@@ -16,12 +16,12 @@ _____________________________________________________________________________
     - [Future implements](#future-projects)
     - [Audience](#audience)
 - ### Project management
-    - [Project boards](#project-boards)
+    - [Agile method ](#agile-method)
     - [Site user goal](#site-user-goal)
     - [Site owner goal](#site-owner-goal)
     - [User Stories](#user-stories)
 - ### Wireframes and templates
-    - [Database Structure](#database-and-structure)
+    - [Database Structure](#database-structure)
     - [Wireframes](#wireframes)
 - ### Main functionality
     - [Booking functionality](#booking-functionality)
@@ -46,14 +46,14 @@ _____________________________________________________________________________
     - [Typography](#typography)
     - [Images](#images)
 - ### Technologies Used
-    - [Languages used](#languages)
+    - [Languages used](#languages-used)
     - [Frameworks, Packages & Programs Used](#frameworks-packages--programs-used)
         - [Python packages installed](#python-packages-installed)
         -[Programs used](#programs-used)
 - ### Testing
     - [TESTING.md](#testingmd)
 - ### Deployment
-    - [Deploy to Heroku](#deployment)
+    - [Deployment ](#deployment)
 - ### Credits
     - [Code](#code)
     - [Acknowledgements](#acknowledgements)
@@ -212,7 +212,7 @@ User stories were divided for Iteration ( Epic ), they were than divided in :
 _____________________________________________________________________________
 ## Wireframes and templates.  
 
-### Lucid Charts
+### Database structure
 
 The database structure and expalanation are to be found below.
 
@@ -333,22 +333,10 @@ For each day the user can choose between 3 different slot:
 - At 11 am
 - At 16 pm 
 
-<details>
-<summary>Book a session functionality</summary>
-
-![Book a session functionality](documentation/)
-
-</details>
 
 <br>
 If the slot is available the user can click the slot, and will be brought to the booking confirmation template , where the user can confirm or cancel the booking . Will than be redirected to the booking list.
 
-<details>
-<summary>Booking confirmation functionality</summary>
-
-![Booking confirmation functionality](/assets/images/read-me-images/)
-
-</details>
 
 #### Sessions - view all your sessions
 
@@ -357,9 +345,9 @@ Here a summary of the booking user, booking date and time will appear.
 As well here the user will have the possibility to edit or delete the booking .
 
 <details>
-<summary>Booking list functionality</summary>
+<summary>Book a session, confirm, and view session</summary>
 
-![Booking list functionality](/assets/images/read-me-images/)
+![Booking process 1](documentation/readme_files/functionality/book_confirm_and_list_fun.gif)
 
 </details>
 
@@ -385,7 +373,7 @@ The user will have than 2 choices :
 <details>
 <summary>Delete Booking functionality</summary>
 
-![Delete Booking functionality](/assets/images/read-me-images/)
+![Delete Booking functionality](documentation/readme_files/functionality/delete_fun.gif)
 
 </details>
 
@@ -408,21 +396,7 @@ The user will have than 2 choices :
 - Confirm = The booking will be saved, the user redirected to the booking list template.
 - Cancel = The user will just be redirect to the booking list page , and the booking will still be there.
 
-
-<details>
-<summary>Confirmation page</summary>
-
-![Confirmation page functionality](/assets/images/read-me-images/)
-
-</details>
-
-<details>
-<summary>Confirmation page from edit</summary>
-
-![Confirmation page from edit functionality](/assets/images/read-me-images/)
-
-</details>
-
+Both shown above .
 _____________________________________________________________________________
 
  ### Contact
@@ -440,7 +414,7 @@ The user than will have a success message and will be redirected to a contact co
 <details>
 <summary>Contact functionality</summary>
 
-![Contact functionality](/assets/images/read-me-images/)
+![Contact functionality](documentation/readme_files/functionality/contact_fun.gif)
 
 </details>
 
@@ -463,7 +437,7 @@ _____________________________________________________________________________
  <details>
 <summary>Login functionality</summary>
 
-![Login functionality](/assets/images/read-me-images/)
+![Login functionality](documentation/readme_files/functionality/login_fun.gif)
 
 </details>
 
@@ -476,7 +450,7 @@ _____________________________________________________________________________
  <details>
 <summary>Register functionality</summary>
 
-![Register functionality](/assets/images/read-me-images/)
+![Register functionality](documentation/readme_files/functionality/register_fun.gif)
 
 </details>
 
@@ -491,7 +465,7 @@ _____________________________________________________________________________
  <details>
 <summary>Logout functionality</summary>
 
-![Logout functionality](/assets/images/read-me-images/)
+![Logout functionality](documentation/readme_files/functionality/logout_fuc.gif)
 
 </details>
 
