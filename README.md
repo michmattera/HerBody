@@ -64,32 +64,32 @@ _____________________________________________________________________________
 ## Project goals and target audience.  
 ### Achieved:
 
--   Creating a website where user can register, login and logout.
+-   Creating a website where users can register, login and logout.
 -   Creating a website for a company where you can book your private sessions, see unavailable ones and edit or delete them.
--   Creating a website where the use can contact the company , and receive a confirmation email.
+-   Creating a website where the user can contact the company, and receive a confirmation email.
 
 ### Future projects: 
 
--   Creating a website where user could choose between 3 differents trainers.
--   Creating a website where user could reset the password and email, and create his profile.
+-   Creating a website where users could choose between 3 different trainers.
+-   Creating a website where users could reset their password and email, and create their profile.
 -   Creating a website where after submitting the form user will receive a real email.
 
 ### Audience:
 
-- The target audience for the website are only girls.
+- The target audience for the website is only girls.
 - Medium age between 15 / 60 years old.
 - Girls interested in getting in good shape and in getting private one on one self-defense lessons that the company offers.
 
 #### Current Users:
 
-- Current users have different ways to contact the company, such as phone number , email and a direct contact form in the website .
-- Current users are able to login, and book and menage their sessions directly from the website.
+- Current users have different ways to contact the company, such as phone numbers, email, and a direct contact form on the website.
+- Current users can login, and book and manage their sessions directly from the website.
 - Current users can at any time delete their profile.
 
 #### New users:
 
-- New users are able to see what the company offers in the website.
-- New users are tempt to register and login thanks to an only-login user feature that offer them 2 free sessions per week to book directly from the website.
+- New users can see what the company offers on the website.
+- New users are tempted to register and login thanks to an only-login user feature that offer them 2 free sessions per week to book directly from the website.
 
 [Back to top](#herBody)
 
@@ -98,11 +98,11 @@ _____________________________________________________________________________
 
 ### Agile method
 
-- HerBody was developed using an agile method. That includes using GitHub issues, user stories and kanban boards.
-- That gave me an overview of tasks structured in a to-do, in-progress and done way.
+- HerBody was developed using an agile method. That includes using GitHub issues, user stories, and Kanban boards.
+- That gave me an overview of tasks structured in a to-do, in-progress, and done way.
 
-The project was divided in different iterations to divide the issues and the user stories in main Epic .
-Inside each Iteration ( Epic ) developer created different issues , user stories, task and bugs , and differentiate the Iteration in diferent Boards.
+The project was divided into different iterations to divide the issues and the user stories in the main Epics.
+Inside each Iteration ( Epic ) developer created different issues, user stories, tasks, and bugs, and differentiate the Iteration into different Boards.
 Below are shown the links for:
 1. The iteration
 2. The main board user 
@@ -112,19 +112,19 @@ Below are shown the links for:
 #### Iteration 1:
 
 1. [Iteration 1](https://github.com/michmattera/HerBody/milestone/2?closed=1)
-2. Starting to create core functionality ,superuser and administrator tasks .
+2. Starting to create core functionality, superuser, and administrator tasks.
 3. [Board 1](https://github.com/users/michmattera/projects/3)
 
 #### Iteration 2:
 
 1. [Iteration 2](https://github.com/michmattera/HerBody/milestone/3?closed=1)
-2. Create login and logout functionality, with html templates to display to user.
+2. Create login and logout functionality, with html templates to display to the user.
 3. [Board 2](https://github.com/users/michmattera/projects/4)
 
 #### Iteration 3:
 
 1. [Iteration 3](https://github.com/michmattera/HerBody/milestone/4?closed=1)
-2. Create booking models, main functionality.
+2. Create booking models, and main functionality.
 3. [Board 3](https://github.com/users/michmattera/projects/5)
 
 #### Iteration 4:
@@ -136,13 +136,13 @@ Below are shown the links for:
 #### Iteration 5:
 
 1. [Iteration 5](https://github.com/michmattera/HerBody/milestone/6?closed=1)
-2. Creating contact page, basic functionality, basic css.
+2. Creating a contact page, basic functionality, and basic CSS.
 3. [Board 5](https://github.com/users/michmattera/projects/7)
 
 #### Iteration 6:
 
 1. [Iteration 6](https://github.com/michmattera/HerBody/milestone/7)
-2. Style all pages , link Coudinary pictures and create logo.
+2. Style all pages, link Coudinary pictures, and create a logo.
 3. [Board 6](https://github.com/users/michmattera/projects/8)
 
 #### Iteration 7:
@@ -154,7 +154,7 @@ Below are shown the links for:
 #### Iteration 8:
 
 1. [Iteration 8](https://github.com/michmattera/HerBody/milestone/9)
-2. Focus on deploy again the project to heroku, fix important bugs and api, start automated and manual testing.
+2. Focus on deploying again the project to Heroku, fixing important bugs and API, and start automated and manual testing.
 3. [Board 8](https://github.com/users/michmattera/projects/10)
 
 #### Iteration 9:
@@ -181,13 +181,13 @@ Site user has different goals:
 - Being able to contact the company for any information or issues
 - Being able to book a private session
 - Being able to see available and unavailable sessions
-- Being able to see what feature the company offer
+- Being able to see what features the company offers
 - Being able to delete or edit the session
 
 ### Site Owner Goal
 
-The site owner has being given a superuser , which have different features that a normal user.
-Site owner has different goals:
+The site owner has been given a superuser, which has different features than a normal user.
+The site owner has different goals:
 
 - Being able to see all sessions booked
 - Being able to see all contacts form submitted
@@ -195,36 +195,38 @@ Site owner has different goals:
 - Being able to see available and unavailable sessions
 - Being able to attract as many new users as possible
 - Being able to delete all sessions
-- Being able to give as much information on the company to give trasparency
-- Being able to authenticate users with password to give extra security to the account created
-- Being able to accept free sessions just for logged in users, so that they have to create an account to be able to book it
+- Being able to give as much information on the company to give transparency
+- Being able to authenticate users with passwords to give extra security to the account created
+- Being able to accept free sessions just for logged-in users, so that they have to create an account to be able to book it
 
 
 ### User stories
 
-User stories were divided for Iteration ( Epic ), they were than divided in :
+User stories were divided for Iteration ( Epic ), they were then divided in :
 
 - Must-Have
 - Should-Have
 - Could-Have
 - Won't-Have
 
-_____________________________________________________________________________
+[Back to top](#herBody)
+
+_____________________________________________________________________________ 
 ## Wireframes and templates.  
 
 ### Database structure
 
-The database structure and expalanation are to be found below.
+The database structure and explanation are to be found below.
 
 **Django User Model** is the main model used, where the booking and the contact model are connected.
-- Register model is the one that use directly the django build in model. Where it stores mainly :
+- The register model is the one that uses directly the Django build-in model. Where it stores mainly :
     - Username
     - Email
     - Password
-- Booking model stores , time, date for the booking and it is linked to the user foreigh key of the django model.
-- Contact model on the other hand are for logged and not logged user. If the user is logged in that it links as well to the user foreign key. If not it saves just all the info in the contact.
+- The booking model stores, the time, and date for the booking, and it is linked to the user foreign key of the Django model.
+- Contact model on the other hand for logged and not logged users. If the user is logged in that it links as well to the user's foreign key. If not it saves just all the info in the contact.
 
-Both of the model have their own folder and are divided in the admin panel as well under:
+Both of the models have their folder and are divided in the admin panel as well under:
 
 1. Booking
 2. Contact
@@ -238,13 +240,13 @@ Both of the model have their own folder and are divided in the admin panel as we
 
 ### Wireframes
 
-Wireframes were used in order to structure all the website, all main pages were structured after the wireframes.
-Other pages as error pages, logout confirmation , contact confirmation were created by the developer for better UX after the creation of wireframes.
+Wireframes were used to structure the website, all main pages were structured after the wireframes.
+Other pages as error pages, logout confirmation, and contact confirmation were created by the developer for better UX after the creation of wireframes.
 <br>
 Main changes:
 
-- Book a session , changed for a table where the 3 slots are listed for each day.
-- Contact page change the form for one cloumn instead of two.
+- Book a session, changed for a table where the 3 slots are listed for each day.
+- Contact page change the form for one column instead of two.
 
 <details>
 <summary>Wireframe mobile phone</summary>
@@ -301,14 +303,17 @@ Main changes:
 ![Wireframe desktop register](documentation/readme_files/wireframes/wire_register_desktop.PNG)
 
 </details>
-_____________________________________________________________________________
+
+[Back to top](#herBody)
+
+_____________________________________________________________________________ 
 
 ## Main functionality
 
 ### Booking functionality
 
-Just logged in user can access the booking functionality.
-All booking functionality has been created in the Booking folder, than divided in :
+Just logged-in users can access the booking functionality.
+All booking functionality has been created in the Booking folder, then divided in :
 
 - [Booking views](booking/views.py "Link to booking views")
 - [Booking forms](booking/forms.py "Link to booking forms")
@@ -317,32 +322,32 @@ All booking functionality has been created in the Booking folder, than divided i
 
 #### Create a session
 
-Create a session is the first functionality created for the CRUD.
+Creating a session is the first functionality created for the CRUD.
 <br>
-User can create a session in [Book a session template](templates/booking/booking_form.html "Link to book a session template").
+Users can create a session in [Book a session template](templates/booking/booking_form.html "Link to book a session template").
 <br>
 <br>
-In this template it is shown to the user based on the day of the week the avilable slots.
+In this template, it is shown to the user based on the day of the week and the available slots.
 
-- Monday is closed so is always exluded
-- Past dates are exluded
+- Monday is closed so is always excluded
+- Past dates are excluded
 - The user has to book from 1 day before, so the same day should be excluded as well
 
-For each day the user can choose between 3 different slot:
+For each day the user can choose between 3 different slots:
 - At 9 am
 - At 11 am
 - At 16 pm 
 
 
 <br>
-If the slot is available the user can click the slot, and will be brought to the booking confirmation template , where the user can confirm or cancel the booking . Will than be redirected to the booking list.
+If the slot is available the user can click the slot and will be brought to the booking confirmation template, where the user can confirm or cancel the booking. Will then be redirected to the booking list.
 
 
 #### Sessions - view all your sessions
 
 All the bookings are shown to the user in the [Booking list template](templates/booking/booking_list.html "Link to booking list template") where the booking summary will appear, bringing the user to the Read of the CRUD functionality.
-Here a summary of the booking user, booking date and time will appear.
-As well here the user will have the possibility to edit or delete the booking .
+Here a summary of the booking user, booking date, and time will appear.
+As well here the user will have the possibility to edit or delete the booking.
 
 <details>
 <summary>Book a session, confirm, and view session</summary>
@@ -353,10 +358,10 @@ As well here the user will have the possibility to edit or delete the booking .
 
 #### Sessions - edit a session
 
-If thre user clicks on edit booking he will be brought to a similar page than when he wanted to book a session, with the same functionality, where as well he will see all the sesions available and not, and where the session clicked by the user to edit is still unavailable [Edit booking template](templates/booking/edit_booking.html "Link to edit booking template").
+If the user clicks on edit booking he will be brought to a similar page to when he wanted to book a session, with the same functionality, where as well he will see all the sessions available and not, and where the session clicked by the user to edit is still unavailable [Edit booking template](templates/booking/edit_booking.html "Link to edit booking template").
 <br>
 <br>
-Similar to the book a session functionality, he will be brought to a confirmation page.
+Similar to the book-a-session functionality, he will be brought to a confirmation page.
 
 
 #### Sessions - delete a session
@@ -364,10 +369,10 @@ Similar to the book a session functionality, he will be brought to a confirmatio
 If the user clicks on the delete booking [Delete Booking template](templates/booking/delete_booking.html "Link to delete booking template") where a confirmation to the user will appear.
 <br>
 <br>
-The user will have than 2 choices :
+The user will have 2 choices :
 
-1. Confirm = The booking will be deleted, the user redirected to the booking list template
-2. Cancel = The user will just be redirect to the booking list page , and the booking will still be there.
+1. Confirm = The booking will be deleted, and the user redirected to the booking list template
+2. Cancel = The user will just be redirected to the booking list page, and the booking will still be there.
 
 
 <details>
@@ -379,7 +384,7 @@ The user will have than 2 choices :
 
 #### Sessions - confirm a session
 
-When the user book an a new session , or clicks on edit a new session, after selecting the slot, they will be brought to a confirmation page.
+When the user book a new session, or clicks on edit a new session, after selecting the slot, they will be brought to a confirmation page.
 <br>
 <br>
 [Confirmation template](templates/booking/booking_confirmation.html "Link to booking confirmation template")
@@ -388,28 +393,28 @@ When the user book an a new session , or clicks on edit a new session, after sel
 They are slightly different:
 
 1. From book a session = The page will show a summary of the booking
-2. From edit a session page = The page will show asummary of the old booking and a summary of a new one.
+2. From edit a session page = The page will show a summary of the old booking and a summary of a new one.
 <br>
 <br>
-The user will have than 2 choices :
+The user will have 2 choices :
 
-- Confirm = The booking will be saved, the user redirected to the booking list template.
-- Cancel = The user will just be redirect to the booking list page , and the booking will still be there.
+- Confirm = The booking will be saved, and the user redirected to the booking list template.
+- Cancel = The user will just be redirected to the booking list page, and the booking will still be there.
 
-Both shown above .
+Both are shown above .
 _____________________________________________________________________________
 
  ### Contact
 
-Contact page functionality , will have a form , where the user will be prompted to enter:
+Contact page functionality will have a form, where the user will be prompted to enter:
 
 - Name
 - Email
 - Subject
 - Message
 
-If the user is logged in than automatically the name and the email will be inserted automatically, while if the user is not logged in no.
-The user than will have a success message and will be redirected to a contact confirmation page , just to confirm the correct submission of the form.
+If the user is logged in then automatically the name and the email will be inserted, while if the user is not logged in no.
+The user then will have a success message and will be redirected to a contact confirmation page, just to confirm the correct submission of the form.
 
 <details>
 <summary>Contact functionality</summary>
@@ -422,7 +427,7 @@ _____________________________________________________________________________
 
  ### Account
 
- Account templates can be found in an account folder , where there will be:
+ Account templates can be found in an account folder, where there will be:
 
 - Login
 - Register
@@ -430,9 +435,9 @@ _____________________________________________________________________________
 
  ### Login
 
- The [Login template](templates/account/login.html "Link to login template") is a form where the user will be prompted to ask just the username and the password .
- If the username or the password are not correct than it will show a error message.
- If not than the user will be redirect to the home page.
+ The [Login template](templates/account/login.html "Link to login template") is a form where the user will be prompted to ask just the username and the password.
+ If the username or the password is not correct then it will show an error message.
+ If not then the user will be redirected to the home page.
 
  <details>
 <summary>Login functionality</summary>
@@ -443,9 +448,9 @@ _____________________________________________________________________________
 
  ### Register
 
- The [Register template](templates/account/register.html "Link to register template") is a form where the user will be prompted to ask just the username, the email, the password and a confirmation of the password .
- If there are any error in the form than it will show a error message.
- If not it will be redirect to the login page.
+ The [Register template](templates/account/register.html "Link to register template") is a form where the user will be prompted to ask just the username, the email, the password, and a confirmation of the password.
+ If there is any error in the form then it will show a error message.
+ If not it will be redirected to the login page.
 
  <details>
 <summary>Register functionality</summary>
@@ -456,11 +461,11 @@ _____________________________________________________________________________
 
  ### Logout
 
- The [Logout template](templates/account/logout.html "Link to logout template") is a template page where the user will be asked to confirm if he wants to logout or not.
+ The [Logout template](templates/account/logout.html "Link to logout template") is a template page where the user will be asked to confirm if he wants to log out or not.
  He will have two choices:
 
  1. Confirm = Logging out the user, redirecting to the homepage.
- 1. Cancel = Just redirecting him to the previuos page.
+ 1. Cancel = Just redirecting him to the previous page.
 
  <details>
 <summary>Logout functionality</summary>
@@ -469,14 +474,16 @@ _____________________________________________________________________________
 
 </details>
 
-_____________________________________________________________________________
+[Back to top](#herBody)
+
+_____________________________________________________________________________ 
 
 ## Design and features
 
 ### Design and features element
 
-Design and features throughout the page is consistent.
-The following pages are available just for logged in users:
+The design and features throughout the page are consistent.
+The following pages are available just for logged-in users:
 
 - [Book a session](templates/booking/booking_form.html)
 - [Booking confirmation](templates/booking/booking_confirmation.html)
@@ -487,83 +494,68 @@ The following pages are available just for logged in users:
 
 #### Navbar
 
-The navbar has the following common and different features base on different media query size:
+The navbar has the following common and different features base on different media query sizes:
 
 ##### Common features =
 
 1. Fixed on the top.
-2. Dropdown is different if user is logged in or not:
-    - Logged in user = Will have displayed book a session , my bookings and logout button
-    - Not logged in user = Will have displayed Login and Register
+2. Dropdown is different if the user is logged in or not:
+    - Logged-in user = Will have displayed book a session, my bookings, and logout button
+    - Not logged-in user = Will have displayed Login and Register
 
 ##### For screen bigger than 992px =
 
-1. When the user land in the page, it does not have any background-color, but when is scrolling down, it becomes bigger and take the main colour #d63384 as his background
+1. When the userland in the page, it does not have any background color, but when scrolling down, it becomes bigger and takes the main color #d63384 as his background
 2. Elements inside the navigation bar are all displayed and divided from right and left:
-    - Home , About, Contact, Dropdown on the right
+    - Home, About, Contact, Dropdown on the right
     - Logo on the left
 
 ##### For screen smaller than 992px =
 
-1. When the user land in the page, it does have a dark background #241e30.
+1. When the user land on the page, it does have a dark background #241e30.
 2. Elements inside the navigation bar are all displayed and divided from right and left:
     - Menu dropdown on the right
     - Logo on the left
-3. The dropdown menu will than open all the elements on the left when clicked
+3. The dropdown menu will then open all the elements on the left when clicked
 
  <details>
 <summary>Navbar</summary>
 
-![Navbar functionality](/assets/images/read-me-images/)
+![Navbar functionality](documentation/readme_files/functionality/nav_fun.gif)
 
 </details>
 
 
 #### Home page
 
-The homepage is divided in different sections:
+The homepage is divided into different sections:
 
 - The first one with a 100% background image with a small text on the top and a button that differ from logged and not logged user
     - Logged user: SignUp
     - Not logged user: Book a session
-- Second section with three different features, that pass from 3 column to one column for smaller screen size.
+- Second section with three different features, that pass from 3 columns to one column for smaller screen size.
 - Central section with a big paragraph.
-And testimonial section where as before it changes the number of column , passing from 3, to 2 to 1 column for different media size.
-
- <details>
-<summary>Homepage</summary>
-
-![Homepage functionality](/assets/images/read-me-images/)
-
-</details>
-
+And testimonial section where as before it changes the number of columns, passing from 3 to 2 to 1 column for different media sizes.
 
 
 #### Footer
 
-The footer has the following common and different features base on different media query size:
+The footer has the following common and different features base on different media query sizes:
 
-##### features =
+##### features
 
-1. Not fixed on the bottom , with dak color: #241e30.
+1. Not fixed on the bottom, with dark color: #241e30.
 2. It has four different features: 
-    - Socials: with three different links that open in a new page
+    - Socials: with three different links that open on a new page
     - Contact: Contact information
     - Opening hours: With opening hours and dates
-    - Copyright: With name of the developer, and different background color: #d63384.
-3. Depending on different size as well it change elements position for better user interface.
-
- <details>
-<summary>Footer functionality</summary>
-
-![Footer functionality](/assets/images/read-me-images/)
-
-</details>
+    - Copyright: With the name of the developer, and different background color: #d63384.
+3. Depending on the different sizes as well it changes elements position for a better user interface.
 
 
 #### Messages
 
-Developer decided to use django.messages , adding just a small timeout javascript function to set a timer for the message to fade alone.
+The developer decided to use Django. messages, adding just a small timeout javascript function to set a timer for the message to fade alone.
 The color were the default color from django:
 - Green = Correct 
 - Red = Error
@@ -575,7 +567,7 @@ Developer decided to insert messages loop in includes folder inside the template
  <details>
 <summary>Messages functionality</summary>
 
-![Messages functionality](/assets/images/read-me-images/)
+![Messages functionality](documentation/readme_files/functionality/messages_fun.gif)
 
 </details>
 
@@ -593,7 +585,7 @@ All of them has as well a link that take the user back to the homepage, and a di
  <details>
 <summary>Error pages</summary>
 
-![Error pages functionality](/assets/images/read-me-images/)
+![Error pages ](documentation/readme_files/functionality/error_fun.PNG)
 
 </details>
 
@@ -612,7 +604,7 @@ With the help of [Colourmind](http://colormind.io/template/material-dashboard/) 
  <details>
 <summary>Colour scheme</summary>
 
-![Color scheme](/assets/images/read-me-images/)
+![Color scheme](documentation/readme_files/colormind_palette.PNG/)
 
 </details>
 
@@ -639,7 +631,9 @@ All images were checked for copyright.
 
 The logo for the website was create using Canva, and used as well for favicon.
 
-____________________________________________________________________________
+[Back to top](#herBody)
+
+_____________________________________________________________________________ 
 
 ## Technologies Used
 
@@ -712,6 +706,11 @@ There are all external programs used :
 
 <br>
 
+[Back to top](#herBody)
+
+_____________________________________________________________________________ 
+
+
  ## Testing
 
 
@@ -720,6 +719,10 @@ Testing information can be found in a separate testing [file](TESTING.md "Link t
 [Back to Top](#table-of-contents)
 
 <br>
+
+[Back to top](#herBody)
+
+_____________________________________________________________________________ 
 
 # Deployment
 
@@ -740,9 +743,11 @@ The following are the steps I went through to deploy my live site:
 8. Choose branch to deploy.
 9. Your app should now be available to see. You can choose whether to have your app automatically redeploy with every push or to keep it manual. 
 
-[Back to Top](#table-of-contents)
-
 <br>
+
+[Back to top](#herBody)
+
+_____________________________________________________________________________ 
 
 ## **Credits**
 
