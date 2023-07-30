@@ -26,7 +26,7 @@ _____________________________________________________________________________
 - ### Main functionality
     - [Booking functionality](#booking-functionality)
         - [Create a session](#create-a-session)
-        - [View all your sessions](#sessions-view-all-sessions)
+        - [View all your sessions](#view-all-your-sessions)
         - [Edit a session](#edit-a-session)
         - [Delete a session](#delete-a-session)
         - [Confirm a session](#confirm-a-session)
@@ -51,9 +51,9 @@ _____________________________________________________________________________
         - [Python packages installed](#python-packages-installed)
         -[Programs used](#programs-used)
 - ### Testing
-    - [TESTING.md](#testingmd)
+    - [TESTING.md](#testing.md)
 - ### Deployment
-    - [Deployment ](#deployment)
+    - [Deployment](#deployment)
 - ### Credits
     - [Code](#code)
     - [Acknowledgements](#acknowledgements)
@@ -702,7 +702,6 @@ There are all external programs used :
 - [Free screen recorder](https://screencast-o-matic.com/screen-recorder?from=app&installed=true "Link to go to Free screen recorder homepage")
     - Free screen recorder was installed on the pc, and used to screen record all videos for the testing files.
 
-[Back to Top](#table-of-contents)
 
 <br>
 
@@ -711,20 +710,18 @@ There are all external programs used :
 _____________________________________________________________________________ 
 
 
- ## Testing
+ ## Testing.md
 
 
 Testing information can be found in a separate testing [file](TESTING.md "Link to testing file")
 
-[Back to Top](#table-of-contents)
-
 <br>
 
 [Back to top](#herBody)
 
 _____________________________________________________________________________ 
 
-# Deployment
+## Deployment
 
 The following are the steps I went through to deploy my live site:
 
@@ -766,6 +763,10 @@ For the most complex functions, the developer took inspiration from:
 - My family and my friends to helped me test out everything.
 - My tutors and my mentor have saved me in the most difficult moments, thank you.
 
+
+[Back to top](#herBody)
+
+_____________________________________________________________________________ 
  
 
 
