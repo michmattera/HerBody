@@ -238,6 +238,13 @@ Both of the models have their folder and are divided in the admin panel as well 
 
 </details>
 
+<details>
+<summary>Django Admin Panel</summary>
+
+![Django admin panel](documentation/readme_files/admin_panel.PNG)
+
+</details>
+
 ### Wireframes
 
 Wireframes were used to structure the website, all main pages were structured after the wireframes.
