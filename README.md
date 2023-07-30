@@ -51,7 +51,7 @@ _____________________________________________________________________________
         - [Python packages installed](#python-packages-installed)
         -[Programs used](#programs-used)
 - ### Testing
-    - [TESTING.md](#testing.md)
+    - [TESTING](#testing)
 - ### Deployment
     - [Deployment](#deployment)
 - ### Credits
@@ -710,10 +710,10 @@ There are all external programs used :
 _____________________________________________________________________________ 
 
 
- ## Testing.md
+ ## Testing
 
 
-Testing information can be found in a separate testing [file](TESTING.md "Link to testing file")
+Testing information can be found in a separate testing [Testing file](/TESTING.md)
 
 <br>
 
